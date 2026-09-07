@@ -110,7 +110,7 @@ img,svg{display:block;max-width:100%}
 /* wordmark */
 .wordmark{
   position:absolute;
-  top:-20px; left:0; right:0;
+  top:44px; left:0; right:0;
   text-align:center;
   display:flex;
   flex-direction:column;
@@ -209,35 +209,41 @@ img,svg{display:block;max-width:100%}
 /* scroll is locked during the intro until the drink label is tapped */
 html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:none; }
 
-/* the finished-drink label on the matcha — tap it to open the menu */
+/* the finished drink, annotated — a thin line leads from the glass down to the
+   name of what's in the cup, sitting BELOW the glass (not a pill glued on it) */
 .drink-label{
   position:absolute;
-  left:50%; top:366px;
+  left:50%; top:560px;              /* the line begins just under the glass (bottom ~564) */
   transform:translateX(-50%);
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:5px;
+  gap:8px;
   margin:0;
-  padding:13px 22px;
+  padding:0 26px 10px;
   -webkit-appearance:none;
   appearance:none;
-  background:rgba(239,229,217,0.9);
-  backdrop-filter:blur(5px);
-  -webkit-backdrop-filter:blur(5px);
-  border:1px solid rgba(34,28,28,0.12);
-  border-radius:14px;
-  box-shadow:0 14px 30px rgba(34,28,28,0.22);
+  background:none;
+  border:0;
   color:var(--ink);
   cursor:pointer;
   -webkit-tap-highlight-color:transparent;
   font-family:var(--font-head);
-  line-height:1.1;
+  line-height:1;
+}
+/* leader line — fades in from the glass, guiding the eye down to the name */
+.dl-line{
+  width:1px;
+  height:46px;
+  background:linear-gradient(to bottom, rgba(34,28,28,0.04), rgba(34,28,28,0.5));
 }
 .dl-name{
   font-weight:500;
   font-size:20px;
   letter-spacing:0.01em;
+  white-space:nowrap;
+  /* ecru halo so the name stays legible over the busy photo wall */
+  text-shadow:0 0 11px rgba(239,229,217,0.95), 0 0 22px rgba(239,229,217,0.85), 0 1px 2px rgba(239,229,217,0.9);
 }
 .dl-cta{
   font-family:var(--font-mono);
@@ -248,14 +254,13 @@ html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior
   display:inline-flex;
   align-items:center;
   gap:5px;
+  text-shadow:0 0 9px rgba(239,229,217,0.92), 0 1px 2px rgba(239,229,217,0.85);
 }
-.drink-label.ready{ animation:labelPulse 1.9s ease-in-out infinite; }
-.drink-label.ready:active{ transform:translateX(-50%) scale(0.97); }
+/* invite the tap once the drink is poured */
+.drink-label.ready .dl-line{ animation:lineGlow 1.9s ease-in-out infinite; }
 .drink-label.ready .dl-arrow{ display:inline-block; animation:arrowBob 1.4s ease-in-out infinite; }
-@keyframes labelPulse{
-  0%,100%{ transform:translateX(-50%) translateY(0); box-shadow:0 14px 30px rgba(34,28,28,0.22); }
-  50%{ transform:translateX(-50%) translateY(-3px); box-shadow:0 18px 38px rgba(226,31,38,0.24); }
-}
+.drink-label.ready:active{ transform:translateX(-50%) scale(0.98); }
+@keyframes lineGlow{ 0%,100%{ opacity:0.55 } 50%{ opacity:1 } }
 @keyframes arrowBob{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
 
 /* the whole scene (droplet + glass + matcha + impact) */
