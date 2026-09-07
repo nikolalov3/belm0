@@ -1,0 +1,405 @@
+/* Café Belmont — brand system
+   colors: red #E21F26, ecru #EFE5D9, black #221C1C
+   type: headings Helvetica Neue LT Pro (Medium), details Suisse Int'l Mono */
+
+/* Brand fonts are licensed (not on Google Fonts). To use the real files in
+   production, drop them into site/fonts/ and uncomment:
+@font-face{
+  font-family:"Helvetica Neue LT Pro";
+  src:url("fonts/HelveticaNeueLTPro-Md.woff2") format("woff2");
+  font-weight:500; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:"Suisse Int'l Mono";
+  src:url("fonts/SuisseIntlMono-Regular.woff2") format("woff2");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+*/
+
+:root{
+  --bg:#EFE5D9;         /* ecru */
+  --ink:#221C1C;        /* black */
+  --ink-soft:rgba(34,28,28,0.6);
+  --red:#E21F26;
+  --line:rgba(34,28,28,0.14);
+  --font-head:"Helvetica Neue LT Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"Suisse Int'l Mono","Suisse Intl Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --scene-scale:1;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-head);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+
+/* ---------- Supreme-style photo wall (fixed page background) ---------- */
+.wall{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(112px,1fr));
+  grid-auto-rows:128px;
+  grid-auto-flow:dense;
+  gap:3px;
+  overflow:hidden;
+  filter:saturate(0.8) brightness(1.03);
+}
+.wall img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+/* irregular tiles break the grid — most stay 1x1 */
+.wall .w2{grid-column:span 2}
+.wall .h2{grid-row:span 2}
+.wall .big{grid-column:span 2;grid-row:span 2}
+.wall-veil{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(140% 110% at 50% 18%,
+      rgba(241,232,221,0.34) 0%,
+      rgba(236,225,211,0.46) 60%,
+      rgba(224,212,196,0.58) 100%);
+}
+
+/* ---------- pinned hero scene ---------- */
+.hero{
+  position:relative;
+}
+.scene{
+  position:relative;
+  height:100svh;
+  width:100%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(90% 60% at 50% 46%,
+      rgba(243,236,226,0.93) 0%,
+      rgba(240,230,218,0.66) 42%,
+      rgba(239,229,217,0.12) 100%);
+}
+.scene-inner{
+  position:relative;
+  width:320px;
+  height:640px;
+  transform:translateY(4px) scale(var(--scene-scale));
+  transform-origin:center center;
+}
+
+/* wordmark */
+.wordmark{
+  position:absolute;
+  top:-34px; left:0; right:0;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding-top:4px;
+  pointer-events:none;
+}
+/* soft backing plate behind the header, so the light neon + subtitle stay legible */
+.wm-plate{
+  position:absolute;
+  left:50%; top:44%;
+  transform:translate(-50%,-50%);
+  width:120%;
+  height:320%;
+  border-radius:50%;
+  z-index:0;
+  pointer-events:none;
+}
+[data-time="evening"] .wm-plate{
+  background:radial-gradient(closest-side,
+    rgba(16,10,10,0.55), rgba(16,10,10,0.28) 52%, transparent 76%);
+}
+[data-time="day"] .wm-plate{
+  background:radial-gradient(closest-side,
+    rgba(245,238,228,0.82), rgba(245,238,228,0.44) 52%, transparent 80%);
+}
+.wm-name{
+  position:relative;
+  z-index:1;
+  align-self:center;
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:28px;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+/* Tokyo-style orange neon overlay: flickers on twice at entry */
+.wm-neon{
+  position:absolute;
+  left:0; top:0;
+  color:#ffcf9a;
+  text-shadow:
+    0 0 2px #fff1dd,
+    0 0 8px #ff9b2e,
+    0 0 16px #ff7a00,
+    0 0 30px #ff6300,
+    0 0 52px #ff5200;
+  opacity:0;
+  pointer-events:none;
+}
+/* after 17:00 — flicker twice, then stay lit (evening) */
+[data-time="evening"] .wm-neon{animation:neonOn 3.6s ease-in-out 0.4s 1 both}
+/* before 17:00 — flicker twice, then go dark (day) */
+[data-time="day"] .wm-neon{animation:neonOff 3.6s ease-in-out 0.4s 1 both}
+
+@keyframes neonOn{
+  0%,12% {opacity:0}
+  16%    {opacity:1}
+  22%    {opacity:0.3}
+  26%    {opacity:1}
+  34%    {opacity:0}     /* blink 1 */
+  50%    {opacity:0}
+  54%    {opacity:1}
+  60%    {opacity:0.35}
+  64%    {opacity:1}
+  72%    {opacity:0}     /* blink 2 */
+  84%    {opacity:0}
+  90%    {opacity:1}     /* turn on... */
+  100%   {opacity:1}     /* ...and stay lit */
+}
+@keyframes neonOff{
+  0%,12% {opacity:0}
+  16%    {opacity:1}
+  22%    {opacity:0.3}
+  26%    {opacity:1}
+  34%    {opacity:0}     /* blink 1 */
+  50%    {opacity:0}
+  54%    {opacity:1}
+  60%    {opacity:0.35}
+  64%    {opacity:1}
+  72%    {opacity:0}     /* blink 2 */
+  100%   {opacity:0}     /* ...and stay dark */
+}
+.wm-tag{
+  position:relative;
+  z-index:1;
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+/* evening: light subtitle over the dark plate */
+[data-time="evening"] .wm-tag{color:rgba(246,236,223,0.82)}
+
+/* the whole scene (droplet + glass + matcha + impact) */
+.scene-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+#dropFall{filter:drop-shadow(0 8px 10px rgba(34,28,28,0.16))}
+#liquid{will-change:transform}
+
+/* menu list sitting on the matcha */
+.menu-card{
+  position:absolute;
+  left:50%; top:372px;
+  transform:translate(-50%,40px);
+  width:182px;
+  opacity:0;
+  background:rgba(239,229,217,0.85);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+  border:1px solid rgba(34,28,28,0.1);
+  border-radius:12px;
+  padding:13px 16px;
+  box-shadow:0 14px 30px rgba(34,28,28,0.22);
+  color:var(--ink);
+  font-family:var(--font-mono);
+}
+.mc-kicker{
+  margin:0 0 8px;
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--red);
+}
+.mc-list{list-style:none;margin:0;padding:0}
+.mc-list li{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:6px 0;
+  font-size:13px;
+  border-bottom:1px solid rgba(34,28,28,0.12);
+}
+.mc-list li:last-child{border-bottom:0}
+.mc-price{color:var(--red);font-weight:500}
+.mc-price::after{content:" zł";font-weight:400;color:var(--ink-soft);font-size:11px}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;
+  bottom:calc(22px + env(safe-area-inset-bottom));
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  color:var(--red);
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  animation:hintBob 1.8s ease-in-out infinite;
+}
+@keyframes hintBob{
+  0%,100%{transform:translate(-50%,0)}
+  50%{transform:translate(-50%,6px)}
+}
+
+/* ---------- content ---------- */
+.content{
+  position:relative;
+  background:rgba(239,229,217,0.8);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  padding:0 22px 60px;
+  max-width:560px;
+  margin:0 auto;
+}
+.reveal{opacity:0;transform:translateY(24px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+
+.intro{padding:64px 0 40px;text-align:center}
+.intro h1{
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:33px;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  margin:0 0 14px;
+}
+.intro p{
+  font-size:16px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  max-width:36ch;
+  margin:0 auto;
+}
+
+.menu{padding:24px 0}
+.menu h2, .visit h2{
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:23px;
+  letter-spacing:-0.01em;
+  margin:0 0 18px;
+}
+.menu-group{margin-bottom:26px}
+.menu-group h3{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin:0 0 10px;
+}
+.menu-group ul{list-style:none;margin:0;padding:0}
+.menu-group li{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  padding:9px 0;
+  font-family:var(--font-mono);
+  font-size:14px;
+}
+.i-name{white-space:nowrap}
+.i-dots{
+  flex:1;
+  border-bottom:1px dotted rgba(34,28,28,0.25);
+  transform:translateY(-3px);
+}
+.i-price{color:var(--red);font-weight:500;white-space:nowrap}
+
+.sec-note{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  letter-spacing:0.01em;
+  margin:0 0 12px;
+  max-width:46ch;
+}
+
+/* FAQ */
+.faq{padding:20px 0 8px}
+.qa{margin:0 0 18px}
+.qa h3{
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:16px;
+  margin:0 0 5px;
+  color:var(--ink);
+}
+.qa p{
+  font-family:var(--font-mono);
+  font-size:13px;
+  line-height:1.6;
+  color:var(--ink-soft);
+  letter-spacing:0.01em;
+  margin:0;
+  max-width:48ch;
+}
+
+.visit{padding:34px 0;text-align:center}
+.visit-line{
+  margin:5px 0;
+  font-family:var(--font-mono);
+  color:var(--ink-soft);
+  font-size:13px;
+  letter-spacing:0.02em;
+}
+.ig{
+  display:inline-block;
+  margin-top:16px;
+  font-family:var(--font-mono);
+  color:var(--red);
+  text-decoration:none;
+  font-weight:500;
+  letter-spacing:0.02em;
+}
+.foot{
+  padding:30px 0 0;
+  text-align:center;
+  font-family:var(--font-mono);
+  color:var(--ink-soft);
+  font-size:12px;
+  letter-spacing:0.02em;
+  border-top:1px solid var(--line);
+}
+
+@media (min-width:620px){
+  .wm-name{font-size:32px}
+  .intro h1{font-size:40px}
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .scroll-hint{animation:none}
+  .wm-neon{animation:none}
+  [data-time="evening"] .wm-neon{opacity:1}
+  [data-time="day"] .wm-neon{opacity:0}
+}
