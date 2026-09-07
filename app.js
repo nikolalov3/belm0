@@ -160,8 +160,11 @@
 
     if (isTonic) tl.to('#galaxy', { opacity: 0.85, duration: 0.6, ease: 'power2.out' }, 2.45);
 
-    /* scroll gestures pour the drink in place; the page stays locked */
-    var FILL_PX = 900;
+    /* scroll gestures pour the drink in place; the page stays locked.
+       FILL_PX = how much accumulated scroll fills the glass; touch is boosted
+       so one comfortable swipe is enough. */
+    var FILL_PX = 520;
+    var TOUCH_BOOST = 3.5;
     var prog = 0, lit = false, done = false;
     var label = document.getElementById('drinkLabel');
 
@@ -188,7 +191,7 @@
       if (done) return;
       e.preventDefault();
       var y = e.touches[0].clientY;
-      if (ty !== null) addProgress(ty - y);
+      if (ty !== null) addProgress((ty - y) * TOUCH_BOOST);
       ty = y;
     }, { passive: false });
 
