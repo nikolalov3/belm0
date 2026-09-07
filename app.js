@@ -89,15 +89,18 @@
       if (lenis) { on ? lenis.stop() : lenis.start(); }
     }
 
-    /* continuous life: hero bob + frothy shimmer + gentle surface sway */
-    gsap.to('#dropBob', { y: -8, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    gsap.to('.foam', { attr: { ry: 13 }, duration: 2.0, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    gsap.fromTo('#foamG', { rotation: -2.5 },
-      { rotation: 2.5, transformOrigin: '50% 50%', duration: 2.0, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-    if (isTonic && !reduce) {
-      gsap.to('#galaxy', { rotation: 360, transformOrigin: '50% 50%', duration: 22, repeat: -1, ease: 'none' });
-      gsap.to('#galaxy', { scale: 1.1, transformOrigin: '50% 50%', duration: 5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-      gsap.to('#galaxy', { x: 6, y: 4, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    /* continuous idle motion — off for reduced-motion (the scroll-driven fill
+       itself stays, since the user controls it) */
+    if (!reduce) {
+      gsap.to('#dropBob', { y: -8, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      gsap.to('.foam', { attr: { ry: 13 }, duration: 2.0, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      gsap.fromTo('#foamG', { rotation: -2.5 },
+        { rotation: 2.5, transformOrigin: '50% 50%', duration: 2.0, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      if (isTonic) {
+        gsap.to('#galaxy', { rotation: 360, transformOrigin: '50% 50%', duration: 22, repeat: -1, ease: 'none' });
+        gsap.to('#galaxy', { scale: 1.1, transformOrigin: '50% 50%', duration: 5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+        gsap.to('#galaxy', { x: 6, y: 4, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+      }
     }
 
     /* base state: on entry, only the droplet is there */
@@ -111,22 +114,6 @@
     gsap.set('.drink-label', { autoAlpha: 0 });
 
     setLock(true);
-
-    if (reduce) {
-      gsap.set('#liquid', { y: 128 });
-      gsap.set('#baseShadow', { opacity: 1, scale: 1, svgOrigin: '160 565' });
-      gsap.set('#puddle', { opacity: 0 });
-      gsap.set('#dropFall', { autoAlpha: 0 });
-      if (isTonic) gsap.set('#galaxy', { opacity: 0.85 });
-      gsap.set(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 1 });
-      gsap.set('.wordmark', { opacity: 1, y: 0 });
-      gsap.set('.drink-label', { autoAlpha: 1 });
-      document.querySelector('.wordmark').classList.add('lit');
-      var lbl0 = document.getElementById('drinkLabel');
-      if (lbl0) lbl0.classList.add('ready');
-      setLock(false);
-      return;
-    }
 
     /* the fill choreography — paused; scroll drives its progress */
     var tl = gsap.timeline({ paused: true });
