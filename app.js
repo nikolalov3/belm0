@@ -171,23 +171,32 @@
 
     if (isTonic) tl.to('#galaxy', { opacity: 0.85, duration: 0.6, ease: 'power2.out' }, 2.45);
 
-    /* scroll gestures pour the drink in place; the page stays locked.
-       FILL_PX = how much accumulated scroll fills the glass; touch is boosted
-       so one comfortable swipe is enough. */
-    var FILL_PX = 520;
-    var TOUCH_BOOST = 3.5;
-    var prog = 0, lit = false, done = false;
+    /* Scroll/swipe pours the drink in place while the page stays locked.
+       For fluidity the raw input feeds a TARGET, and a rAF lerp glides the
+       rendered progress toward it — so the fill and the parallax move smoothly
+       instead of stepping with every discrete wheel/touch event.
+       FILL_PX = gesture distance for a full glass; touch is boosted so one
+       comfortable swipe is enough; SMOOTH = how fast it catches up (0..1). */
+    var FILL_PX = 560;
+    var TOUCH_BOOST = 3.6;
+    var SMOOTH = 0.16;
+    var targetProg = 0, renderProg = 0, lastRendered = -1, lit = false, done = false;
     var label = document.getElementById('drinkLabel');
 
-    function render() {
-      tl.progress(prog);
-      if (!lit && prog > 0.72) { lit = true; document.querySelector('.wordmark').classList.add('lit'); }
-      if (prog >= 0.999) { if (label) label.classList.add('ready'); }
+    function applyState() {
+      tl.progress(renderProg);
+      if (!lit && renderProg > 0.72) { lit = true; document.querySelector('.wordmark').classList.add('lit'); }
+      if (renderProg >= 0.985 && label) label.classList.add('ready');
     }
+    gsap.ticker.add(function () {
+      if (done) return;
+      var d = targetProg - renderProg;
+      renderProg = (Math.abs(d) > 0.0004) ? renderProg + d * SMOOTH : targetProg;
+      if (renderProg !== lastRendered) { lastRendered = renderProg; applyState(); }
+    });
     function addProgress(dpx) {
       if (done) return;
-      prog = Math.max(0, Math.min(1, prog + dpx / FILL_PX));
-      render();
+      targetProg = Math.max(0, Math.min(1, targetProg + dpx / FILL_PX));
     }
 
     window.addEventListener('wheel', function (e) {
@@ -207,8 +216,10 @@
     }, { passive: false });
 
     function goToMenu() {
-      if (done || prog < 0.999) return;   /* only advances once the drink is poured */
+      if (done || targetProg < 0.9) return;   /* only advances once the drink is poured */
       done = true;
+      renderProg = targetProg = 1;
+      tl.progress(1);
       setLock(false);
       var target = document.querySelector('.content');
       if (!target) return;
