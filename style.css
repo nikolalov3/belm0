@@ -200,7 +200,7 @@ img,svg{display:block;max-width:100%}
 [data-time="evening"] .wm-tag{color:rgba(246,236,223,0.82)}
 
 /* scroll is locked during the intro until the drink label is tapped */
-html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior:none; }
+html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:none; }
 
 /* the finished-drink label on the matcha — tap it to open the menu */
 .drink-label{

@@ -1,12 +1,12 @@
 /* Café Belmont — hero intro
-   Start: only the droplet. It auto-falls, the glass fills, and the drink is
-   "signed" (e.g. Matcha latte) while the wordmark lights up. The page is locked
-   until you tap the drink label, which then drops you into the menu. */
+   On entry: only the matcha droplet hangs there. Scrolling pours it into the
+   glass (the page itself stays put). Once the drink is full it is signed
+   (e.g. Matcha latte) and the wordmark lights up; the page won't scroll on —
+   you tap the drink label to drop into the menu. */
 
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* keep the 320x640 stage fitted to the viewport on any phone */
   function fitScene() {
     var vh = window.innerHeight, vw = window.innerWidth;
     var s = Math.min(1, (vh * 0.9) / 640, (vw * 0.94) / 320);
@@ -15,7 +15,6 @@
   fitScene();
   window.addEventListener('resize', fitScene);
 
-  /* reveal-on-scroll for the sections below */
   function initReveals() {
     var els = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -30,18 +29,15 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  /* a logarithmic spiral arm, as an SVG path string */
   function spiralArm(cx, cy, phase, turns, r0, k, flat) {
     var steps = 56, thetaMax = turns * Math.PI * 2, d = '';
     for (var i = 0; i <= steps; i++) {
-      var t = (i / steps) * thetaMax;
-      var a = t + phase, r = r0 * Math.exp(k * t);
+      var t = (i / steps) * thetaMax, a = t + phase, r = r0 * Math.exp(k * t);
       d += (i === 0 ? 'M' : 'L') + (cx + r * Math.cos(a)).toFixed(1) + ' ' + (cy + r * Math.sin(a) * flat).toFixed(1) + ' ';
     }
     return d.trim();
   }
 
-  /* randomly serve one of two drinks: matcha (default) or matcha tonic */
   var isTonic = false;
   function applyVariant() {
     isTonic = Math.random() < 0.5;
@@ -59,7 +55,6 @@
     if (arms[1]) arms[1].setAttribute('d', spiralArm(120, 302, Math.PI, 1.45, 12, 0.26, 0.6));
   }
 
-  /* if GSAP didn't load, present the finished drink and let the page scroll */
   function staticFallback() {
     var liquid = document.getElementById('liquid');
     if (liquid) liquid.setAttribute('transform', 'translate(0,128)');
@@ -83,7 +78,6 @@
 
     initReveals();
 
-    /* smooth momentum scroll for the content (locked during the intro) */
     var lenis = null;
     if (window.Lenis && !reduce) {
       lenis = new window.Lenis({ duration: 1.05, smoothWheel: true });
@@ -94,17 +88,6 @@
       document.documentElement.classList.toggle('locked', on);
       if (lenis) { on ? lenis.stop() : lenis.start(); }
     }
-    var label = document.getElementById('drinkLabel');
-    var goneToMenu = false;
-    function goToMenu() {
-      if (goneToMenu) return; goneToMenu = true;
-      setLock(false);
-      var target = document.querySelector('.content');
-      if (!target) return;
-      if (lenis) lenis.scrollTo(target, { duration: 1.1, easing: function (x) { return 1 - Math.pow(1 - x, 3); } });
-      else target.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (label) label.addEventListener('click', goToMenu);
 
     /* continuous life: hero bob + frothy shimmer + gentle surface sway */
     gsap.to('#dropBob', { y: -8, duration: 2.4, repeat: -1, yoyo: true, ease: 'sine.inOut' });
@@ -117,7 +100,7 @@
       gsap.to('#galaxy', { x: 6, y: 4, duration: 6.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
     }
 
-    /* base state: at first, only the droplet */
+    /* base state: on entry, only the droplet is there */
     gsap.set('#dropFall', { x: 120, y: -92 });
     gsap.set('#dropSquash', { transformOrigin: '50% 100%' });
     gsap.set('#liquid', { y: 360 });
@@ -139,47 +122,40 @@
       gsap.set('.wordmark', { opacity: 1, y: 0 });
       gsap.set('.drink-label', { autoAlpha: 1 });
       document.querySelector('.wordmark').classList.add('lit');
-      if (label) label.classList.add('ready');
+      var lbl0 = document.getElementById('drinkLabel');
+      if (lbl0) lbl0.classList.add('ready');
       setLock(false);
       return;
     }
 
-    var tl = gsap.timeline({ delay: 0.5, onComplete: function () { if (label) label.classList.add('ready'); } });
+    /* the fill choreography — paused; scroll drives its progress */
+    var tl = gsap.timeline({ paused: true });
 
-    /* glass fades in as the drop begins to fall */
     tl.to(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 1, duration: 0.6, ease: 'power1.out' }, 0.15)
 
-      /* the fall: accelerate + stretch */
       .to('#dropFall', { y: 302, duration: 1.4, ease: 'power2.in' }, 0.5)
       .to('#dropSquash', { scaleY: 1.16, scaleX: 0.9, duration: 1.2, ease: 'power1.in' }, 0.6)
 
-      /* impact: squash onto the floor, then sink in */
       .to('#dropSquash', { scaleY: 0.5, scaleX: 1.5, duration: 0.09, ease: 'power2.out' }, 1.9)
       .to('#dropSquash', { scaleY: 0.05, scaleX: 1.8, duration: 0.13, ease: 'power1.in' }, 1.99)
       .to('#dropFall', { autoAlpha: 0, duration: 0.13 }, 2.0)
 
-      /* spread across the floor */
       .fromTo('#puddle', { attr: { rx: 0, ry: 6 }, opacity: 1 },
         { attr: { rx: 88, ry: 18 }, duration: 0.22, ease: 'power3.out', immediateRender: false }, 1.92)
       .to('#puddle', { opacity: 0, duration: 0.45 }, 2.22)
 
-      /* fill to ~3/4 */
       .to('#liquid', { y: 128, duration: 0.8, ease: 'power2.out' }, 2.05)
       .fromTo('#baseShadow', { opacity: 0.15, scale: 0.85 },
         { opacity: 1, scale: 1, svgOrigin: '160 565', duration: 0.8, ease: 'power2.out' }, 2.05)
 
-      /* ripples */
       .fromTo('#ripple1', { attr: { rx: 12, ry: 4 }, opacity: 0.6 },
         { attr: { rx: 76, ry: 15 }, opacity: 0, duration: 0.7, ease: 'power1.out', immediateRender: false }, 2.45)
       .fromTo('#ripple2', { attr: { rx: 12, ry: 4 }, opacity: 0.45 },
         { attr: { rx: 76, ry: 15 }, opacity: 0, duration: 0.7, ease: 'power1.out', immediateRender: false }, 2.65)
 
-      /* the drink is ready: the title lights up and the label is signed on */
       .to('.wordmark', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 2.5)
-      .call(function () { document.querySelector('.wordmark').classList.add('lit'); }, null, 2.55)
-      .to('.drink-label', { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, 2.95);
+      .to('.drink-label', { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, 2.9);
 
-    /* crown of droplets bursting up on arcs, contained by the glass */
     var crumbs = gsap.utils.toArray('.crumb');
     crumbs.forEach(function (c, i) {
       var dir = (i % 2 === 0) ? -1 : 1;
@@ -196,6 +172,49 @@
     });
 
     if (isTonic) tl.to('#galaxy', { opacity: 0.85, duration: 0.6, ease: 'power2.out' }, 2.45);
+
+    /* scroll gestures pour the drink in place; the page stays locked */
+    var FILL_PX = 900;
+    var prog = 0, lit = false, done = false;
+    var label = document.getElementById('drinkLabel');
+
+    function render() {
+      tl.progress(prog);
+      if (!lit && prog > 0.72) { lit = true; document.querySelector('.wordmark').classList.add('lit'); }
+      if (prog >= 0.999) { if (label) label.classList.add('ready'); }
+    }
+    function addProgress(dpx) {
+      if (done) return;
+      prog = Math.max(0, Math.min(1, prog + dpx / FILL_PX));
+      render();
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (done) return;
+      e.preventDefault();
+      addProgress(e.deltaY);
+    }, { passive: false });
+
+    var ty = null;
+    window.addEventListener('touchstart', function (e) { if (!done) ty = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (done) return;
+      e.preventDefault();
+      var y = e.touches[0].clientY;
+      if (ty !== null) addProgress(ty - y);
+      ty = y;
+    }, { passive: false });
+
+    function goToMenu() {
+      if (done || prog < 0.999) return;   /* only advances once the drink is poured */
+      done = true;
+      setLock(false);
+      var target = document.querySelector('.content');
+      if (!target) return;
+      if (lenis) lenis.scrollTo(target, { duration: 1.1, easing: function (x) { return 1 - Math.pow(1 - x, 3); } });
+      else target.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (label) label.addEventListener('click', goToMenu);
   }
 
   if (document.readyState === 'loading') {
