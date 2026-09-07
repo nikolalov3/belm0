@@ -54,7 +54,7 @@ img,svg{display:block;max-width:100%}
   grid-auto-flow:dense;
   gap:3px;
   min-height:118vh;
-  filter:saturate(0.8) brightness(1.03);
+  filter:saturate(0.72) brightness(0.9);
   transform-origin:50% 0;
   will-change:transform;
   backface-visibility:hidden;
@@ -76,9 +76,9 @@ img,svg{display:block;max-width:100%}
   pointer-events:none;
   background:
     radial-gradient(140% 110% at 50% 18%,
-      rgba(241,232,221,0.34) 0%,
-      rgba(236,225,211,0.46) 60%,
-      rgba(224,212,196,0.58) 100%);
+      rgba(234,224,211,0.44) 0%,
+      rgba(219,207,191,0.58) 60%,
+      rgba(203,190,173,0.7) 100%);
 }
 
 /* ---------- pinned hero scene ---------- */
