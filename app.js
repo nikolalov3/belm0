@@ -118,7 +118,17 @@
     /* the fill choreography — paused; scroll drives its progress */
     var tl = gsap.timeline({ paused: true });
 
-    tl.to(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 1, duration: 0.6, ease: 'power1.out' }, 0.15)
+    /* camera descends toward the glass — a subtle zoom-in that settles as the
+       drop lands, so the glass arrives instead of blinking in */
+    tl.fromTo('.scene-svg', { scale: 0.93, y: 24, transformOrigin: '50% 52%' },
+      { scale: 1, y: 0, duration: 2.0, ease: 'power2.out' }, 0)
+
+    /* the photo wall streaks upward as we fall — this is what sells the descent */
+      .fromTo('.wall-grid', { y: 0, scale: 1 },
+        { y: -150, scale: 1.05, duration: 1.95, ease: 'power2.in' }, 0.3)
+
+    /* glass emerges as we approach it */
+      .to(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 1, duration: 0.7, ease: 'power1.out' }, 0.2)
 
       .to('#dropFall', { y: 302, duration: 1.4, ease: 'power2.in' }, 0.5)
       .to('#dropSquash', { scaleY: 1.16, scaleX: 0.9, duration: 1.2, ease: 'power1.in' }, 0.6)
@@ -140,8 +150,9 @@
       .fromTo('#ripple2', { attr: { rx: 12, ry: 4 }, opacity: 0.45 },
         { attr: { rx: 76, ry: 15 }, opacity: 0, duration: 0.7, ease: 'power1.out', immediateRender: false }, 2.65)
 
-      .to('.wordmark', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 2.5)
-      .to('.drink-label', { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, 2.9);
+      .fromTo('.wordmark', { opacity: 0, y: 22, scale: 0.97, transformOrigin: '50% 50%' },
+        { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: 'power3.out' }, 2.4)
+      .to('.drink-label', { autoAlpha: 1, duration: 0.6, ease: 'power2.out' }, 2.95);
 
     var crumbs = gsap.utils.toArray('.crumb');
     crumbs.forEach(function (c, i) {
