@@ -78,6 +78,17 @@
 
     initReveals();
 
+    /* slow hero-background slideshow: crossfade to the next photo every 4s */
+    var slides = document.querySelectorAll('.hs-img');
+    if (slides.length > 1 && !reduce) {
+      var si = 0;
+      setInterval(function () {
+        slides[si].classList.remove('active');
+        si = (si + 1) % slides.length;
+        slides[si].classList.add('active');
+      }, 4000);
+    }
+
     /* continuous idle motion — off for reduced-motion (the scroll-driven fill
        itself stays, since the user controls it) */
     if (!reduce) {
