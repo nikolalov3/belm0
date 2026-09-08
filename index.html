@@ -41,6 +41,102 @@
 
 <script>(function(){var p=new URLSearchParams(location.search).get('time');var ev=p?(p==='evening'):(new Date().getHours()>=17);document.documentElement.setAttribute('data-time',ev?'evening':'day');})();</script>
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Gdzie napić się dobrej matchy w Krakowie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "W Café Belmont na Kazimierzu. To matcha bar, w którym matcha Yume jest podstawą menu: matcha latte, iced matcha i matcha tonic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Jaką matchę parzycie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matchę Yume w trzech gatunkach: Yume Asa, Yume Hana i Yume Hoshi, od codziennej po najbardziej wyrazistą."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gdzie w Krakowie napić się matcha tonic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ice matcha tonic jest w stałym menu Café Belmont na Kazimierzu (22 zł)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy zjem u Was śniadanie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak, do 12:00 mamy zestawy śniadaniowe: onigiri z kawą (25 zł) lub z matchą (29 zł)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy jest mleko roślinne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak, Oatly i Sproud, do każdej matchy i kawy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Co zamówić na pierwszy raz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na start matcha latte na Yume Asa, a jeśli chcesz coś naszego, ice matcha tonic. Do tego onigiri Tuna Mayo albo Sweet Tofu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czym różni się matcha latte od matcha tonic?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matcha latte to matcha z mlekiem, kremowa i łagodna. Matcha tonic to matcha z tonikiem i lodem, lżejsza, gazowana i bardziej orzeźwiająca."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy macie kawę specialty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tak, całe menu kawowe jest specialty: espresso, cortado, flat white, cappuccino, latte, batch brew, cold brew, drip i espresso tonic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czym jest onigiri?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Japońskie trójkąty z ryżu z nadzieniem. Mamy Sweet Tofu, Tuna Mayo i Umeboshi, a do 12:00 wchodzą w zestawy śniadaniowe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Czy matcha ma dużo kofeiny?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Matcha naturalnie zawiera kofeinę, a razem z nią l-teaninę, dzięki której pobudza łagodniej i równiej niż espresso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gdzie jest Café Belmont?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na Kazimierzu w Krakowie, kawałek od Placu Nowego."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -242,8 +338,10 @@
   </section>
 
   <section class="yume reveal" id="yume">
-    <img class="yume-logo" src="img/yume-logo.png" alt="Yume Matcha" onerror="this.style.display='none'">
-    <h2>Nasza matcha to Yume</h2>
+    <div class="yume-head">
+      <h2>Nasza matcha to Yume</h2>
+      <img class="yume-logo" src="img/yume-logo.png" alt="Yume Matcha" onerror="this.style.display='none'">
+    </div>
     <p>Yume to nasza własna marka matchy. Prowadzimy ją razem z Café Belmont i sprowadzamy prosto z Kioto w Japonii. Tę samą matchę pijesz u nas w kubku i kupisz do domu w <a class="yume-link" href="https://yumematcha.pl" target="_blank" rel="noopener">sklepie Yume</a>.</p>
 
     <h3>Trzy gatunki</h3>

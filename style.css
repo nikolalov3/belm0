@@ -434,13 +434,14 @@ img,svg{display:block;max-width:100%}
 
 /* our matcha — the Yume block */
 .yume{ padding:50px 0 12px; }
-.yume-logo{ height:26px; width:auto; display:block; margin:0 0 20px; opacity:0.92; }
+.yume-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin:0 0 16px; }
+.yume-logo{ height:22px; width:auto; opacity:0.92; flex:none; margin-top:5px; }
 .yume h2{
   font-family:var(--font-head);
   font-weight:500;
   font-size:23px;
   letter-spacing:-0.01em;
-  margin:0 0 14px;
+  margin:0;
 }
 .yume p{ font-size:15px; line-height:1.82; color:var(--ink); margin:0 0 18px; }
 .yume-shop{ margin-top:24px; }
