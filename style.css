@@ -29,6 +29,9 @@
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){ html{ scroll-behavior:smooth; } }
+/* the anchor target sits a little below the top bar */
+#menu{ scroll-margin-top:12px; }
 body{
   margin:0;
   background:var(--bg);
@@ -121,7 +124,10 @@ img,svg{display:block;max-width:100%}
   color:var(--ink-soft);
   pointer-events:none;
 }
-.tb-hours{ text-transform:uppercase; }
+.tb-hours{ text-transform:uppercase; white-space:nowrap; }
+.tb-actions{ display:inline-flex; align-items:center; gap:14px; pointer-events:auto; }
+.tb-menu{ color:var(--ink); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
+.tb-menu:hover{ color:var(--red); }
 .tb-lang{ display:inline-flex; gap:9px; align-items:center; pointer-events:auto; }
 .tb-lang a, .tb-cur{ text-decoration:none; letter-spacing:0.1em; }
 .tb-cur{ color:var(--ink); font-weight:500; }
@@ -371,7 +377,36 @@ img,svg{display:block;max-width:100%}
 .about p:last-child{margin-bottom:0}
 .about strong{font-weight:500}
 
-.menu{padding:24px 0}
+/* collapsible "read more" — content stays in the HTML (crawlable), just tucked away */
+.more{ margin-top:10px; }
+.more > summary{
+  list-style:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--red);
+  padding:6px 0;
+  -webkit-tap-highlight-color:transparent;
+}
+.more > summary::-webkit-details-marker{ display:none; }
+.more > summary::after{ content:"+"; font-size:15px; line-height:1; }
+.more[open] > summary::after{ content:"\2013"; }
+.more[open] > summary{ margin-bottom:8px; }
+.more > p{ margin:0 0 14px; }
+.more > p:last-child{ margin-bottom:0; }
+
+/* more separation between the main content sections */
+.menu, .faq{
+  border-top:1px solid var(--line);
+  margin-top:26px;
+}
+
+.menu{padding:38px 0 24px}
 .menu h2, .visit h2{
   font-family:var(--font-head);
   font-weight:500;
@@ -416,7 +451,7 @@ img,svg{display:block;max-width:100%}
 }
 
 /* FAQ */
-.faq{padding:20px 0 8px}
+.faq{padding:38px 0 8px}
 .qa{margin:0 0 18px}
 .qa h3{
   font-family:var(--font-head);
