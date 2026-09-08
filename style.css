@@ -104,6 +104,30 @@ img,svg{display:block;max-width:100%}
   transform-origin:center center;
 }
 
+/* slim top bar over the hero: opening hours (left) + language switch (right) */
+.topbar{
+  position:absolute;
+  top:0; left:0; right:0;
+  z-index:6;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 18px;
+  padding-top:max(16px, env(safe-area-inset-top));
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.08em;
+  color:var(--ink-soft);
+  pointer-events:none;
+}
+.tb-hours{ text-transform:uppercase; }
+.tb-lang{ display:inline-flex; gap:9px; align-items:center; pointer-events:auto; }
+.tb-lang a, .tb-cur{ text-decoration:none; letter-spacing:0.1em; }
+.tb-cur{ color:var(--ink); font-weight:500; }
+.tb-lang a{ color:var(--ink-soft); }
+.tb-lang a:hover{ color:var(--red); }
+
 /* wordmark */
 .wordmark{
   position:absolute;
@@ -419,6 +443,8 @@ img,svg{display:block;max-width:100%}
   font-size:13px;
   letter-spacing:0.02em;
 }
+.visit-muted{ font-size:12px; opacity:0.85; }
+.visit-link{ color:var(--red); text-decoration:none; font-weight:500; }
 .ig{
   display:inline-block;
   margin-top:16px;
