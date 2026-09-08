@@ -35,7 +35,7 @@ body{
   color:var(--ink);
   font-family:var(--font-head);
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  overflow-x:clip;   /* clip (not hidden) so position:sticky still works */
 }
 img,svg{display:block;max-width:100%}
 
@@ -79,9 +79,11 @@ img,svg{display:block;max-width:100%}
 /* ---------- pinned hero scene ---------- */
 .hero{
   position:relative;
+  height:170svh;   /* scroll room: the scene stays sticky while the drink fills */
 }
 .scene{
-  position:relative;
+  position:sticky;
+  top:0;
   height:100svh;
   width:100%;
   overflow:hidden;
@@ -172,9 +174,6 @@ img,svg{display:block;max-width:100%}
 }
 /* evening: light subtitle over the dark plate */
 [data-time="evening"] .wm-tag{color:rgba(246,236,223,0.82)}
-
-/* scroll is locked during the intro until the drink label is tapped */
-html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior:none; touch-action:none; }
 
 /* the finished drink, annotated — a thin line leads from the glass down to the
    name of what's in the cup, sitting BELOW the glass (not a pill glued on it) */

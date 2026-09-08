@@ -78,17 +78,6 @@
 
     initReveals();
 
-    var lenis = null;
-    if (window.Lenis && !reduce) {
-      lenis = new window.Lenis({ duration: 1.05, smoothWheel: true });
-      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    }
-    function setLock(on) {
-      document.documentElement.classList.toggle('locked', on);
-      if (lenis) { on ? lenis.stop() : lenis.start(); }
-    }
-
     /* continuous idle motion — off for reduced-motion (the scroll-driven fill
        itself stays, since the user controls it) */
     if (!reduce) {
@@ -112,8 +101,6 @@
     gsap.set(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 0 });
     gsap.set('.wordmark', { opacity: 0, y: 6 });
     gsap.set('.drink-label', { autoAlpha: 0 });
-
-    setLock(true);
 
     /* the fill choreography — paused; scroll drives its progress */
     var tl = gsap.timeline({ paused: true });
@@ -167,62 +154,38 @@
 
     if (isTonic) tl.to('#galaxy', { opacity: 0.85, duration: 0.6, ease: 'power2.out' }, 2.45);
 
-    /* Scroll/swipe pours the drink in place while the page stays locked.
-       For fluidity the raw input feeds a TARGET, and a rAF lerp glides the
-       rendered progress toward it — so the fill and the parallax move smoothly
-       instead of stepping with every discrete wheel/touch event.
-       FILL_PX = gesture distance for a full glass; touch is boosted so one
-       comfortable swipe is enough; SMOOTH = how fast it catches up (0..1). */
-    var FILL_PX = 560;
-    var TOUCH_BOOST = 3.6;
-    var SMOOTH = 0.16;
-    var targetProg = 0, renderProg = 0, lastRendered = -1, lit = false, done = false;
+    /* Scroll drives the pour. The scene stays sticky through the first stretch
+       of a taller hero, so the fill happens in view as you scroll — and it is
+       MONOTONIC, so scrolling back up never rewinds it. No lock, no tap: the
+       page scrolls normally straight on into the menu.
+       SMOOTH = how fast the render catches the scroll position (0..1). */
+    var heroEl = document.querySelector('.hero');
+    var SMOOTH = 0.18;
+    var maxP = 0, renderProg = 0, lastRendered = -1, lit = false;
     var label = document.getElementById('drinkLabel');
 
-    function applyState() {
+    function fillDistance() {
+      return Math.max(1, (heroEl.offsetHeight - window.innerHeight) * 0.9);
+    }
+    gsap.ticker.add(function () {
+      var sy = window.scrollY || window.pageYOffset || 0;
+      var p = sy / fillDistance();
+      if (p > 1) p = 1;
+      if (p > maxP) maxP = p;                          /* one-way: never rewinds */
+      renderProg += (maxP - renderProg) * SMOOTH;
+      if (maxP - renderProg < 0.0006) renderProg = maxP;
+      if (renderProg === lastRendered) return;
+      lastRendered = renderProg;
       tl.progress(renderProg);
       if (!lit && renderProg > 0.72) { lit = true; document.querySelector('.wordmark').classList.add('lit'); }
       if (renderProg >= 0.985 && label) label.classList.add('ready');
-    }
-    gsap.ticker.add(function () {
-      if (done) return;
-      var d = targetProg - renderProg;
-      renderProg = (Math.abs(d) > 0.0004) ? renderProg + d * SMOOTH : targetProg;
-      if (renderProg !== lastRendered) { lastRendered = renderProg; applyState(); }
     });
-    function addProgress(dpx) {
-      if (done) return;
-      targetProg = Math.max(0, Math.min(1, targetProg + dpx / FILL_PX));
-    }
 
-    window.addEventListener('wheel', function (e) {
-      if (done) return;
-      e.preventDefault();
-      addProgress(e.deltaY);
-    }, { passive: false });
-
-    var ty = null;
-    window.addEventListener('touchstart', function (e) { if (!done) ty = e.touches[0].clientY; }, { passive: true });
-    window.addEventListener('touchmove', function (e) {
-      if (done) return;
-      e.preventDefault();
-      var y = e.touches[0].clientY;
-      if (ty !== null) addProgress((ty - y) * TOUCH_BOOST);
-      ty = y;
-    }, { passive: false });
-
-    function goToMenu() {
-      if (done || targetProg < 0.9) return;   /* only advances once the drink is poured */
-      done = true;
-      renderProg = targetProg = 1;
-      tl.progress(1);
-      setLock(false);
+    /* tapping the drink label is an optional shortcut down to the menu */
+    if (label) label.addEventListener('click', function () {
       var target = document.querySelector('.content');
-      if (!target) return;
-      if (lenis) lenis.scrollTo(target, { duration: 1.1, easing: function (x) { return 1 - Math.pow(1 - x, 3); } });
-      else target.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (label) label.addEventListener('click', goToMenu);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
   }
 
   if (document.readyState === 'loading') {
