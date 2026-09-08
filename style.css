@@ -427,10 +427,35 @@ img,svg{display:block;max-width:100%}
 .more > p:last-child{ margin-bottom:0; }
 
 /* more separation between the main content sections */
-.menu, .faq{
+.menu, .faq, .yume{
   border-top:1px solid var(--line);
   margin-top:26px;
 }
+
+/* our matcha — the Yume block */
+.yume{ padding:38px 0 8px; }
+.yume-logo{ height:20px; width:auto; display:block; margin:0 0 14px; opacity:0.92; }
+.yume h2{
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:23px;
+  letter-spacing:-0.01em;
+  margin:0 0 14px;
+}
+.yume p{ font-size:15px; line-height:1.72; color:var(--ink); margin:0 0 16px; }
+.yume h3{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin:24px 0 8px;
+}
+.grades{ margin:0 0 16px; }
+.grades dt{ font-family:var(--font-head); font-weight:500; font-size:15px; margin-top:13px; }
+.grades dd{ margin:3px 0 0; font-size:14px; line-height:1.6; color:var(--ink-soft); }
+.yume-link{ color:var(--red); text-decoration:none; font-weight:500; border-bottom:1px solid rgba(226,31,38,0.32); }
+.yume-link:hover{ border-bottom-color:var(--red); }
 
 .menu{padding:38px 0 24px}
 .menu h2, .visit h2{
