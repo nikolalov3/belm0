@@ -361,14 +361,14 @@ img,svg{display:block;max-width:100%}
 .content{
   position:relative;
   background:var(--bg);
-  padding:0 22px 60px;
+  padding:0 24px 88px;
   max-width:560px;
   margin:0 auto;
 }
 .reveal{opacity:0;transform:translateY(24px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
 
-.intro{padding:64px 0 40px;text-align:center}
+.intro{padding:76px 0 48px;text-align:center}
 .intro h1{
   font-family:var(--font-head);
   font-weight:500;
@@ -386,7 +386,7 @@ img,svg{display:block;max-width:100%}
 }
 
 /* positioning narrative — the citable content */
-.about{padding:6px 0 30px}
+.about{padding:12px 0 44px}
 .about h2{
   font-family:var(--font-head);
   font-weight:500;
@@ -396,9 +396,9 @@ img,svg{display:block;max-width:100%}
 }
 .about p{
   font-size:15px;
-  line-height:1.72;
+  line-height:1.82;
   color:var(--ink);
-  margin:0 0 14px;
+  margin:0 0 18px;
 }
 .about p:last-child{margin-bottom:0}
 .about strong{font-weight:500}
@@ -426,15 +426,15 @@ img,svg{display:block;max-width:100%}
 .more > p{ margin:0 0 14px; }
 .more > p:last-child{ margin-bottom:0; }
 
-/* more separation between the main content sections */
+/* delicate dividers + generous space between sections (Japanese-minimal) */
 .menu, .faq, .yume{
-  border-top:1px solid var(--line);
-  margin-top:26px;
+  border-top:1px solid rgba(34,28,28,0.09);
+  margin-top:52px;
 }
 
 /* our matcha — the Yume block */
-.yume{ padding:38px 0 8px; }
-.yume-logo{ height:20px; width:auto; display:block; margin:0 0 14px; opacity:0.92; }
+.yume{ padding:50px 0 12px; }
+.yume-logo{ height:26px; width:auto; display:block; margin:0 0 20px; opacity:0.92; }
 .yume h2{
   font-family:var(--font-head);
   font-weight:500;
@@ -442,7 +442,8 @@ img,svg{display:block;max-width:100%}
   letter-spacing:-0.01em;
   margin:0 0 14px;
 }
-.yume p{ font-size:15px; line-height:1.72; color:var(--ink); margin:0 0 16px; }
+.yume p{ font-size:15px; line-height:1.82; color:var(--ink); margin:0 0 18px; }
+.yume-shop{ margin-top:24px; }
 .yume h3{
   font-family:var(--font-mono);
   font-size:11px;
@@ -451,13 +452,13 @@ img,svg{display:block;max-width:100%}
   color:var(--red);
   margin:24px 0 8px;
 }
-.grades{ margin:0 0 16px; }
-.grades dt{ font-family:var(--font-head); font-weight:500; font-size:15px; margin-top:13px; }
-.grades dd{ margin:3px 0 0; font-size:14px; line-height:1.6; color:var(--ink-soft); }
+.grades{ margin:0 0 22px; }
+.grades dt{ font-family:var(--font-head); font-weight:500; font-size:15px; margin-top:18px; }
+.grades dd{ margin:4px 0 0; font-size:14px; line-height:1.7; color:var(--ink-soft); }
 .yume-link{ color:var(--red); text-decoration:none; font-weight:500; border-bottom:1px solid rgba(226,31,38,0.32); }
 .yume-link:hover{ border-bottom-color:var(--red); }
 
-.menu{padding:38px 0 24px}
+.menu{padding:50px 0 28px}
 .menu h2, .visit h2{
   font-family:var(--font-head);
   font-weight:500;
@@ -465,7 +466,7 @@ img,svg{display:block;max-width:100%}
   letter-spacing:-0.01em;
   margin:0 0 18px;
 }
-.menu-group{margin-bottom:26px}
+.menu-group{margin-bottom:36px}
 .menu-group h3{
   font-family:var(--font-mono);
   font-size:11px;
@@ -479,7 +480,7 @@ img,svg{display:block;max-width:100%}
   display:flex;
   align-items:baseline;
   gap:8px;
-  padding:9px 0;
+  padding:12px 0;
   font-family:var(--font-mono);
   font-size:14px;
 }
@@ -502,8 +503,8 @@ img,svg{display:block;max-width:100%}
 }
 
 /* FAQ */
-.faq{padding:38px 0 8px}
-.qa{margin:0 0 18px}
+.faq{padding:50px 0 8px}
+.qa{margin:0 0 28px}
 .qa h3{
   font-family:var(--font-head);
   font-weight:500;
@@ -521,9 +522,9 @@ img,svg{display:block;max-width:100%}
   max-width:48ch;
 }
 
-.visit{padding:34px 0;text-align:center}
+.visit{padding:52px 0 10px;text-align:center;border-top:1px solid rgba(34,28,28,0.09);margin-top:8px}
 .visit-line{
-  margin:5px 0;
+  margin:8px 0;
   font-family:var(--font-mono);
   color:var(--ink-soft);
   font-size:13px;
