@@ -107,7 +107,7 @@
     gsap.set('#dropFall', { x: 120, y: -92 });
     gsap.set('#dropSquash', { transformOrigin: '50% 100%' });
     gsap.set('#liquid', { y: 360 });
-    gsap.set('#baseShadow', { opacity: 0.15, scale: 0.85, svgOrigin: '160 565' });
+    gsap.set('#baseShadow', { opacity: 0, scale: 0.85, svgOrigin: '160 565' });
     gsap.set('#puddle', { attr: { rx: 0 } });
     gsap.set(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 0 });
     gsap.set('.wordmark', { opacity: 0, y: 6 });
@@ -136,8 +136,8 @@
       .to('#puddle', { opacity: 0, duration: 0.45 }, 2.22)
 
       .to('#liquid', { y: 128, duration: 0.8, ease: 'power2.out' }, 2.05)
-      .fromTo('#baseShadow', { opacity: 0.15, scale: 0.85 },
-        { opacity: 1, scale: 1, svgOrigin: '160 565', duration: 0.8, ease: 'power2.out' }, 2.05)
+      .fromTo('#baseShadow', { opacity: 0, scale: 0.85 },
+        { opacity: 1, scale: 1, svgOrigin: '160 565', duration: 0.8, ease: 'power2.out', immediateRender: false }, 2.05)
 
       .fromTo('#ripple1', { attr: { rx: 12, ry: 4 }, opacity: 0.6 },
         { attr: { rx: 76, ry: 15 }, opacity: 0, duration: 0.7, ease: 'power1.out', immediateRender: false }, 2.45)
