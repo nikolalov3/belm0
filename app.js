@@ -123,10 +123,6 @@
     tl.fromTo('.scene-svg', { scale: 0.93, y: 24, transformOrigin: '50% 52%' },
       { scale: 1, y: 0, duration: 2.0, ease: 'power2.out' }, 0)
 
-    /* the photo wall streaks upward as we fall — this is what sells the descent */
-      .fromTo('.wall-grid', { y: 0, scale: 1 },
-        { y: -150, scale: 1.05, duration: 1.95, ease: 'power2.in' }, 0.3)
-
     /* glass emerges as we approach it */
       .to(['.glass-body', '.glass-rim', '.glass-shine'], { opacity: 1, duration: 0.7, ease: 'power1.out' }, 0.2)
 

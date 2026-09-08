@@ -40,46 +40,41 @@ body{
 img,svg{display:block;max-width:100%}
 
 /* ---------- Supreme-style photo wall (fixed page background) ---------- */
-.wall{
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  overflow:hidden;
+/* ---------- Supreme-style photo band (a lower section, not the hero) ---------- */
+.gallery{
+  width:100vw;
+  margin-left:calc(-50vw + 50%);   /* full-bleed out of the centered text column */
+  margin-top:46px;
+  margin-bottom:10px;
 }
-/* inner grid — translated on scroll so the wall streaks upward as we descend */
-.wall-grid{
+.gallery-kicker{
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--red);
+  margin:0 0 14px;
+}
+.gallery-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(112px,1fr));
-  grid-auto-rows:128px;
+  grid-template-columns:repeat(auto-fill,minmax(108px,1fr));
+  grid-auto-rows:118px;
   grid-auto-flow:dense;
-  gap:3px;
-  min-height:118vh;
-  filter:saturate(0.72) brightness(0.9);
-  transform-origin:50% 0;
-  will-change:transform;
-  backface-visibility:hidden;
+  gap:4px;
+  padding:0 4px;
+  filter:saturate(0.84);
 }
-.wall img{
+.gallery-grid img{
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
 }
 /* irregular tiles break the grid — most stay 1x1 */
-.wall .w2{grid-column:span 2}
-.wall .h2{grid-row:span 2}
-.wall .big{grid-column:span 2;grid-row:span 2}
-.wall-veil{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  pointer-events:none;
-  background:
-    radial-gradient(140% 110% at 50% 18%,
-      rgba(234,224,211,0.44) 0%,
-      rgba(219,207,191,0.58) 60%,
-      rgba(203,190,173,0.7) 100%);
-}
+.gallery-grid .w2{grid-column:span 2}
+.gallery-grid .h2{grid-row:span 2}
+.gallery-grid .big{grid-column:span 2;grid-row:span 2}
 
 /* ---------- pinned hero scene ---------- */
 .hero{
@@ -338,9 +333,7 @@ html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior
 /* ---------- content ---------- */
 .content{
   position:relative;
-  background:rgba(239,229,217,0.8);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
+  background:var(--bg);
   padding:0 22px 60px;
   max-width:560px;
   margin:0 auto;
@@ -364,6 +357,24 @@ html.locked, html.locked body{ overflow:hidden; height:100%; overscroll-behavior
   max-width:36ch;
   margin:0 auto;
 }
+
+/* positioning narrative — the citable content */
+.about{padding:6px 0 30px}
+.about h2{
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:23px;
+  letter-spacing:-0.01em;
+  margin:0 0 14px;
+}
+.about p{
+  font-size:15px;
+  line-height:1.72;
+  color:var(--ink);
+  margin:0 0 14px;
+}
+.about p:last-child{margin-bottom:0}
+.about strong{font-weight:500}
 
 .menu{padding:24px 0}
 .menu h2, .visit h2{
