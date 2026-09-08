@@ -157,38 +157,10 @@ img,svg{display:block;max-width:100%}
   opacity:0;
   pointer-events:none;
 }
-/* neon fires once the wordmark lights up (after the drink is poured) */
-[data-time="evening"] .wordmark.lit .wm-neon{animation:neonOn 3.6s ease-in-out 0.15s 1 both}
-[data-time="day"] .wordmark.lit .wm-neon{animation:neonOff 3.6s ease-in-out 0.15s 1 both}
-
-@keyframes neonOn{
-  0%,12% {opacity:0}
-  16%    {opacity:1}
-  22%    {opacity:0.3}
-  26%    {opacity:1}
-  34%    {opacity:0}     /* blink 1 */
-  50%    {opacity:0}
-  54%    {opacity:1}
-  60%    {opacity:0.35}
-  64%    {opacity:1}
-  72%    {opacity:0}     /* blink 2 */
-  84%    {opacity:0}
-  90%    {opacity:1}     /* turn on... */
-  100%   {opacity:1}     /* ...and stay lit */
-}
-@keyframes neonOff{
-  0%,12% {opacity:0}
-  16%    {opacity:1}
-  22%    {opacity:0.3}
-  26%    {opacity:1}
-  34%    {opacity:0}     /* blink 1 */
-  50%    {opacity:0}
-  54%    {opacity:1}
-  60%    {opacity:0.35}
-  64%    {opacity:1}
-  72%    {opacity:0}     /* blink 2 */
-  100%   {opacity:0}     /* ...and stay dark */
-}
+/* neon lights up smoothly once the drink is poured (evening only) — no flicker */
+.wm-neon{transition:opacity 1.1s ease 0.1s}
+[data-time="evening"] .wordmark.lit .wm-neon{opacity:1}
+/* day: neon stays off, clean black wordmark */
 .wm-tag{
   position:relative;
   z-index:1;
