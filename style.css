@@ -118,10 +118,11 @@ img,svg{display:block;max-width:100%}
   position:absolute;
   inset:0;
   background:
-    radial-gradient(100% 68% at 50% 46%,
-      rgba(243,235,225,0.9) 0%,
-      rgba(240,230,218,0.72) 42%,
-      rgba(235,225,211,0.56) 100%);
+    linear-gradient(to bottom,
+      rgba(20,15,13,0.66) 0%,
+      rgba(26,20,18,0.52) 34%,
+      rgba(26,20,18,0.52) 66%,
+      rgba(18,13,11,0.64) 100%);
 }
 .scene-inner{
   position:relative;
@@ -146,18 +147,17 @@ img,svg{display:block;max-width:100%}
   font-family:var(--font-mono);
   font-size:11px;
   letter-spacing:0.08em;
-  color:var(--ink-soft);
-  text-shadow:0 1px 9px rgba(239,229,217,0.92), 0 0 2px rgba(239,229,217,0.9);
+  color:rgba(242,233,221,0.78);
   pointer-events:none;
 }
 .tb-hours{ text-transform:uppercase; white-space:nowrap; }
 .tb-actions{ display:inline-flex; align-items:center; gap:14px; pointer-events:auto; }
-.tb-menu{ color:var(--ink); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
+.tb-menu{ color:#f2e9dd; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
 .tb-menu:hover{ color:var(--red); }
 .tb-lang{ display:inline-flex; gap:9px; align-items:center; pointer-events:auto; }
 .tb-lang a, .tb-cur{ text-decoration:none; letter-spacing:0.1em; }
-.tb-cur{ color:var(--ink); font-weight:500; }
-.tb-lang a{ color:var(--ink-soft); }
+.tb-cur{ color:#f2e9dd; font-weight:500; }
+.tb-lang a{ color:rgba(242,233,221,0.55); }
 .tb-lang a:hover{ color:var(--red); }
 
 /* wordmark */
@@ -171,25 +171,8 @@ img,svg{display:block;max-width:100%}
   padding-top:4px;
   pointer-events:none;
 }
-/* soft backing plate behind the header, so the light neon + subtitle stay legible */
-.wm-plate{
-  position:absolute;
-  left:50%; top:44%;
-  transform:translate(-50%,-50%);
-  width:120%;
-  height:320%;
-  border-radius:50%;
-  z-index:0;
-  pointer-events:none;
-}
-[data-time="evening"] .wm-plate{
-  background:radial-gradient(closest-side,
-    rgba(16,10,10,0.55), rgba(16,10,10,0.28) 52%, transparent 76%);
-}
-[data-time="day"] .wm-plate{
-  background:radial-gradient(closest-side,
-    rgba(245,238,228,0.82), rgba(245,238,228,0.44) 52%, transparent 80%);
-}
+/* backing plate removed — the darkened hero gives clean contrast on its own */
+.wm-plate{ display:none; }
 .wm-name{
   position:relative;
   z-index:1;
@@ -199,7 +182,7 @@ img,svg{display:block;max-width:100%}
   font-size:28px;
   letter-spacing:0.02em;
   text-transform:uppercase;
-  color:var(--ink);
+  color:#f2e9dd;
 }
 /* Tokyo-style orange neon overlay: flickers on twice at entry */
 .wm-neon{
@@ -226,10 +209,8 @@ img,svg{display:block;max-width:100%}
   font-size:10px;
   letter-spacing:0.24em;
   text-transform:uppercase;
-  color:var(--ink-soft);
+  color:rgba(242,233,221,0.6);
 }
-/* evening: light subtitle over the dark plate */
-[data-time="evening"] .wm-tag{color:rgba(246,236,223,0.82)}
 
 /* the finished drink, annotated — a thin line leads from the glass down to the
    name of what's in the cup, sitting BELOW the glass (not a pill glued on it) */
@@ -247,7 +228,7 @@ img,svg{display:block;max-width:100%}
   appearance:none;
   background:none;
   border:0;
-  color:var(--ink);
+  color:#f2e9dd;
   cursor:pointer;
   -webkit-tap-highlight-color:transparent;
   font-family:var(--font-head);
@@ -257,15 +238,13 @@ img,svg{display:block;max-width:100%}
 .dl-line{
   width:1px;
   height:46px;
-  background:linear-gradient(to bottom, rgba(34,28,28,0.04), rgba(34,28,28,0.5));
+  background:linear-gradient(to bottom, rgba(242,233,221,0.06), rgba(242,233,221,0.55));
 }
 .dl-name{
   font-weight:500;
   font-size:20px;
   letter-spacing:0.01em;
   white-space:nowrap;
-  /* ecru halo so the name stays legible over the busy photo wall */
-  text-shadow:0 0 11px rgba(239,229,217,0.95), 0 0 22px rgba(239,229,217,0.85), 0 1px 2px rgba(239,229,217,0.9);
 }
 .dl-cta{
   font-family:var(--font-mono);
@@ -276,7 +255,6 @@ img,svg{display:block;max-width:100%}
   display:inline-flex;
   align-items:center;
   gap:5px;
-  text-shadow:0 0 9px rgba(239,229,217,0.92), 0 1px 2px rgba(239,229,217,0.85);
 }
 /* invite the tap once the drink is poured */
 .drink-label.ready .dl-line{ animation:lineGlow 1.9s ease-in-out infinite; }
@@ -495,13 +473,12 @@ img,svg{display:block;max-width:100%}
 .i-price{color:var(--red);font-weight:500;white-space:nowrap}
 
 .sec-note{
-  font-family:var(--font-mono);
-  font-size:12.5px;
-  line-height:1.6;
+  font-family:var(--font-head);
+  font-size:14px;
+  line-height:1.7;
   color:var(--ink-soft);
-  letter-spacing:0.01em;
-  margin:0 0 12px;
-  max-width:46ch;
+  margin:0 0 14px;
+  max-width:52ch;
 }
 
 /* FAQ */
@@ -515,22 +492,20 @@ img,svg{display:block;max-width:100%}
   color:var(--ink);
 }
 .qa p{
-  font-family:var(--font-mono);
-  font-size:13px;
-  line-height:1.6;
+  font-family:var(--font-head);
+  font-size:14.5px;
+  line-height:1.65;
   color:var(--ink-soft);
-  letter-spacing:0.01em;
   margin:0;
-  max-width:48ch;
+  max-width:54ch;
 }
 
 .visit{padding:52px 0 10px;text-align:center;border-top:1px solid rgba(34,28,28,0.09);margin-top:8px}
 .visit-line{
   margin:8px 0;
-  font-family:var(--font-mono);
+  font-family:var(--font-head);
   color:var(--ink-soft);
-  font-size:13px;
-  letter-spacing:0.02em;
+  font-size:14px;
 }
 .visit-muted{ font-size:12px; opacity:0.85; }
 .visit-link{ color:var(--red); text-decoration:none; font-weight:500; }
