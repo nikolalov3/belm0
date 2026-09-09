@@ -197,6 +197,22 @@
       var target = document.querySelector('.content');
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
+
+    /* the fixed top bar is light over the dark hero and flips to dark once it
+       sits over the light content below */
+    var topbar = document.querySelector('.topbar');
+    var contentEl = document.querySelector('.content');
+    if (topbar && contentEl) {
+      var switchAt = 0;
+      var measure = function () { switchAt = contentEl.offsetTop - 64; };
+      measure();
+      window.addEventListener('resize', measure);
+      var onScroll = function () {
+        topbar.classList.toggle('on-light', (window.scrollY || window.pageYOffset || 0) > switchAt);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
   }
 
   if (document.readyState === 'loading') {

@@ -133,11 +133,12 @@ img,svg{display:block;max-width:100%}
   transform-origin:center center;
 }
 
-/* slim top bar over the hero: opening hours (left) + language switch (right) */
+/* slim top bar — fixed (stays put on scroll); light over the dark hero,
+   switches to dark once it is over the light content (.on-light, set by JS) */
 .topbar{
-  position:absolute;
+  position:fixed;
   top:0; left:0; right:0;
-  z-index:6;
+  z-index:20;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -148,10 +149,12 @@ img,svg{display:block;max-width:100%}
   font-size:11px;
   letter-spacing:0.08em;
   color:rgba(242,233,221,0.78);
+  transition:color .25s ease, background-color .25s ease, box-shadow .25s ease;
   pointer-events:none;
 }
 .tb-hours{ text-transform:uppercase; white-space:nowrap; }
 .tb-actions{ display:inline-flex; align-items:center; gap:14px; pointer-events:auto; }
+.tb-menu, .tb-cur, .tb-lang a{ transition:color .25s ease; }
 .tb-menu{ color:#f2e9dd; text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; }
 .tb-menu:hover{ color:var(--red); }
 .tb-lang{ display:inline-flex; gap:9px; align-items:center; pointer-events:auto; }
@@ -159,6 +162,18 @@ img,svg{display:block;max-width:100%}
 .tb-cur{ color:#f2e9dd; font-weight:500; }
 .tb-lang a{ color:rgba(242,233,221,0.55); }
 .tb-lang a:hover{ color:var(--red); }
+/* over the light content: dark text on a subtle frosted-ecru bar so it never
+   clashes with the text scrolling underneath */
+.topbar.on-light{
+  color:var(--ink-soft);
+  background:rgba(239,229,217,0.9);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 rgba(34,28,28,0.06);
+}
+.topbar.on-light .tb-menu, .topbar.on-light .tb-cur{ color:var(--ink); }
+.topbar.on-light .tb-lang a{ color:var(--ink-soft); }
+.topbar.on-light .tb-menu:hover, .topbar.on-light .tb-lang a:hover{ color:var(--red); }
 
 /* wordmark */
 .wordmark{
@@ -509,9 +524,15 @@ img,svg{display:block;max-width:100%}
 }
 .visit-muted{ font-size:12px; opacity:0.85; }
 .visit-link{ color:var(--red); text-decoration:none; font-weight:500; }
+.socials{
+  margin-top:18px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  align-items:baseline;
+}
 .ig{
   display:inline-block;
-  margin-top:16px;
   font-family:var(--font-mono);
   color:var(--red);
   text-decoration:none;
