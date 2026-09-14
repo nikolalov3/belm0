@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Odwiedź Café Belmont | Kazimierz, Kraków</title>
-<meta name="description" content="Café Belmont na Kazimierzu: dojazd, opinie w Google i TripAdvisor, WiFi i social. Wszystko w jednym miejscu.">
+<meta name="description" content="Café Belmont na Kazimierzu: opinie, dojazd, WiFi i Instagram — wszystko w jednym miejscu.">
 <meta name="theme-color" content="#EFE5D9">
 <link rel="canonical" href="https://belmont.cafe/visit/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238fb653'/%3E%3C/svg%3E">
@@ -13,41 +13,60 @@
 <script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
 <style>
   :root{
-    --bg:#EFE5D9; --ink:#221C1C; --red:#E21F26;
-    --line:rgba(34,28,28,.14); --card:#F6EFE4; --muted:rgba(34,28,28,.5);
+    --bg:#EFE5D9; --ink:#221C1C; --red:#E21F26; --green:#7a9e42;
+    --tile:#FBF7EF; --line:rgba(34,28,28,.09); --muted:rgba(34,28,28,.5); --chip:rgba(34,28,28,.055);
     --font:"Helvetica Neue LT Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     --mono:"Suisse Int'l Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --shadow:0 1px 2px rgba(34,28,28,.05), 0 10px 26px -16px rgba(34,28,28,.35);
+    --shadow-hi:0 2px 4px rgba(34,28,28,.06), 0 16px 34px -14px rgba(34,28,28,.42);
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--font);-webkit-font-smoothing:antialiased}
-  .wrap{max-width:460px;margin:0 auto;padding:38px 20px 56px}
+  body{margin:0;color:var(--ink);font:16px/1.5 var(--font);-webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(120% 70% at 50% -8%, #F6EDE0 0%, var(--bg) 46%),
+      var(--bg);
+    min-height:100vh}
+  .wrap{max-width:440px;margin:0 auto;padding:46px 22px 60px}
 
-  .head{text-align:center;margin-bottom:26px}
-  .wm{font-size:22px;font-weight:600;letter-spacing:.01em;color:var(--ink);text-decoration:none;display:inline-block}
-  .tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-  .meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.7}
+  .head{text-align:center;margin-bottom:30px}
+  .wm{font-size:21px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;display:inline-block}
+  .rule{width:34px;height:2px;background:var(--green);border-radius:2px;margin:13px auto 0;opacity:.85}
+  .meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:15px;line-height:1.85;letter-spacing:.01em}
 
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:24px 4px 9px}
-  .tiles{display:flex;flex-direction:column;gap:11px}
+  .tiles{display:flex;flex-direction:column;gap:12px}
+  .tile{display:flex;align-items:center;gap:15px;background:var(--tile);border:1px solid var(--line);
+    border-radius:20px;padding:15px 17px;color:var(--ink);text-decoration:none;box-shadow:var(--shadow);
+    opacity:0;transform:translateY(9px);animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
+    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+  @media(hover:hover){ .tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-hi);border-color:rgba(34,28,28,.16)} }
+  .tile:active{transform:translateY(0) scale(.99)}
+  .tile:nth-child(1){animation-delay:.04s}
+  .tile:nth-child(2){animation-delay:.10s}
+  .tile:nth-child(3){animation-delay:.16s}
+  .tile:nth-child(4){animation-delay:.22s}
+  .tile:nth-child(5){animation-delay:.28s}
 
-  .tile{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
-    border-radius:18px;padding:15px 17px;color:var(--ink);text-decoration:none;
-    transition:transform .12s ease,border-color .12s ease,background .12s ease}
-  .tile:hover{border-color:rgba(34,28,28,.28)}
-  .tile:active{transform:scale(.985)}
-  .tile .ic{width:22px;height:22px;flex:none;stroke:var(--ink);stroke-width:1.7;fill:none}
-  .tile .tx{min-width:0}
-  .tile .t{font-weight:600;font-size:15px;letter-spacing:-.005em}
-  .tile .s{font-size:12.5px;color:var(--muted);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tile .arw{margin-left:auto;color:var(--muted);font-size:17px;flex:none}
-  .tile.accent{border-color:rgba(226,31,38,.35)}
-  .tile.accent .ic{stroke:var(--red)}
-  .tile.accent .t{color:var(--red)}
-  .tile.wifi .s b{font-family:var(--mono);color:var(--ink);letter-spacing:.02em}
+  .chip{width:44px;height:44px;flex:none;border-radius:13px;background:var(--chip);
+    display:flex;align-items:center;justify-content:center}
+  .chip svg{width:22px;height:22px;stroke:var(--ink);stroke-width:1.7;fill:none}
+  .tx{min-width:0;flex:1}
+  .t{font-weight:600;font-size:15.5px;letter-spacing:-.01em}
+  .s{font-size:12.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .arw{color:var(--muted);font-size:18px;flex:none;transition:transform .16s ease}
+  @media(hover:hover){ .tile:hover .arw{transform:translateX(3px)} }
 
-  .foot{text-align:center;margin-top:30px}
-  .foot a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.06em}
+  /* akcent: oceń w Google — cieplejszy, matcha */
+  .tile.accent{background:linear-gradient(180deg,rgba(143,182,83,.07),var(--tile));border-color:rgba(143,182,83,.28)}
+  .tile.accent .chip{background:rgba(143,182,83,.16)}
+  .tile.accent .chip svg{stroke:var(--green)}
+  .tile.wifi .s b{font-family:var(--mono);color:var(--ink);letter-spacing:.03em}
+
+  .foot{text-align:center;margin-top:28px}
+  .foot a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}
   .foot a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){ .tile{animation:none;opacity:1;transform:none} }
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -55,57 +74,38 @@
 
   <div class="head">
     <a class="wm" href="/">Café Belmont</a>
-    <div class="tag">Kazimierz · Kraków</div>
-    <div class="meta">ul. Berka Joselewicza 12<br>Pon–Sob 10:00–20:00 · Niedziela 11:00–20:00</div>
+    <div class="rule"></div>
+    <div class="meta">ul. Berka Joselewicza 12 · Kazimierz<br>Pon–Sob 10–20 · Niedziela 11–20</div>
   </div>
 
-  <div class="kicker">Zostaw opinię</div>
   <div class="tiles">
     <a class="tile accent" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M12 17.3l-5.4 3.1 1.4-6.1L3.3 10l6.2-.5L12 4l2.5 5.5 6.2.5-4.7 4.3 1.4 6.1z"/></svg>
-      <div class="tx"><div class="t">Oceń nas w Google</div><div class="s">Twoja opinia zajmie chwilę ★★★★★</div></div>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 17.3l-5.4 3.1 1.4-6.1L3.3 10l6.2-.5L12 4l2.5 5.5 6.2.5-4.7 4.3 1.4 6.1z"/></svg></span>
+      <div class="tx"><div class="t">Oceń nas w Google</div><div class="s">Twoja opinia wiele dla nas znaczy</div></div>
       <span class="arw">→</span>
     </a>
+
     <a class="tile" href="https://www.tripadvisor.com/Restaurant_Review-g274772-d34359372-Reviews-Cafe_Belmont-Krakow_Lesser_Poland_Province_Southern_Poland.html" target="_blank" rel="noopener" data-toodip="tripadvisor">
-      <svg class="ic" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.2"/><circle cx="16" cy="12" r="3.2"/><path d="M8 8.8c1.6-1.4 6.4-1.4 8 0"/></svg>
+      <span class="chip"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.2"/><circle cx="16" cy="12" r="3.2"/><path d="M8 8.8c1.6-1.4 6.4-1.4 8 0"/></svg></span>
       <div class="tx"><div class="t">TripAdvisor</div><div class="s">Zobacz i oceń nas</div></div>
       <span class="arw">→</span>
     </a>
-  </div>
 
-  <div class="kicker">Dojazd</div>
-  <div class="tiles">
     <a class="tile" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="directions">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.5-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.5 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.3"/></svg>
-      <div class="tx"><div class="t">Nawigacja — Google Maps</div><div class="s">ul. Berka Joselewicza 12</div></div>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.5-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.5 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.3"/></svg></span>
+      <div class="tx"><div class="t">Dojazd</div><div class="s">ul. Berka Joselewicza 12</div></div>
       <span class="arw">→</span>
     </a>
-    <a class="tile" href="https://maps.apple.com/?q=Caf%C3%A9%20Belmont&ll=50.0544,19.9461" target="_blank" rel="noopener" data-toodip="apple-maps">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.5-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.5 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.3"/></svg>
-      <div class="tx"><div class="t">Apple Maps</div><div class="s">Otwórz w Mapach Apple</div></div>
-      <span class="arw">→</span>
-    </a>
-  </div>
 
-  <div class="kicker">Na miejscu</div>
-  <div class="tiles">
     <!-- WIFI: wpisz hasło w miejsce „— do wpisania —" (i opcjonalnie nazwę sieci w .s) -->
     <div class="tile wifi">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg>
+      <span class="chip"><svg viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg></span>
       <div class="tx"><div class="t">WiFi</div><div class="s">Hasło: <b>— do wpisania —</b></div></div>
     </div>
-  </div>
 
-  <div class="kicker">Śledź nas</div>
-  <div class="tiles">
     <a class="tile" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <span class="chip"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></span>
       <div class="tx"><div class="t">Instagram</div><div class="s">@cafe_belmont</div></div>
-      <span class="arw">→</span>
-    </a>
-    <a class="tile" href="https://www.facebook.com/p/Cafe-Belmont-61578865151844/" target="_blank" rel="noopener">
-      <svg class="ic" viewBox="0 0 24 24"><path d="M14 8.5h2V5.7h-2.3C11.4 5.7 10 7 10 9.2V11H8v2.8h2V21h2.9v-7.2h2.3l.4-2.8h-2.7V9.4c0-.6.3-.9 1.1-.9Z"/></svg>
-      <div class="tx"><div class="t">Facebook</div><div class="s">Café Belmont</div></div>
       <span class="arw">→</span>
     </a>
   </div>
