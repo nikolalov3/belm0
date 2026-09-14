@@ -1,0 +1,14 @@
+{
+  "name": "Café Belmont",
+  "short_name": "Belmont",
+  "description": "Matcha bar i kawiarnia specialty na Kazimierzu w Krakowie.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EFE5D9",
+  "theme_color": "#EFE5D9",
+  "lang": "pl",
+  "icons": [
+    { "src": "/img/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
