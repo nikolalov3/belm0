@@ -59,7 +59,9 @@
   .tile.accent{background:linear-gradient(180deg,rgba(143,182,83,.07),var(--tile));border-color:rgba(143,182,83,.28)}
   .tile.accent .chip{background:rgba(143,182,83,.16)}
   .tile.accent .chip svg{stroke:var(--green)}
+  .tile.wifi{font:inherit;text-align:left;width:100%;cursor:pointer;-webkit-appearance:none;appearance:none}
   .tile.wifi .s b{font-family:var(--mono);color:var(--ink);letter-spacing:.03em}
+  #wifiCopy{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
 
   .foot{text-align:center;margin-top:28px}
   .foot a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}
@@ -97,11 +99,23 @@
       <span class="arw">→</span>
     </a>
 
-    <!-- WIFI: wpisz hasło w miejsce „— do wpisania —" (i opcjonalnie nazwę sieci w .s) -->
-    <div class="tile wifi">
+    <button class="tile wifi" type="button" id="wifiTile" data-toodip="wifi">
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg></span>
-      <div class="tx"><div class="t">WiFi</div><div class="s">Hasło: <b>— do wpisania —</b></div></div>
-    </div>
+      <div class="tx"><div class="t">WiFi</div><div class="s">Hasło: <b id="wifiPass">Belmont2026</b></div></div>
+      <span class="arw" id="wifiCopy" aria-hidden="true">kopiuj</span>
+    </button>
+
+    <script>
+      (function(){
+        var t=document.getElementById('wifiTile'); if(!t) return;
+        t.addEventListener('click',function(){
+          var pass=document.getElementById('wifiPass').textContent.trim();
+          var badge=document.getElementById('wifiCopy');
+          function done(){ badge.textContent='skopiowano'; setTimeout(function(){badge.textContent='kopiuj';},1500); }
+          if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(pass).then(done).catch(function(){}); }
+        });
+      })();
+    </script>
 
     <a class="tile" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
       <span class="chip"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></span>

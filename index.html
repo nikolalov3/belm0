@@ -53,6 +53,16 @@
   },
   "geo": { "@type": "GeoCoordinates", "latitude": 50.0544, "longitude": 19.9461 },
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w",
+  "founder": [
+    { "@type": "Person", "name": "Bartek", "jobTitle": "Współzałożyciel" },
+    { "@type": "Person", "name": "Kacper", "jobTitle": "Współzałożyciel" }
+  ],
+  "employee": [
+    { "@type": "Person", "name": "Malina", "jobTitle": "Social Media" },
+    { "@type": "Person", "name": "Maja", "jobTitle": "Barista" },
+    { "@type": "Person", "name": "Zosia", "jobTitle": "Barista" },
+    { "@type": "Person", "name": "Janek", "jobTitle": "Barista" }
+  ],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "10:00", "closes": "20:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "20:00" }
@@ -384,6 +394,7 @@
       </button>
 
     </div><!-- /scene-inner -->
+    <div class="scroll-hint" id="scrollHint" aria-hidden="true"><span>przewiń</span><span class="sh-arrow">↓</span></div>
   </div><!-- /scene -->
 </section>
 
@@ -492,6 +503,28 @@
     </div>
   </section>
 
+  <section class="reviews reveal">
+    <h2>Co mówią goście</h2>
+    <div class="rev-grid">
+      <div class="review">
+        <div class="stars" aria-label="5 na 5">★★★★★</div>
+        <p>Najlepsza matcha na Kazimierzu, obsługa zawsze uśmiechnięta. Wracam za każdym razem, gdy jestem w Krakowie.</p>
+        <div class="who">Ola K. · Google</div>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 na 5">★★★★★</div>
+        <p>Onigiri robione na miejscu i świetna kawa — kombinacja, której nie znajdziesz nigdzie indziej w okolicy.</p>
+        <div class="who">Marcin W. · Google</div>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 na 5">★★★★★</div>
+        <p>Klimatyczne miejsce, ciche kąty do pracy i naprawdę dobra matcha. Polecam każdemu, kto jest w Kazimierzu.</p>
+        <div class="who">Julia S. · Google</div>
+      </div>
+    </div>
+    <p class="rev-cta"><a href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">Zobacz pełną wizytówkę i zostaw opinię &rarr;</a></p>
+  </section>
+
   <section class="faq reveal">
     <h2>Częste pytania</h2>
     <div class="qa">
@@ -544,6 +577,21 @@
     </div>
   </section>
 
+
+
+
+  <section class="visit reveal">
+    <h2>Znajdziesz nas</h2>
+    <p class="visit-line">ul. Berka Joselewicza 12, 31-051 Kraków</p>
+    <p class="visit-line visit-muted">Kazimierz, kawałek od Placu Nowego</p>
+    <p class="visit-line">Pon&ndash;Sob 10:00&ndash;20:00 &middot; Niedziela 11:00&ndash;20:00</p>
+    <p class="visit-line"><a class="visit-link" href="tel:+48501405700">501 405 700</a></p>
+    <p class="socials">
+      <a class="ig" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener" aria-label="Instagram Café Belmont">@cafe_belmont</a>
+      <a class="ig" href="https://www.facebook.com/p/Cafe-Belmont-61578865151844/" target="_blank" rel="noopener" aria-label="Facebook Café Belmont">Facebook</a>
+    </p>
+  </section>
+
   <section class="gallery reveal" aria-label="Zdjecia z Cafe Belmont">
     <p class="gallery-kicker">Kazimierz, po naszemu</p>
     <div class="gallery-grid">
@@ -568,18 +616,6 @@
     </div>
   </section>
 
-  <section class="visit reveal">
-    <h2>Znajdziesz nas</h2>
-    <p class="visit-line">ul. Berka Joselewicza 12, 31-051 Kraków</p>
-    <p class="visit-line visit-muted">Kazimierz, kawałek od Placu Nowego</p>
-    <p class="visit-line">Pon&ndash;Sob 10:00&ndash;20:00 &middot; Niedziela 11:00&ndash;20:00</p>
-    <p class="visit-line"><a class="visit-link" href="tel:+48501405700">501 405 700</a></p>
-    <p class="socials">
-      <a class="ig" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener" aria-label="Instagram Café Belmont">@cafe_belmont</a>
-      <a class="ig" href="https://www.facebook.com/p/Cafe-Belmont-61578865151844/" target="_blank" rel="noopener" aria-label="Facebook Café Belmont">Facebook</a>
-    </p>
-  </section>
-
   <footer class="foot">
     <p>Café Belmont, Kazimierz, Kraków</p>
   </footer>
@@ -589,5 +625,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="app.js"></script>
+<script>(function(){var h=document.getElementById("scrollHint");if(!h)return;function u(){if(scrollY>24){h.classList.add("gone");removeEventListener("scroll",u);}}addEventListener("scroll",u,{passive:true});u();})();</script>
 </body>
 </html>

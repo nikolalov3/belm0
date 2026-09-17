@@ -349,6 +349,9 @@ img,svg{display:block;max-width:100%}
   0%,100%{transform:translate(-50%,0)}
   50%{transform:translate(-50%,6px)}
 }
+.scroll-hint{transition:opacity .45s ease}
+.scroll-hint .sh-arrow{font-size:16px;line-height:1;letter-spacing:0}
+.scroll-hint.gone{opacity:0;pointer-events:none}
 
 /* ---------- content ---------- */
 .content{
@@ -561,3 +564,40 @@ img,svg{display:block;max-width:100%}
   [data-time="evening"] .wm-neon{opacity:1}
   [data-time="day"] .wm-neon{opacity:0}
 }
+
+/* ===== nowe sekcje: social proof / opinie / zespół ===== */
+.proof, .reviews, .team{ border-top:1px solid rgba(34,28,28,0.09); margin-top:52px; }
+.reviews h2, .team h2{
+  font-family:var(--font-head); font-weight:500; font-size:23px; letter-spacing:-0.01em; margin:0 0 18px;
+}
+
+/* social proof strip */
+.proof{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; padding:34px 0; text-align:center; }
+.proof .pnum{ font-family:var(--font-head); font-size:32px; font-weight:500; letter-spacing:-.02em; line-height:1; }
+.proof .pcap{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); margin-top:8px; line-height:1.4; }
+@media (max-width:520px){ .proof{ gap:10px; padding:28px 0; } .proof .pnum{ font-size:23px; } }
+
+/* opinie */
+.reviews{ padding:50px 0 8px; }
+.rev-grid{ display:flex; flex-direction:column; gap:12px; }
+.review{ border:1px solid var(--line); border-radius:18px; padding:22px 22px 18px;
+  background:rgba(255,255,255,.45); box-shadow:0 1px 2px rgba(34,28,28,.04), 0 14px 30px -22px rgba(34,28,28,.45); }
+.review .stars{ color:#8fb653; letter-spacing:3px; font-size:14px; }
+.review p{ margin:13px 0 16px; font-size:15px; line-height:1.68; color:var(--ink); }
+.review .who{ display:flex; align-items:center; gap:8px; padding-top:13px; border-top:1px solid var(--line);
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); }
+@media (hover:hover){ .review{ transition:box-shadow .18s ease, transform .18s ease; }
+  .review:hover{ transform:translateY(-2px); box-shadow:0 2px 4px rgba(34,28,28,.05), 0 20px 38px -22px rgba(34,28,28,.5); } }
+.rev-cta{ margin:16px 0 0; font-family:var(--font-mono); font-size:12px; }
+.rev-cta a{ color:var(--red); text-decoration:none; font-weight:500; }
+
+/* zespół */
+.team{ padding:50px 0 8px; }
+.team-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px 14px; margin-top:4px; }
+.member{ display:flex; align-items:center; gap:11px; }
+.member .ava{ width:44px; height:44px; border-radius:50%; flex:none; background:rgba(34,28,28,.05);
+  border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-head); font-weight:500; font-size:16px; }
+.member .m-name{ font-family:var(--font-head); font-weight:500; font-size:15px; }
+.member .m-role{ font-family:var(--font-mono); font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft); margin-top:2px; }
+@media (max-width:520px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
