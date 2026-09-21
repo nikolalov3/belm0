@@ -482,48 +482,46 @@ img,svg{display:block;max-width:100%}
   pointer-events:none;
 }
 .gacc:not(.active):hover img{ transform:scale(1.04); }
-/* gradient + text overlay (visible only when active) */
-.gacc-overlay{
+/* text panel below accordion */
+.grade-info-area{ position:relative; min-height:90px; margin-bottom:22px; }
+.ginfo{
   position:absolute;
-  bottom:0;left:0;right:0;
-  padding:28px 18px 16px;
-  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 65%,transparent 100%);
-  color:#fff;
+  inset:0;
   opacity:0;
-  transform:translateY(6px);
-  transition:opacity .3s ease .15s,transform .3s ease .15s;
+  transform:translateY(5px);
+  transition:opacity .3s ease,transform .3s ease;
   pointer-events:none;
 }
-.gacc.active .gacc-overlay{
+.ginfo.active{
   opacity:1;
   transform:none;
   pointer-events:auto;
+  position:relative;
 }
-.gacc-name{
+.ginfo-name{
   display:block;
   font-family:var(--font-head);
   font-weight:500;
-  font-size:17px;
-  letter-spacing:.03em;
+  font-size:16px;
   margin-bottom:5px;
 }
-.gacc-desc{
-  font-size:13px;
-  line-height:1.55;
-  opacity:.88;
+.ginfo-desc{
+  font-size:14px;
+  line-height:1.65;
+  color:var(--ink-soft);
   margin:0 0 10px;
 }
-.gacc-link{
+.ginfo-link{
   font-family:var(--font-mono);
   font-size:10.5px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#fff;
+  color:var(--red);
   text-decoration:none;
-  border-bottom:1px solid rgba(255,255,255,.55);
+  border-bottom:1px solid rgba(226,31,38,.3);
   padding-bottom:1px;
 }
-.gacc-link:hover{ border-bottom-color:#fff; }
+.ginfo-link:hover{ border-bottom-color:var(--red); }
 /* vertical label on collapsed strips */
 .gacc-label{
   position:absolute;

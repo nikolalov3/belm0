@@ -424,32 +424,34 @@
 
     <h3>Trzy gatunki</h3>
     <div class="grades-acc">
-      <div class="gacc active">
+      <div class="gacc active" data-idx="0">
         <img src="img/asam.webp" alt="Yume Asa" loading="lazy">
         <span class="gacc-label">Yume Asa</span>
-        <div class="gacc-overlay">
-          <strong class="gacc-name">Yume Asa</strong>
-          <p class="gacc-desc">Codzienna, łagodna i czysta. Najlepsza baza pod matcha latte i wersje na zimno.</p>
-          <a class="gacc-link" href="https://yumematcha.pl/produkt/asa-matcha-30g/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
-        </div>
       </div>
-      <div class="gacc">
+      <div class="gacc" data-idx="1">
         <img src="img/hanam.png" alt="Yume Hana" loading="lazy">
         <span class="gacc-label">Yume Hana</span>
-        <div class="gacc-overlay">
-          <strong class="gacc-name">Yume Hana</strong>
-          <p class="gacc-desc">Bardziej wyrazista, z wyższą nutą naturalnej słodyczy. Dla tych, którzy chcą czuć matchę spod mleka.</p>
-          <a class="gacc-link" href="https://yumematcha.pl/produkt/hana-doypack/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
-        </div>
       </div>
-      <div class="gacc">
+      <div class="gacc" data-idx="2">
         <img src="img/hasaam.avif" alt="Yume Hoshi" loading="lazy">
         <span class="gacc-label">Yume Hoshi</span>
-        <div class="gacc-overlay">
-          <strong class="gacc-name">Yume Hoshi</strong>
-          <p class="gacc-desc">Gatunek ceremonialny, gęsty i intensywny. Najlepiej pić ją bez mleka, ubitą na samej wodzie, żeby poczuć pełnię smaku.</p>
-          <a class="gacc-link" href="https://yumematcha.pl/produkt/hoshi/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
-        </div>
+      </div>
+    </div>
+    <div class="grade-info-area">
+      <div class="ginfo active">
+        <strong class="ginfo-name">Yume Asa</strong>
+        <p class="ginfo-desc">Codzienna, łagodna i czysta. Najlepsza baza pod matcha latte i wersje na zimno.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/asa-matcha-30g/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+      </div>
+      <div class="ginfo">
+        <strong class="ginfo-name">Yume Hana</strong>
+        <p class="ginfo-desc">Bardziej wyrazista, z wyższą nutą naturalnej słodyczy. Dla tych, którzy chcą czuć matchę spod mleka.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/hana-doypack/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+      </div>
+      <div class="ginfo">
+        <strong class="ginfo-name">Yume Hoshi</strong>
+        <p class="ginfo-desc">Gatunek ceremonialny, gęsty i intensywny. Najlepiej pić ją bez mleka, ubitą na samej wodzie, żeby poczuć pełnię smaku.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/hoshi/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
       </div>
     </div>
 
@@ -649,11 +651,17 @@
 <script>(function(){var h=document.getElementById("scrollHint");if(!h)return;function u(){if(scrollY>24){h.classList.add("gone");removeEventListener("scroll",u);}}addEventListener("scroll",u,{passive:true});u();})();</script>
 <script>(function(){
   var panels=document.querySelectorAll('.gacc');
-  panels.forEach(function(p){
-    p.addEventListener('click',function(e){
+  var infos=document.querySelectorAll('.ginfo');
+  function activate(i){
+    panels.forEach(function(x){x.classList.remove('active');});
+    infos.forEach(function(x){x.classList.remove('active');});
+    panels[i].classList.add('active');
+    infos[i].classList.add('active');
+  }
+  panels.forEach(function(p,i){
+    p.addEventListener('click',function(){
       if(this.classList.contains('active'))return;
-      panels.forEach(function(x){x.classList.remove('active');});
-      this.classList.add('active');
+      activate(i);
     });
   });
 })();</script>
