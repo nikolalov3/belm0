@@ -551,6 +551,9 @@ img,svg{display:block;max-width:100%}
   letter-spacing:0.02em;
   border-top:1px solid var(--line);
 }
+.foot-rate{margin-top:10px}
+.foot-rate a{color:var(--ink-soft);text-decoration:none;letter-spacing:.08em}
+.foot-rate a:hover{color:var(--ink)}
 
 @media (min-width:620px){
   .wm-name{font-size:32px}
