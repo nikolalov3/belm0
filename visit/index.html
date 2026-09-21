@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Visit Café Belmont · Kazimierz, Kraków</title>
 <meta name="description" content="Café Belmont in Kazimierz — reviews, directions, WiFi, and Instagram.">
-<meta name="theme-color" content="#0A0B0E">
+<meta name="theme-color" content="#E9DFC8">
 <link rel="canonical" href="https://belmont.cafe/visit/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238fb653'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/img/icon-180.png">
@@ -16,38 +16,41 @@
 <script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
 <style>
   :root {
-    --bg: #0A0B0E;
-    --tile: rgba(255,255,255,.046);
-    --ink: #ECEAE3;
-    --accent: #89BF2A;
-    --muted: rgba(236,234,227,.4);
-    --line: rgba(236,234,227,.1);
-    --line-strong: rgba(236,234,227,.2);
+    --bg: #E9DFC8;
+    --tile: rgba(22,16,4,.055);
+    --ink: #1C1710;
+    --accent: #567D1A;
+    --muted: rgba(28,23,16,.44);
+    --line: rgba(28,23,16,.13);
+    --line-strong: rgba(28,23,16,.26);
     --radius: 3px;
     --font: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
-    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.038'/%3E%3C/svg%3E");
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
   }
 
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #EBEBЕ6;
-      --tile: rgba(0,0,0,.042);
-      --ink: #0D0F12;
-      --muted: rgba(13,15,18,.42);
-      --line: rgba(13,15,18,.1);
-      --line-strong: rgba(13,15,18,.2);
-      --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.02'/%3E%3C/svg%3E");
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141210;
+      --tile: rgba(255,255,255,.046);
+      --ink: #EAE4D6;
+      --accent: #85B826;
+      --muted: rgba(234,228,214,.42);
+      --line: rgba(234,228,214,.11);
+      --line-strong: rgba(234,228,214,.22);
+      --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
     }
   }
 
   :root[data-theme="dark"] {
-    --bg: #0A0B0E;
+    --bg: #141210;
     --tile: rgba(255,255,255,.046);
-    --ink: #ECEAE3;
-    --muted: rgba(236,234,227,.4);
-    --line: rgba(236,234,227,.1);
-    --line-strong: rgba(236,234,227,.2);
+    --ink: #EAE4D6;
+    --accent: #85B826;
+    --muted: rgba(234,228,214,.42);
+    --line: rgba(234,228,214,.11);
+    --line-strong: rgba(234,228,214,.22);
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -156,10 +159,10 @@
 
   .tile:active { transform: scale(.99); }
 
-  /* Brand color left borders for review tiles */
-  .tile-google { border-left: 2px solid #4285F4; border-radius: 0 var(--radius) var(--radius) 0; }
-  .tile-ta     { border-left: 2px solid #00AA6C; border-radius: 0 var(--radius) var(--radius) 0; }
-  .tile-apple  { border-left: 2px solid #FF3B30; border-radius: 0 var(--radius) var(--radius) 0; }
+  /* Brand color left accent via inset shadow — keeps uniform border-radius */
+  .tile-google { box-shadow: inset 3px 0 0 #4285F4; }
+  .tile-ta     { box-shadow: inset 3px 0 0 #00AA6C; }
+  .tile-apple  { box-shadow: inset 3px 0 0 #FF3B30; }
 
   /* Logo icons */
   .tile-ico { flex: none; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
@@ -268,8 +271,10 @@
 
     <a class="tile tile-apple" href="https://maps.apple.com/place?place-id=I53E928FE9A7B0A5D" target="_blank" rel="noopener" data-toodip="apple-maps">
       <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 2.5C8.96 2.5 6.5 5 6.5 8.1c0 4.6 5.5 11.4 5.5 11.4S17.5 12.7 17.5 8.1C17.5 5 15.04 2.5 12 2.5Z" fill="#FF3B30"/>
-        <circle cx="12" cy="8.1" r="2.1" fill="white"/>
+        <!-- Apple Maps app icon style: rounded square + pin -->
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FF3B30"/>
+        <path d="M12 6C10.07 6 8.5 7.57 8.5 9.5c0 2.8 3.5 7.5 3.5 7.5s3.5-4.7 3.5-7.5C15.5 7.57 13.93 6 12 6Z" fill="white"/>
+        <circle cx="12" cy="9.5" r="1.4" fill="#FF3B30"/>
       </svg></span>
       <span class="tile-lbl">Apple Maps</span>
       <span class="tile-right">→</span>
