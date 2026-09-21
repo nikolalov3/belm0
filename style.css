@@ -387,7 +387,7 @@ img,svg{display:block;max-width:100%}
   font-family:var(--font-head);
   font-weight:500;
   font-size:20px;
-  letter-spacing:.03em;
+  letter-spacing:-.02em;
   text-transform:uppercase;
   margin:0 0 14px;
 }
@@ -438,7 +438,7 @@ img,svg{display:block;max-width:100%}
   font-weight:500;
   font-size:20px;
   line-height:1.18;
-  letter-spacing:.03em;
+  letter-spacing:-.02em;
   text-transform:uppercase;
   margin:0;
 }
@@ -549,7 +549,7 @@ img,svg{display:block;max-width:100%}
   font-family:var(--font-head);
   font-weight:500;
   font-size:20px;
-  letter-spacing:.03em;
+  letter-spacing:-.02em;
   text-transform:uppercase;
   margin:0 0 18px;
 }
@@ -660,7 +660,7 @@ img,svg{display:block;max-width:100%}
 /* ===== nowe sekcje: social proof / opinie / zespół ===== */
 .proof, .reviews, .team{ border-top:1px solid rgba(34,28,28,0.09); margin-top:52px; }
 .reviews h2, .team h2{
-  font-family:var(--font-head); font-weight:500; font-size:20px; letter-spacing:.03em; text-transform:uppercase; margin:0 0 18px;
+  font-family:var(--font-head); font-weight:500; font-size:20px; letter-spacing:-.02em; text-transform:uppercase; margin:0 0 18px;
 }
 
 /* social proof strip */
