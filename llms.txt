@@ -18,7 +18,7 @@ oraz proste japońskie jedzenie: onigiri i zestawy śniadaniowe do 12:00.
 
 ## Wizyta
 - Adres: ul. Berka Joselewicza 12, 31-051 Kraków (Kazimierz)
-- Godziny: pon–sob 10:00–20:00, niedziela 11:00–20:00
+- Godziny: pon–niedz 9:00–19:00
 - Telefon: +48 501 405 700
 - Mapa: https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w
 
