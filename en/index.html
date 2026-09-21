@@ -33,8 +33,10 @@
 {
   "@context": "https://schema.org",
   "@type": "CafeOrCoffeeShop",
+  "@id": "https://belmont.cafe/#business",
+  "mainEntityOfPage": "https://belmont.cafe/en/",
   "name": "Café Belmont",
-  "description": "A matcha bar and specialty coffee shop in Kazimierz, Kraków. Yume matcha as latte, iced and matcha tonic, specialty coffee and onigiri.",
+  "description": "A matcha bar and specialty coffee shop in Kazimierz, Kraków, a short walk from Plac Nowy and close to the city centre. Yume matcha as latte, iced and matcha tonic, specialty coffee and onigiri.",
   "url": "https://belmont.cafe",
   "telephone": "+48501405700",
   "email": "cafebelmontkrk@gmail.com",
@@ -43,6 +45,13 @@
   "image": "https://belmont.cafe/img/wall/10Belmont.jpg",
   "servesCuisine": ["Matcha", "Specialty coffee", "Onigiri"],
   "knowsAbout": ["Matcha", "Ceremonial matcha", "Yume matcha", "Specialty coffee", "Onigiri"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "436",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "ul. Berka Joselewicza 12",
@@ -51,7 +60,12 @@
     "addressRegion": "Kazimierz",
     "addressCountry": "PL"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 50.0544, "longitude": 19.9461 },
+  "areaServed": [
+    { "@type": "Place", "name": "Kazimierz, Kraków" },
+    { "@type": "Place", "name": "Old Town, Kraków" },
+    { "@type": "Place", "name": "Kraków city centre" }
+  ],
+  "geo": { "@type": "GeoCoordinates", "latitude": 50.0544581, "longitude": 19.9460358 },
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w",
   "founder": [
     { "@type": "Person", "name": "Bartek", "jobTitle": "Co-founder" },
@@ -68,6 +82,7 @@
   ],
   "hasMenu": {
     "@type": "Menu",
+    "@id": "https://belmont.cafe/#menu",
     "inLanguage": "en",
     "hasMenuSection": [
       { "@type": "MenuSection", "name": "Matcha", "hasMenuItem": [
@@ -102,7 +117,7 @@
       ] }
     ]
   },
-  "sameAs": ["https://instagram.com/cafe_belmont", "https://www.facebook.com/p/Cafe-Belmont-61578865151844/"]
+  "sameAs": ["https://instagram.com/cafe_belmont", "https://www.facebook.com/p/Cafe-Belmont-61578865151844/", "https://maps.google.com/?cid=15239785840468434850"]
 }
 </script>
 
@@ -114,6 +129,9 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://belmont.cafe/#faq",
+  "inLanguage": "en",
+  "about": { "@id": "https://belmont.cafe/#business" },
   "mainEntity": [
     {
       "@type": "Question",
