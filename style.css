@@ -450,7 +450,7 @@ img,svg{display:block;max-width:100%}
   letter-spacing:0.2em;
   text-transform:uppercase;
   color:var(--red);
-  margin:24px 0 8px;
+  margin:40px 0 20px;
 }
 /* ---- grades accordion ---- */
 .grades-acc{

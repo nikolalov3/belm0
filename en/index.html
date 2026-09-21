@@ -423,14 +423,37 @@
     <p>Yume is our own matcha brand. We run it together with Café Belmont and bring it straight from Kyoto, Japan. The same matcha you drink here in a cup you can buy for home from the <a class="yume-link" href="https://yumematcha.pl" target="_blank" rel="noopener">Yume shop</a>.</p>
 
     <h3>Three grades</h3>
-    <dl class="grades">
-      <dt>Yume Asa</dt>
-      <dd>Everyday, mild and clean. The best base for a matcha latte and iced versions.</dd>
-      <dt>Yume Hana</dt>
-      <dd>More expressive, with a higher note of natural sweetness. For those who want to taste the matcha through the milk.</dd>
-      <dt>Yume Hoshi</dt>
-      <dd>The ceremonial grade, thick and intense. Best drunk without milk, whisked on water alone, to feel the full taste.</dd>
-    </dl>
+    <div class="grades-acc">
+      <div class="gacc active" data-idx="0">
+        <img src="../img/asam.webp" alt="Yume Asa" loading="lazy">
+        <span class="gacc-label">Yume Asa</span>
+      </div>
+      <div class="gacc" data-idx="1">
+        <img src="../img/hanam.png" alt="Yume Hana" loading="lazy">
+        <span class="gacc-label">Yume Hana</span>
+      </div>
+      <div class="gacc" data-idx="2">
+        <img src="../img/hasaam.avif" alt="Yume Hoshi" loading="lazy">
+        <span class="gacc-label">Yume Hoshi</span>
+      </div>
+    </div>
+    <div class="grade-info-area">
+      <div class="ginfo active">
+        <strong class="ginfo-name">Yume Asa</strong>
+        <p class="ginfo-desc">Everyday, mild and clean. The best base for a matcha latte and iced versions.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/asa-matcha-30g/" target="_blank" rel="noopener">Learn more →</a>
+      </div>
+      <div class="ginfo">
+        <strong class="ginfo-name">Yume Hana</strong>
+        <p class="ginfo-desc">More expressive, with a higher note of natural sweetness. For those who want to taste the matcha through the milk.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/hana-doypack/" target="_blank" rel="noopener">Learn more →</a>
+      </div>
+      <div class="ginfo">
+        <strong class="ginfo-name">Yume Hoshi</strong>
+        <p class="ginfo-desc">The ceremonial grade, thick and intense. Best drunk without milk, whisked on water alone, to feel the full taste.</p>
+        <a class="ginfo-link" href="https://yumematcha.pl/produkt/hoshi/" target="_blank" rel="noopener">Learn more →</a>
+      </div>
+    </div>
 
     <details class="more">
       <summary>What ceremonial matcha is</summary>
@@ -626,5 +649,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="../app.js"></script>
 <script>(function(){var h=document.getElementById("scrollHint");if(!h)return;function u(){if(scrollY>24){h.classList.add("gone");removeEventListener("scroll",u);}}addEventListener("scroll",u,{passive:true});u();})();</script>
+<script>(function(){
+  var panels=document.querySelectorAll('.gacc');
+  var infos=document.querySelectorAll('.ginfo');
+  function activate(i){
+    panels.forEach(function(x){x.classList.remove('active');});
+    infos.forEach(function(x){x.classList.remove('active');});
+    panels[i].classList.add('active');
+    infos[i].classList.add('active');
+  }
+  panels.forEach(function(p,i){
+    p.addEventListener('click',function(){
+      if(this.classList.contains('active'))return;
+      activate(i);
+    });
+  });
+})();</script>
 </body>
 </html>
