@@ -5,83 +5,287 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Odwiedź Café Belmont | Kazimierz, Kraków</title>
 <meta name="description" content="Café Belmont na Kazimierzu: opinie, dojazd, WiFi i Instagram — wszystko w jednym miejscu.">
-<meta name="theme-color" content="#EFE5D9">
+<meta name="theme-color" content="#EDEEE9">
 <link rel="canonical" href="https://belmont.cafe/visit/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238fb653'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/img/icon-180.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
 <style>
-  :root{
-    --bg:#EFE5D9; --ink:#221C1C; --red:#E21F26; --green:#7a9e42;
-    --tile:#FBF7EF; --line:rgba(34,28,28,.09); --muted:rgba(34,28,28,.5); --chip:rgba(34,28,28,.055);
-    --font:"Helvetica Neue LT Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --mono:"Suisse Int'l Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-    --shadow:0 1px 2px rgba(34,28,28,.05), 0 10px 26px -16px rgba(34,28,28,.35);
-    --shadow-hi:0 2px 4px rgba(34,28,28,.06), 0 16px 34px -14px rgba(34,28,28,.42);
+  :root {
+    --bg: #EDEEE9;
+    --surface: #F6F7F3;
+    --ink: #191B17;
+    --green: #5C8924;
+    --green-tint: rgba(92,137,36,.08);
+    --green-border: rgba(92,137,36,.32);
+    --muted: rgba(25,27,23,.46);
+    --line: rgba(25,27,23,.09);
+    --line-hover: rgba(25,27,23,.18);
+    --chip: rgba(25,27,23,.065);
+    --shadow-hover: 0 2px 8px rgba(25,27,23,.07), 0 12px 28px rgba(25,27,23,.09);
+    --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
   }
-  *{box-sizing:border-box}
-  body{margin:0;color:var(--ink);font:16px/1.5 var(--font);-webkit-font-smoothing:antialiased;
-    background:
-      radial-gradient(120% 70% at 50% -8%, #F6EDE0 0%, var(--bg) 46%),
-      var(--bg);
-    min-height:100vh}
-  .wrap{max-width:440px;margin:0 auto;padding:46px 22px 60px}
 
-  .head{text-align:center;margin-bottom:30px}
-  .wm{font-size:21px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;display:inline-block}
-  .rule{width:34px;height:2px;background:var(--green);border-radius:2px;margin:13px auto 0;opacity:.85}
-  .meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:15px;line-height:1.85;letter-spacing:.01em}
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131513;
+      --surface: #1B1D1A;
+      --ink: #E0E3D8;
+      --green: #78A934;
+      --green-tint: rgba(120,169,52,.09);
+      --green-border: rgba(120,169,52,.3);
+      --muted: rgba(224,227,216,.46);
+      --line: rgba(224,227,216,.1);
+      --line-hover: rgba(224,227,216,.2);
+      --chip: rgba(224,227,216,.08);
+      --shadow-hover: 0 2px 8px rgba(0,0,0,.3), 0 12px 28px rgba(0,0,0,.4);
+    }
+  }
 
-  .tiles{display:flex;flex-direction:column;gap:12px}
-  .tile{display:flex;align-items:center;gap:15px;background:var(--tile);border:1px solid var(--line);
-    border-radius:20px;padding:15px 17px;color:var(--ink);text-decoration:none;box-shadow:var(--shadow);
-    opacity:0;transform:translateY(9px);animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
-    transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
-  @media(hover:hover){ .tile:hover{transform:translateY(-2px);box-shadow:var(--shadow-hi);border-color:rgba(34,28,28,.16)} }
-  .tile:active{transform:translateY(0) scale(.99)}
-  .tile:nth-child(1){animation-delay:.04s}
-  .tile:nth-child(2){animation-delay:.10s}
-  .tile:nth-child(3){animation-delay:.16s}
-  .tile:nth-child(4){animation-delay:.22s}
-  .tile:nth-child(5){animation-delay:.28s}
+  :root[data-theme="dark"] {
+    --bg: #131513;
+    --surface: #1B1D1A;
+    --ink: #E0E3D8;
+    --green: #78A934;
+    --green-tint: rgba(120,169,52,.09);
+    --green-border: rgba(120,169,52,.3);
+    --muted: rgba(224,227,216,.46);
+    --line: rgba(224,227,216,.1);
+    --line-hover: rgba(224,227,216,.2);
+    --chip: rgba(224,227,216,.08);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,.3), 0 12px 28px rgba(0,0,0,.4);
+  }
 
-  .chip{width:44px;height:44px;flex:none;border-radius:13px;background:var(--chip);
-    display:flex;align-items:center;justify-content:center}
-  .chip svg{width:22px;height:22px;stroke:var(--ink);stroke-width:1.7;fill:none}
-  .tx{min-width:0;flex:1}
-  .t{font-weight:600;font-size:15.5px;letter-spacing:-.01em}
-  .s{font-size:12.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .arw{color:var(--muted);font-size:18px;flex:none;transition:transform .16s ease}
-  @media(hover:hover){ .tile:hover .arw{transform:translateX(3px)} }
+  *, *::before, *::after { box-sizing: border-box; }
 
-  /* akcent: oceń w Google — cieplejszy, matcha */
-  .tile.accent{background:linear-gradient(180deg,rgba(143,182,83,.07),var(--tile));border-color:rgba(143,182,83,.28)}
-  .tile.accent .chip{background:rgba(143,182,83,.16)}
-  .tile.accent .chip svg{stroke:var(--green)}
-  .tile.wifi{font:inherit;text-align:left;width:100%;cursor:pointer;-webkit-appearance:none;appearance:none}
-  .tile.wifi .s b{font-family:var(--mono);color:var(--ink);letter-spacing:.03em}
-  #wifiCopy{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
 
-  .foot{text-align:center;margin-top:28px}
-  .foot a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}
-  .foot a:hover{color:var(--ink)}
+  .wrap {
+    max-width: 420px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 52px 64px;
+  }
 
-  @media(prefers-reduced-motion:reduce){ .tile{animation:none;opacity:1;transform:none} }
-  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  /* ── Header ── */
+  .head {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  .logo-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .wordmark {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -.03em;
+    line-height: 1.1;
+  }
+
+  .rule {
+    width: 26px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+    margin: 14px auto 15px;
+    opacity: .9;
+  }
+
+  .meta {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: .025em;
+    line-height: 1.85;
+  }
+
+  /* ── Tiles ── */
+  .tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .tile {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 17px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: rise .44s cubic-bezier(.22,.8,.28,1) forwards;
+    transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  @media (hover: hover) {
+    .tile:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--line-hover);
+    }
+    .tile:hover .arw { transform: translateX(3px); }
+  }
+
+  .tile:active { transform: scale(.985) translateY(0); }
+
+  .tile:nth-child(1) { animation-delay: .04s }
+  .tile:nth-child(2) { animation-delay: .10s }
+  .tile:nth-child(3) { animation-delay: .16s }
+  .tile:nth-child(4) { animation-delay: .22s }
+  .tile:nth-child(5) { animation-delay: .28s }
+
+  /* Primary: Google review */
+  .tile.primary {
+    background: var(--green-tint);
+    border-color: var(--green-border);
+    box-shadow: inset 4px 0 0 var(--green);
+    border-radius: 0 17px 17px 0;
+  }
+
+  @media (hover: hover) {
+    .tile.primary:hover { border-color: var(--green); }
+  }
+
+  /* Chip */
+  .chip {
+    width: 42px;
+    height: 42px;
+    flex: none;
+    border-radius: 11px;
+    background: var(--chip);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tile.primary .chip { background: rgba(92,137,36,.14); }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tile.primary .chip { background: rgba(120,169,52,.14); }
+  }
+  :root[data-theme="dark"] .tile.primary .chip { background: rgba(120,169,52,.14); }
+
+  .chip svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--ink);
+    stroke-width: 1.65;
+    fill: none;
+  }
+
+  .tile.primary .chip svg { stroke: var(--green); }
+
+  /* Text content */
+  .tx { min-width: 0; flex: 1; }
+
+  .t {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 1.25;
+  }
+
+  .s {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tile.primary .t { color: var(--green); }
+
+  /* Arrow */
+  .arw {
+    color: var(--muted);
+    font-size: 15px;
+    flex: none;
+    transition: transform .14s ease;
+  }
+
+  #wifiCopy {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .s b {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: .04em;
+  }
+
+  /* Footer */
+  .foot {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .foot a {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .14s ease;
+  }
+
+  .foot a:hover { color: var(--ink); }
+
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tile { animation: none; opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="head">
-    <a class="wm" href="/">Café Belmont</a>
+  <header class="head">
+    <a class="logo-link" href="/"><div class="wordmark">Café Belmont</div></a>
     <div class="rule"></div>
-    <div class="meta">ul. Berka Joselewicza 12 · Kazimierz<br>Pon–Sob 10–20 · Niedziela 11–20</div>
-  </div>
+    <div class="meta">ul. Berka Joselewicza 12 · Kazimierz<br>Pon–Nd 9:00–19:00</div>
+  </header>
 
   <div class="tiles">
-    <a class="tile accent" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
+
+    <a class="tile primary" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 17.3l-5.4 3.1 1.4-6.1L3.3 10l6.2-.5L12 4l2.5 5.5 6.2.5-4.7 4.3 1.4 6.1z"/></svg></span>
       <div class="tx"><div class="t">Oceń nas w Google</div><div class="s">Twoja opinia wiele dla nas znaczy</div></div>
       <span class="arw">→</span>
@@ -95,37 +299,39 @@
 
     <a class="tile" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="directions">
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.5-6.5-10.5A6.5 6.5 0 0 1 18.5 10.5C18.5 15.5 12 21 12 21Z"/><circle cx="12" cy="10.5" r="2.3"/></svg></span>
-      <div class="tx"><div class="t">Dojazd</div><div class="s">ul. Berka Joselewicza 12</div></div>
+      <div class="tx"><div class="t">Dojazd</div><div class="s">ul. Berka Joselewicza 12, Kraków</div></div>
       <span class="arw">→</span>
     </a>
 
-    <button class="tile wifi" type="button" id="wifiTile" data-toodip="wifi">
+    <button class="tile" type="button" id="wifiTile" data-toodip="wifi">
       <span class="chip"><svg viewBox="0 0 24 24"><path d="M2 8.5a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0M8 15.5a5 5 0 0 1 8 0"/><circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"/></svg></span>
       <div class="tx"><div class="t">WiFi</div><div class="s">Hasło: <b id="wifiPass">Belmont2026</b></div></div>
-      <span class="arw" id="wifiCopy" aria-hidden="true">kopiuj</span>
+      <span class="arw" id="wifiCopy" aria-hidden="true">Kopiuj</span>
     </button>
-
-    <script>
-      (function(){
-        var t=document.getElementById('wifiTile'); if(!t) return;
-        t.addEventListener('click',function(){
-          var pass=document.getElementById('wifiPass').textContent.trim();
-          var badge=document.getElementById('wifiCopy');
-          function done(){ badge.textContent='skopiowano'; setTimeout(function(){badge.textContent='kopiuj';},1500); }
-          if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(pass).then(done).catch(function(){}); }
-        });
-      })();
-    </script>
 
     <a class="tile" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
       <span class="chip"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg></span>
       <div class="tx"><div class="t">Instagram</div><div class="s">@cafe_belmont</div></div>
       <span class="arw">→</span>
     </a>
+
   </div>
 
   <div class="foot"><a href="/#menu">Zobacz menu →</a></div>
 
 </div>
+<script>
+  (function(){
+    var t = document.getElementById('wifiTile'); if (!t) return;
+    t.addEventListener('click', function(){
+      var pass = document.getElementById('wifiPass').textContent.trim();
+      var badge = document.getElementById('wifiCopy');
+      function done(){ badge.textContent = 'Skopiowano'; setTimeout(function(){ badge.textContent = 'Kopiuj'; }, 1500); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pass).then(done).catch(function(){});
+      }
+    });
+  })();
+</script>
 </body>
 </html>
