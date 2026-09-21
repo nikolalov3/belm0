@@ -423,14 +423,35 @@
     <p>Yume to nasza własna marka matchy. Prowadzimy ją razem z Café Belmont i sprowadzamy prosto z Kioto w Japonii. Tę samą matchę pijesz u nas w kubku i kupisz do domu w <a class="yume-link" href="https://yumematcha.pl" target="_blank" rel="noopener">sklepie Yume</a>.</p>
 
     <h3>Trzy gatunki</h3>
-    <dl class="grades">
-      <dt>Yume Asa</dt>
-      <dd>Codzienna, łagodna i czysta. Najlepsza baza pod matcha latte i wersje na zimno.</dd>
-      <dt>Yume Hana</dt>
-      <dd>Bardziej wyrazista, z wyższą nutą naturalnej słodyczy. Dla tych, którzy chcą czuć matchę spod mleka.</dd>
-      <dt>Yume Hoshi</dt>
-      <dd>Gatunek ceremonialny, gęsty i intensywny. Najlepiej pić ją bez mleka, ubitą na samej wodzie, żeby poczuć pełnię smaku.</dd>
-    </dl>
+    <div class="grades-acc">
+      <div class="gacc active">
+        <img src="img/asam.webp" alt="Yume Asa" loading="lazy">
+        <span class="gacc-label">Yume Asa</span>
+        <div class="gacc-overlay">
+          <strong class="gacc-name">Yume Asa</strong>
+          <p class="gacc-desc">Codzienna, łagodna i czysta. Najlepsza baza pod matcha latte i wersje na zimno.</p>
+          <a class="gacc-link" href="https://yumematcha.pl/produkt/asa-matcha-30g/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+        </div>
+      </div>
+      <div class="gacc">
+        <img src="img/hanam.png" alt="Yume Hana" loading="lazy">
+        <span class="gacc-label">Yume Hana</span>
+        <div class="gacc-overlay">
+          <strong class="gacc-name">Yume Hana</strong>
+          <p class="gacc-desc">Bardziej wyrazista, z wyższą nutą naturalnej słodyczy. Dla tych, którzy chcą czuć matchę spod mleka.</p>
+          <a class="gacc-link" href="https://yumematcha.pl/produkt/hana-doypack/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+        </div>
+      </div>
+      <div class="gacc">
+        <img src="img/hasaam.avif" alt="Yume Hoshi" loading="lazy">
+        <span class="gacc-label">Yume Hoshi</span>
+        <div class="gacc-overlay">
+          <strong class="gacc-name">Yume Hoshi</strong>
+          <p class="gacc-desc">Gatunek ceremonialny, gęsty i intensywny. Najlepiej pić ją bez mleka, ubitą na samej wodzie, żeby poczuć pełnię smaku.</p>
+          <a class="gacc-link" href="https://yumematcha.pl/produkt/hoshi/" target="_blank" rel="noopener">Dowiedz się więcej →</a>
+        </div>
+      </div>
+    </div>
 
     <details class="more">
       <summary>Czym jest matcha ceremonialna</summary>
@@ -626,5 +647,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="app.js"></script>
 <script>(function(){var h=document.getElementById("scrollHint");if(!h)return;function u(){if(scrollY>24){h.classList.add("gone");removeEventListener("scroll",u);}}addEventListener("scroll",u,{passive:true});u();})();</script>
+<script>(function(){
+  var panels=document.querySelectorAll('.gacc');
+  panels.forEach(function(p){
+    p.addEventListener('click',function(e){
+      if(this.classList.contains('active'))return;
+      panels.forEach(function(x){x.classList.remove('active');});
+      this.classList.add('active');
+    });
+  });
+})();</script>
 </body>
 </html>

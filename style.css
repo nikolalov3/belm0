@@ -386,8 +386,9 @@ img,svg{display:block;max-width:100%}
 .about h2{
   font-family:var(--font-head);
   font-weight:500;
-  font-size:23px;
-  letter-spacing:-0.01em;
+  font-size:20px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   margin:0 0 14px;
 }
 .about p{
@@ -435,9 +436,10 @@ img,svg{display:block;max-width:100%}
 .yume h2{
   font-family:var(--font-head);
   font-weight:500;
-  font-size:23px;
+  font-size:20px;
   line-height:1.18;
-  letter-spacing:-0.01em;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   margin:0;
 }
 .yume p{ font-size:15px; line-height:1.82; color:var(--ink); margin:0 0 18px; }
@@ -450,18 +452,107 @@ img,svg{display:block;max-width:100%}
   color:var(--red);
   margin:24px 0 8px;
 }
-.grades{ margin:0 0 22px; }
-.grades dt{ font-family:var(--font-head); font-weight:500; font-size:15px; margin-top:18px; }
-.grades dd{ margin:4px 0 0; font-size:14px; line-height:1.7; color:var(--ink-soft); }
+/* ---- grades accordion ---- */
+.grades-acc{
+  display:flex;
+  height:320px;
+  gap:4px;
+  margin:0 0 22px;
+  overflow:hidden;
+}
+.gacc{
+  position:relative;
+  flex:0.55;
+  overflow:hidden;
+  cursor:pointer;
+  transition:flex .5s cubic-bezier(.4,0,.2,1);
+}
+.gacc.active{
+  flex:5;
+  cursor:default;
+}
+.gacc img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .5s ease;
+  pointer-events:none;
+}
+.gacc:not(.active):hover img{ transform:scale(1.04); }
+/* gradient + text overlay (visible only when active) */
+.gacc-overlay{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:28px 18px 16px;
+  background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 65%,transparent 100%);
+  color:#fff;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .3s ease .15s,transform .3s ease .15s;
+  pointer-events:none;
+}
+.gacc.active .gacc-overlay{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+.gacc-name{
+  display:block;
+  font-family:var(--font-head);
+  font-weight:500;
+  font-size:17px;
+  letter-spacing:.03em;
+  margin-bottom:5px;
+}
+.gacc-desc{
+  font-size:13px;
+  line-height:1.55;
+  opacity:.88;
+  margin:0 0 10px;
+}
+.gacc-link{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#fff;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.55);
+  padding-bottom:1px;
+}
+.gacc-link:hover{ border-bottom-color:#fff; }
+/* vertical label on collapsed strips */
+.gacc-label{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-family:var(--font-mono);
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.85);
+  pointer-events:none;
+  transition:opacity .25s ease;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+}
+.gacc.active .gacc-label{ opacity:0; }
 .yume-link{ color:var(--red); text-decoration:none; font-weight:500; border-bottom:1px solid rgba(226,31,38,0.32); }
 .yume-link:hover{ border-bottom-color:var(--red); }
 
 .menu{padding:50px 0 28px}
-.menu h2, .visit h2{
+.menu h2, .visit h2, .faq h2, .faq-section h2{
   font-family:var(--font-head);
   font-weight:500;
-  font-size:23px;
-  letter-spacing:-0.01em;
+  font-size:20px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   margin:0 0 18px;
 }
 .menu-group{margin-bottom:36px}
@@ -571,7 +662,7 @@ img,svg{display:block;max-width:100%}
 /* ===== nowe sekcje: social proof / opinie / zespół ===== */
 .proof, .reviews, .team{ border-top:1px solid rgba(34,28,28,0.09); margin-top:52px; }
 .reviews h2, .team h2{
-  font-family:var(--font-head); font-weight:500; font-size:23px; letter-spacing:-0.01em; margin:0 0 18px;
+  font-family:var(--font-head); font-weight:500; font-size:20px; letter-spacing:.08em; text-transform:uppercase; margin:0 0 18px;
 }
 
 /* social proof strip */
