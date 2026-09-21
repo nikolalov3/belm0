@@ -652,18 +652,23 @@
 <script>(function(){
   var panels=document.querySelectorAll('.gacc');
   var infos=document.querySelectorAll('.ginfo');
-  function activate(i){
+  var cur=0, timer;
+  function activate(i,manual){
+    cur=i;
     panels.forEach(function(x){x.classList.remove('active');});
     infos.forEach(function(x){x.classList.remove('active');});
     panels[i].classList.add('active');
     infos[i].classList.add('active');
+    if(manual){ clearInterval(timer); timer=setInterval(next,5000); }
   }
+  function next(){ activate((cur+1)%panels.length,false); }
   panels.forEach(function(p,i){
     p.addEventListener('click',function(){
       if(this.classList.contains('active'))return;
-      activate(i);
+      activate(i,true);
     });
   });
+  timer=setInterval(next,5000);
 })();</script>
 </body>
 </html>
