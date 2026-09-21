@@ -5,60 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Visit Café Belmont · Kazimierz, Kraków</title>
 <meta name="description" content="Café Belmont in Kazimierz — reviews, directions, WiFi, and Instagram.">
-<meta name="theme-color" content="#F0F0EB">
+<meta name="theme-color" content="#0A0B0E">
 <link rel="canonical" href="https://belmont.cafe/visit/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238fb653'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/img/icon-180.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400&family=DM+Sans:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
 <script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
 <style>
   :root {
-    --bg: #F0F0EB;
-    --ink: #1A1917;
-    --accent: #5E8620;
-    --muted: rgba(26,25,23,.42);
-    --line: rgba(26,25,23,.11);
-    --line-hover: rgba(26,25,23,.24);
-    --hover-fill: rgba(26,25,23,.04);
-    --font-display: 'EB Garamond', Georgia, 'Times New Roman', serif;
-    --font: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --bg: #0A0B0E;
+    --tile: rgba(255,255,255,.045);
+    --ink: #ECEAE3;
+    --accent: #89BF2A;
+    --muted: rgba(236,234,227,.42);
+    --line: rgba(236,234,227,.1);
+    --line-hover: rgba(236,234,227,.22);
+    --tile-hover: rgba(255,255,255,.08);
+    --radius: 3px;
+    --font: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.038'/%3E%3C/svg%3E");
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #111110;
-      --ink: #E4E0D6;
-      --accent: #7DAB2C;
-      --muted: rgba(228,224,214,.42);
-      --line: rgba(228,224,214,.12);
-      --line-hover: rgba(228,224,214,.26);
-      --hover-fill: rgba(228,224,214,.05);
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #EDECE7;
+      --tile: rgba(0,0,0,.04);
+      --ink: #0D0F12;
+      --muted: rgba(13,15,18,.44);
+      --line: rgba(13,15,18,.1);
+      --line-hover: rgba(13,15,18,.22);
+      --tile-hover: rgba(0,0,0,.07);
+      --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.022'/%3E%3C/svg%3E");
     }
   }
 
-  :root[data-theme="dark"] {
-    --bg: #111110;
-    --ink: #E4E0D6;
-    --accent: #7DAB2C;
-    --muted: rgba(228,224,214,.42);
-    --line: rgba(228,224,214,.12);
-    --line-hover: rgba(228,224,214,.26);
-    --hover-fill: rgba(228,224,214,.05);
+  :root[data-theme="light"] {
+    --bg: #EDECE7;
+    --tile: rgba(0,0,0,.04);
+    --ink: #0D0F12;
+    --muted: rgba(13,15,18,.44);
+    --line: rgba(13,15,18,.1);
+    --line-hover: rgba(13,15,18,.22);
+    --tile-hover: rgba(0,0,0,.07);
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='.022'/%3E%3C/svg%3E");
   }
 
   *, *::before, *::after { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: var(--noise);
+    background-size: 256px 256px;
     color: var(--ink);
     font-family: var(--font);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
@@ -66,62 +72,70 @@
   .wrap {
     max-width: 400px;
     margin: 0 auto;
-    padding-inline: 24px;
-    padding-block: 60px 80px;
+    padding-inline: 22px;
+    padding-block: 54px 72px;
   }
 
-  /* ── Header ── */
+  /* ── Header / Logo ── */
   .head {
     text-align: center;
-    margin-bottom: 56px;
+    margin-bottom: 52px;
   }
 
-  .logo-link {
+  .logo-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
     text-decoration: none;
     color: var(--ink);
-    display: inline-block;
+  }
+
+  .logo-lockup img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: block;
+    flex: none;
   }
 
   .wordmark {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: .01em;
-    line-height: 1.1;
-  }
-
-  .rule {
-    width: 20px;
-    height: 1px;
-    background: var(--accent);
-    margin: 18px auto 20px;
-    opacity: .65;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
   }
 
   .meta {
-    font-size: 12px;
+    margin-top: 14px;
+    font-size: 11.5px;
     font-weight: 400;
     color: var(--muted);
-    line-height: 2;
-    letter-spacing: .025em;
+    letter-spacing: .04em;
+    line-height: 1.9;
   }
 
-  /* ── Section label with rule ── */
-  section { margin-bottom: 44px; }
+  /* ── Section label ── */
+  section { margin-bottom: 36px; }
   section:last-of-type { margin-bottom: 0; }
 
   .lbl {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 11px;
+    margin-bottom: 14px;
+  }
+
+  .lbl::before {
+    content: '—';
+    color: var(--accent);
+    font-size: 13px;
+    flex: none;
   }
 
   .lbl span {
     font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .16em;
+    font-weight: 600;
+    letter-spacing: .18em;
     text-transform: uppercase;
     color: var(--muted);
     white-space: nowrap;
@@ -148,125 +162,154 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border: 1px solid var(--line);
-    border-radius: 10px;
+    border: 2px solid;
+    border-radius: var(--radius);
     text-decoration: none;
-    color: var(--ink);
-    transition: border-color .14s ease, background .14s ease;
+    transition: background .14s ease, opacity .14s ease;
     opacity: 0;
-    animation: fade .5s ease forwards;
+    animation: fade .4s ease forwards;
   }
 
   .rtile:nth-child(1) { animation-delay: .06s }
-  .rtile:nth-child(2) { animation-delay: .13s }
-  .rtile:nth-child(3) { animation-delay: .20s }
+  .rtile:nth-child(2) { animation-delay: .12s }
+  .rtile:nth-child(3) { animation-delay: .18s }
+
+  .rtile-google  { border-color: #4285F4; background: rgba(66,133,244,.06); }
+  .rtile-ta      { border-color: #00AA6C; background: rgba(0,170,108,.06); }
+  .rtile-apple   { border-color: #FF3B30; background: rgba(255,59,48,.06); }
 
   @media (hover: hover) {
-    .rtile:hover {
-      border-color: var(--line-hover);
-      background: var(--hover-fill);
-    }
+    .rtile-google:hover  { background: rgba(66,133,244,.12); }
+    .rtile-ta:hover      { background: rgba(0,170,108,.12); }
+    .rtile-apple:hover   { background: rgba(255,59,48,.12); }
   }
 
   .rtile:active { transform: scale(.96); }
 
-  .rtile svg {
-    width: 19px;
-    height: 19px;
-    stroke: var(--muted);
-    stroke-width: 1.5;
-    fill: none;
-  }
-
   .rtile-name {
-    font-size: 10.5px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
     color: var(--ink);
     text-align: center;
     line-height: 1.3;
-    letter-spacing: .01em;
   }
 
-  /* ── WiFi ── */
-  .wifi-row {
+  .rtile svg { width: 26px; height: 26px; display: block; }
+
+  /* ── Generic flat tile ── */
+  .flat-tile {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 18px;
+    background: var(--tile);
     border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 15px 18px;
+    border-radius: var(--radius);
+    color: var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 15px;
+    text-align: left;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background .14s ease, border-color .14s ease;
   }
 
+  @media (hover: hover) {
+    .flat-tile:hover {
+      background: var(--tile-hover);
+      border-color: var(--line-hover);
+    }
+  }
+
+  .flat-tile:active { transform: scale(.99); }
+
+  /* ── WiFi ── */
   .wifi-pass {
     font-family: var(--mono);
     font-size: 15px;
-    letter-spacing: .04em;
+    letter-spacing: .06em;
     color: var(--ink);
+    flex: 1;
   }
 
-  .wifi-copy {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-family: var(--font);
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: .12em;
+  .wifi-action {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .14em;
     text-transform: uppercase;
     color: var(--muted);
-    padding: 4px 0 4px 16px;
+    flex: none;
     transition: color .14s ease;
   }
 
-  .wifi-copy:hover { color: var(--ink); }
+  .flat-tile:hover .wifi-action { color: var(--ink); }
 
-  /* ── Directions ── */
-  .address {
-    font-size: 14px;
-    font-weight: 300;
-    color: var(--ink);
-    line-height: 1.9;
-    margin-bottom: 18px;
+  /* ── Directions 2-up ── */
+  .dir-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
-  .dir-actions { display: flex; flex-direction: column; gap: 12px; }
-
-  .dir-link {
-    display: inline-flex;
+  .dir-tile {
+    display: flex;
     align-items: center;
-    gap: 6px;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: .01em;
-    color: var(--muted);
+    justify-content: space-between;
+    padding: 18px 16px;
+    background: var(--tile);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
     text-decoration: none;
-    background: none;
-    border: none;
     cursor: pointer;
     font-family: var(--font);
-    padding: 0;
-    transition: color .14s ease;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background .14s ease, border-color .14s ease;
+    line-height: 1.35;
   }
 
-  .dir-link:hover { color: var(--ink); }
+  @media (hover: hover) {
+    .dir-tile:hover {
+      background: var(--tile-hover);
+      border-color: var(--line-hover);
+    }
+  }
 
-  /* ── Instagram ── */
-  .ig-link {
-    display: inline-flex;
+  .dir-tile:active { transform: scale(.98); }
+
+  .dir-arrow {
+    color: var(--muted);
+    font-size: 16px;
+    flex: none;
+    margin-left: 8px;
+    transition: transform .14s ease;
+  }
+
+  @media (hover: hover) {
+    .dir-tile:hover .dir-arrow { transform: translateX(2px); }
+  }
+
+  /* ── Instagram tile ── */
+  .ig-inner {
+    display: flex;
     align-items: center;
-    gap: 9px;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color .14s ease;
+    gap: 11px;
+    flex: 1;
   }
 
-  .ig-link:hover { color: var(--muted); }
-
-  .ig-link svg {
-    width: 16px;
-    height: 16px;
+  .ig-inner svg {
+    width: 18px;
+    height: 18px;
     stroke: currentColor;
     stroke-width: 1.5;
     fill: none;
@@ -275,14 +318,14 @@
 
   /* ── Footer ── */
   .foot {
-    margin-top: 56px;
+    margin-top: 48px;
     text-align: center;
   }
 
   .foot a {
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: .12em;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
     text-transform: uppercase;
     color: var(--muted);
     text-decoration: none;
@@ -302,27 +345,48 @@
 <div class="wrap">
 
   <header class="head">
-    <a class="logo-link" href="/"><div class="wordmark">Café Belmont</div></a>
-    <div class="rule"></div>
-    <div class="meta">Berka Joselewicza 12, Kazimierz<br>Mon–Sun · 9:00–19:00</div>
+    <a class="logo-lockup" href="/">
+      <img src="/img/icon-512.png" alt="Café Belmont">
+      <span class="wordmark">Café Belmont</span>
+    </a>
+    <div class="meta">Berka Joselewicza 12, Kazimierz · Mon–Sun 9:00–19:00</div>
   </header>
 
   <section>
     <div class="lbl"><span>Rate us</span></div>
     <div class="review-grid">
 
-      <a class="rtile" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
-        <svg viewBox="0 0 24 24"><path d="M12 17.3l-5.4 3.1 1.4-6.1L3.3 10l6.2-.5L12 4l2.5 5.5 6.2.5-4.7 4.3 1.4 6.1z"/></svg>
+      <a class="rtile rtile-google" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
+        <!-- Google G -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path fill="#4285F4" d="M22 12.2c0-.8-.07-1.5-.2-2.2H12v4.16h5.6a4.8 4.8 0 0 1-2.08 3.15v2.62h3.36C20.9 18.15 22 15.4 22 12.2Z"/>
+          <path fill="#34A853" d="M12 22c2.84 0 5.23-.94 6.97-2.54l-3.37-2.62c-.93.63-2.13 1-3.6 1-2.76 0-5.1-1.87-5.93-4.37H2.6v2.7A10 10 0 0 0 12 22Z"/>
+          <path fill="#FBBC05" d="M6.07 13.47A6 6 0 0 1 5.76 12c0-.51.09-1 .31-1.47V7.82H2.6A10 10 0 0 0 2 12c0 1.62.38 3.15 1.07 4.53l3-2.34.99-.72Z"/>
+          <path fill="#EA4335" d="M12 5.58c1.56 0 2.96.54 4.06 1.6l3.04-3.05C17.22 2.42 14.84 1.5 12 1.5A10 10 0 0 0 2.6 7.82l3.47 2.71A5.87 5.87 0 0 1 12 5.58Z"/>
+        </svg>
         <span class="rtile-name">Google</span>
       </a>
 
-      <a class="rtile" href="https://www.tripadvisor.com/Restaurant_Review-g274772-d34359372-Reviews-Cafe_Belmont-Krakow_Lesser_Poland_Province_Southern_Poland.html" target="_blank" rel="noopener" data-toodip="tripadvisor">
-        <svg viewBox="0 0 24 24"><circle cx="7.5" cy="12.5" r="3"/><circle cx="16.5" cy="12.5" r="3"/><path d="M7.5 9.5c2-1.6 7-1.6 9 0"/></svg>
+      <a class="rtile rtile-ta" href="https://www.tripadvisor.com/Restaurant_Review-g274772-d34359372-Reviews-Cafe_Belmont-Krakow_Lesser_Poland_Province_Southern_Poland.html" target="_blank" rel="noopener" data-toodip="tripadvisor">
+        <!-- TripAdvisor owl -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M6.5 9c1.8-1.6 9.2-1.6 11 0" stroke="#00AA6C" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="7.8" cy="13.2" r="3" stroke="#00AA6C" stroke-width="1.5"/>
+          <circle cx="16.2" cy="13.2" r="3" stroke="#00AA6C" stroke-width="1.5"/>
+          <circle cx="7.8" cy="13.2" r="1.1" fill="#00AA6C"/>
+          <circle cx="16.2" cy="13.2" r="1.1" fill="#00AA6C"/>
+          <path d="M10 15.8 Q12 17.2 14 15.8" stroke="#00AA6C" stroke-width="1" stroke-linecap="round"/>
+        </svg>
         <span class="rtile-name">TripAdvisor</span>
       </a>
 
-      <a class="rtile" href="https://maps.apple.com/place?place-id=I53E928FE9A7B0A5D" target="_blank" rel="noopener" data-toodip="apple-maps">
-        <svg viewBox="0 0 24 24"><path d="M12 21S5.5 15.2 5.5 10.5a6.5 6.5 0 1 1 13 0C18.5 15.2 12 21 12 21Z"/><circle cx="12" cy="10.5" r="1.9"/></svg>
+      <a class="rtile rtile-apple" href="https://maps.apple.com/place?place-id=I53E928FE9A7B0A5D" target="_blank" rel="noopener" data-toodip="apple-maps">
+        <!-- Apple Maps pin -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2.5C8.96 2.5 6.5 4.96 6.5 8c0 4.5 5.5 11.5 5.5 11.5S17.5 12.5 17.5 8c0-3.04-2.46-5.5-5.5-5.5Z" fill="#FF3B30"/>
+          <circle cx="12" cy="8" r="2.2" fill="white"/>
+          <path d="M5 20.5h14" stroke="#FF3B30" stroke-width="1.2" stroke-linecap="round" opacity=".4"/>
+        </svg>
         <span class="rtile-name">Apple Maps</span>
       </a>
 
@@ -331,26 +395,32 @@
 
   <section>
     <div class="lbl"><span>WiFi</span></div>
-    <div class="wifi-row">
+    <button class="flat-tile" type="button" id="wifiTile">
       <span class="wifi-pass" id="wifiPass">Belmont2026</span>
-      <button class="wifi-copy" type="button" id="wifiBtn">Copy</button>
-    </div>
+      <span class="wifi-action" id="wifiCopy">Copy</span>
+    </button>
   </section>
 
   <section>
     <div class="lbl"><span>Directions</span></div>
-    <div class="address">ul. Berka Joselewicza 12<br>Kazimierz, Kraków</div>
-    <div class="dir-actions">
-      <a class="dir-link" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener">Open in Maps →</a>
-      <button class="dir-link" type="button" id="shareBtn">Send to a friend →</button>
+    <div class="dir-grid">
+      <a class="dir-tile" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener">
+        <span>Open in Maps</span><span class="dir-arrow">→</span>
+      </a>
+      <button class="dir-tile" type="button" id="shareBtn">
+        <span>Send to a friend</span><span class="dir-arrow">→</span>
+      </button>
     </div>
   </section>
 
   <section>
     <div class="lbl"><span>Follow</span></div>
-    <a class="ig-link" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg>
-      @cafe_belmont
+    <a class="flat-tile" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
+      <span class="ig-inner">
+        <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></svg>
+        @cafe_belmont
+      </span>
+      <span class="dir-arrow">→</span>
     </a>
   </section>
 
@@ -359,14 +429,15 @@
 </div>
 <script>
   (function(){
-    var wBtn = document.getElementById('wifiBtn');
+    var wBtn = document.getElementById('wifiTile');
     if (wBtn) {
       wBtn.addEventListener('click', function(){
         var pass = document.getElementById('wifiPass').textContent.trim();
+        var badge = document.getElementById('wifiCopy');
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(pass).then(function(){
-            wBtn.textContent = 'Copied';
-            setTimeout(function(){ wBtn.textContent = 'Copy'; }, 1500);
+            badge.textContent = 'Copied';
+            setTimeout(function(){ badge.textContent = 'Copy'; }, 1500);
           }).catch(function(){});
         }
       });
@@ -379,7 +450,7 @@
         if (navigator.share) {
           navigator.share({
             title: 'Café Belmont',
-            text: 'Café Belmont · ul. Berka Joselewicza 12, Kazimierz, Kraków\nMon–Sun 9:00–19:00',
+            text: 'Café Belmont · ul. Berka Joselewicza 12, Kazimierz, Kraków · Mon–Sun 9:00–19:00',
             url: mapsUrl
           }).catch(function(){});
         } else {
