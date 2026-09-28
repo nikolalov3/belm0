@@ -201,6 +201,7 @@
     font-weight: 400;
     letter-spacing: .1em;
     color: var(--muted);
+    text-transform: none;
     flex: none;
     user-select: none;
   }
@@ -283,10 +284,16 @@
 
     <a class="tile tile-apple" href="https://maps.apple.com/place?place-id=I53E928FE9A7B0A5D" target="_blank" rel="noopener" data-toodip="apple-maps">
       <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none">
-        <!-- Apple Maps app icon style: rounded square + pin -->
-        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FF3B30"/>
-        <path d="M12 6C10.07 6 8.5 7.57 8.5 9.5c0 2.8 3.5 7.5 3.5 7.5s3.5-4.7 3.5-7.5C15.5 7.57 13.93 6 12 6Z" fill="white"/>
-        <circle cx="12" cy="9.5" r="1.4" fill="#FF3B30"/>
+        <!-- Apple Maps app icon: white tile, park, road, pin -->
+        <defs><clipPath id="amClip"><rect x="2" y="2" width="20" height="20" rx="5"/></clipPath></defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#E3E3E5" stroke-width=".6"/>
+        <g clip-path="url(#amClip)">
+          <path d="M2 2 H8.6 C7.8 5.3 5.2 7.9 2 8.7 Z" fill="#86D989"/>
+          <path d="M2.5 20.5 C7 15.5 11 12.8 21.6 6.3" stroke="#DDDDE0" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M2.5 20.5 C7 15.5 11 12.8 21.6 6.3" stroke="#FFFFFF" stroke-width=".55" stroke-dasharray="0.8 1.7" stroke-linecap="round"/>
+        </g>
+        <path d="M14.9 9.6c-1.55 0-2.8 1.25-2.8 2.8 0 2.05 2.8 5.1 2.8 5.1s2.8-3.05 2.8-5.1c0-1.55-1.25-2.8-2.8-2.8Z" fill="#FF3B30"/>
+        <circle cx="14.9" cy="12.4" r="1" fill="#FFFFFF"/>
       </svg></span>
       <span class="tile-lbl">Apple Maps</span>
       <span class="tile-right">→</span>
