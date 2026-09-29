@@ -157,17 +157,19 @@
     text-shadow: 3px 3px 0 var(--orange);
     transform: translateX(-50%);
     opacity: 1;
-    transition: left .5s cubic-bezier(.4,0,.2,1), opacity .25s ease .18s;
+    transition: left .5s cubic-bezier(.4,0,.2,1), opacity .45s ease .35s;
     pointer-events: none;
   }
   /* left is always a % of the PANEL's own width (0/50/100), so the label
      stays centered on the true edge no matter how narrow the panel gets —
-     and animates smoothly since it's a single interpolated property. */
+     and animates smoothly since it's a single interpolated property.
+     Opacity fades in late (after most of the slide) so it settles onto
+     the edge gently instead of popping in mid-motion. */
   .acc-panel.side-left  .acc-label { left: 0%; }
   .acc-panel.side-right .acc-label { left: 100%; }
   .acc-panel.active .acc-label {
     opacity: 0;
-    transition: left .5s cubic-bezier(.4,0,.2,1), opacity .12s ease;
+    transition: left .5s cubic-bezier(.4,0,.2,1), opacity .15s ease;
   }
 
   /* overlay shown only on active panel */
