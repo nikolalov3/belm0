@@ -113,38 +113,45 @@
   .acc-panel {
     position: relative;
     flex: 0.62;
-    overflow: hidden;
-    border-radius: var(--radius);
     cursor: pointer;
     transition: flex .5s cubic-bezier(.4,0,.2,1);
-    background-color: var(--panel);
   }
   .acc-panel.active { flex: 3.6; cursor: default; }
 
-  .acc-panel img {
+  /* photo + overlay live in their own clipped layer, so the label can bleed out */
+  .acc-media {
+    position: absolute; inset: 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-color: var(--panel);
+  }
+
+  .acc-media img {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
     transition: transform .5s ease;
   }
-  .acc-panel:not(.active):hover img { transform: scale(1.04); }
+  .acc-panel:not(.active):hover .acc-media img { transform: scale(1.04); }
 
-  /* vertical label on collapsed strips */
+  /* vertical label on collapsed strips — bleeds past the photo edge like the section badges */
   .acc-label {
-    position: absolute; inset: 10px 0;
+    position: absolute;
+    top: 10px; bottom: 10px;
+    z-index: 3;
     display: flex; align-items: flex-end; justify-content: center;
     padding-bottom: 20px;
     writing-mode: vertical-rl;
     font-family: var(--display);
-    font-size: 15px; font-weight: 700;
-    letter-spacing: .14em;
-    color: #fff;
-    text-shadow:
-      2px 2px 0 var(--ink),
-      4px 4px 0 var(--orange);
+    font-size: 19px; font-weight: 800;
+    letter-spacing: .16em;
+    color: var(--ink);
+    text-shadow: 3px 3px 0 var(--orange);
     transition: opacity .25s ease;
     pointer-events: none;
   }
+  .acc-panel.side-right .acc-label { right: 0; transform: translateX(50%); }
+  .acc-panel.side-left  .acc-label { left: 0;  transform: translateX(-50%); }
   .acc-panel.active .acc-label { opacity: 0; }
 
   /* overlay shown only on active panel */
@@ -207,19 +214,23 @@
 
     <div class="acc">
       <button class="acc-panel active" type="button" aria-label="Apple Pie Matcha">
+        <div class="acc-media">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Apple Pie Matcha</strong><span class="acc-jp">アップルパイ抹茶</span></div>
+            <p class="acc-desc">Szarlotkowa latte — matcha ceremonialna YUME, prażone jabłko, cynamon, syrop klonowy.</p>
+          </div>
+        </div>
         <span class="acc-label">アップルパイ抹茶</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Apple Pie Matcha</strong><span class="acc-jp">アップルパイ抹茶</span></div>
-          <p class="acc-desc">Szarlotkowa latte — matcha ceremonialna YUME, prażone jabłko, cynamon, syrop klonowy.</p>
-        </div>
       </button>
-      <button class="acc-panel" type="button" aria-label="Chai Matcha">
-        <img src="/img/jesien/chai.jpg" alt="Chai Matcha" loading="lazy">
-        <span class="acc-label">チャイ抹茶</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Chai Matcha</strong><span class="acc-jp">チャイ抹茶</span></div>
-          <p class="acc-desc">Matcha ceremonialna YUME spotyka korzenny syrop chai. Bez espresso i czarnej herbaty.</p>
+      <button class="acc-panel side-right" type="button" aria-label="Chai Matcha">
+        <div class="acc-media">
+          <img src="/img/jesien/chai.jpg" alt="Chai Matcha" loading="lazy">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Chai Matcha</strong><span class="acc-jp">チャイ抹茶</span></div>
+            <p class="acc-desc">Matcha ceremonialna YUME spotyka korzenny syrop chai. Bez espresso i czarnej herbaty.</p>
+          </div>
         </div>
+        <span class="acc-label">チャイ抹茶</span>
       </button>
     </div>
   </section>
@@ -230,28 +241,34 @@
 
     <div class="acc">
       <button class="acc-panel active" type="button" aria-label="Ginger Date Latte">
-        <img src="/img/jesien/ginger-date.jpg" alt="Ginger Date Latte" loading="lazy">
+        <div class="acc-media">
+          <img src="/img/jesien/ginger-date.jpg" alt="Ginger Date Latte" loading="lazy">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Ginger Date Latte</strong><span class="acc-jp">ジンジャーデーツラテ</span></div>
+            <p class="acc-desc">Espresso specialty słodzone syropem daktylowym, ostro przecięte imbirem. Bez białego cukru.</p>
+          </div>
+        </div>
         <span class="acc-label">ジンジャーラテ</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Ginger Date Latte</strong><span class="acc-jp">ジンジャーデーツラテ</span></div>
-          <p class="acc-desc">Espresso specialty słodzone syropem daktylowym, ostro przecięte imbirem. Bez białego cukru.</p>
-        </div>
       </button>
-      <button class="acc-panel" type="button" aria-label="Hazelnut S'Mores Latte">
-        <img src="/img/jesien/smores.jpg" alt="Hazelnut S'Mores Latte" loading="lazy">
+      <button class="acc-panel side-right" type="button" aria-label="Hazelnut S'Mores Latte">
+        <div class="acc-media">
+          <img src="/img/jesien/smores.jpg" alt="Hazelnut S'Mores Latte" loading="lazy">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Hazelnut S'Mores Latte</strong><span class="acc-jp">ヘーゼルナッツスモアラテ</span></div>
+            <p class="acc-desc">Espresso, sos orzechowo-karmelowy i dwie pianki marshmallow opalane na żywo.</p>
+          </div>
+        </div>
         <span class="acc-label">スモアラテ</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Hazelnut S'Mores Latte</strong><span class="acc-jp">ヘーゼルナッツスモアラテ</span></div>
-          <p class="acc-desc">Espresso, sos orzechowo-karmelowy i dwie pianki marshmallow opalane na żywo.</p>
-        </div>
       </button>
-      <button class="acc-panel" type="button" aria-label="Banana Bread & Maple Foam Iced Latte">
-        <img src="/img/jesien/banana-bread.jpg" alt="Banana Bread & Maple Foam Iced Latte" loading="lazy">
-        <span class="acc-label">バナナブレッド</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Banana Bread &amp; Maple Foam</strong><span class="acc-jp">バナナブレッド</span></div>
-          <p class="acc-desc">Mrożone latte z pulpą bananową, cynamonem i cold foamem na klonowym syropie. Nie wegańskie.</p>
+      <button class="acc-panel side-right" type="button" aria-label="Banana Bread & Maple Foam Iced Latte">
+        <div class="acc-media">
+          <img src="/img/jesien/banana-bread.jpg" alt="Banana Bread & Maple Foam Iced Latte" loading="lazy">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Banana Bread &amp; Maple Foam</strong><span class="acc-jp">バナナブレッド</span></div>
+            <p class="acc-desc">Mrożone latte z pulpą bananową, cynamonem i cold foamem na klonowym syropie. Nie wegańskie.</p>
+          </div>
         </div>
+        <span class="acc-label">バナナブレッド</span>
       </button>
     </div>
   </section>
@@ -262,12 +279,14 @@
 
     <div class="acc" style="height:220px">
       <button class="acc-panel active" type="button" aria-label="Hazelnut Hojicha">
-        <img src="/img/jesien/hojicha.jpg" alt="Hazelnut Hojicha" loading="lazy">
-        <span class="acc-label">ほうじ茶</span>
-        <div class="acc-overlay">
-          <div class="acc-name"><strong>Hazelnut Hojicha</strong><span class="acc-jp">ヘーゼルナッツほうじ茶</span></div>
-          <p class="acc-desc">Wypalana japońska herbata z sosem orzechowo-karmelowym. Mało kofeiny, bez kawy.</p>
+        <div class="acc-media">
+          <img src="/img/jesien/hojicha.jpg" alt="Hazelnut Hojicha" loading="lazy">
+          <div class="acc-overlay">
+            <div class="acc-name"><strong>Hazelnut Hojicha</strong><span class="acc-jp">ヘーゼルナッツほうじ茶</span></div>
+            <p class="acc-desc">Wypalana japońska herbata z sosem orzechowo-karmelowym. Mało kofeiny, bez kawy.</p>
+          </div>
         </div>
+        <span class="acc-label">ほうじ茶</span>
       </button>
     </div>
   </section>
@@ -282,12 +301,20 @@
 <script>
 (function(){
   document.querySelectorAll('.acc').forEach(function(acc){
-    var panels = acc.querySelectorAll('.acc-panel');
-    panels.forEach(function(p){
+    var panels = Array.prototype.slice.call(acc.querySelectorAll('.acc-panel'));
+    function applySides(activeIndex){
+      panels.forEach(function(p, i){
+        p.classList.remove('side-left', 'side-right');
+        if (i < activeIndex) p.classList.add('side-left');
+        else if (i > activeIndex) p.classList.add('side-right');
+      });
+    }
+    panels.forEach(function(p, idx){
       p.addEventListener('click', function(){
         if (p.classList.contains('active')) return;
         panels.forEach(function(x){ x.classList.remove('active'); });
         p.classList.add('active');
+        applySides(idx);
       });
     });
   });
