@@ -145,19 +145,19 @@
   }
 
   @media (hover: hover) {
-    .tile:hover {
+    .tile:hover:not(.tile-autumn) {
       background: rgba(255,255,255,.08);
       border-color: var(--line-strong);
     }
   }
 
   @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .tile:hover {
+    :root:not([data-theme="dark"]) .tile:hover:not(.tile-autumn) {
       background: rgba(0,0,0,.07);
     }
   }
 
-  :root[data-theme="light"] .tile:hover { background: rgba(0,0,0,.07); }
+  :root[data-theme="light"] .tile:hover:not(.tile-autumn) { background: rgba(0,0,0,.07); }
 
   .tile:active { transform: scale(.99); }
 
@@ -181,9 +181,11 @@
     position: relative;
     overflow: hidden;
     background:
+      linear-gradient(rgba(10,7,4,.62), rgba(10,7,4,.72)),
       radial-gradient(120% 160% at 92% 0%, rgba(217,105,30,.30), transparent 60%),
-      radial-gradient(90% 140% at 0% 120%, rgba(143,174,78,.14), transparent 55%),
-      var(--tile);
+      url('/img/jesien/tile-bg.jpg');
+    background-size: cover;
+    background-position: 50% 20%;
     border-color: rgba(217,105,30,.32);
     box-shadow: 5px 5px 0 0 #D9691E;
     transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease;

@@ -56,7 +56,20 @@
   .top a:hover { color: var(--orange); }
 
   /* ---- hero ---- */
-  .hero { position: relative; }
+  .hero {
+    position: relative;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    box-shadow: 6px 6px 0 0 var(--orange);
+    overflow: hidden;
+    padding: 34px 22px 28px;
+    background:
+      linear-gradient(rgba(10,7,4,.58), rgba(10,7,4,.7)),
+      radial-gradient(120% 160% at 92% 0%, rgba(217,105,30,.30), transparent 60%),
+      url('/img/jesien/tile-bg.jpg');
+    background-size: cover;
+    background-position: 50% 20%;
+  }
   .hero-jp {
     font-family: var(--display);
     font-weight: 700;
@@ -72,6 +85,7 @@
     line-height: 1.05;
     letter-spacing: -.01em;
     margin: 0;
+    color: #FAF6EE;
   }
 
   /* ---- section ---- */
@@ -134,10 +148,22 @@
   }
   .acc-panel:not(.active):hover .acc-media img { transform: scale(1.04); }
 
-  /* vertical label on collapsed strips — bleeds past the photo edge like the section badges */
+  /* vertical label on collapsed strips — bleeds past the photo edge like the section badges.
+     Position driven by one animatable custom property so it slides smoothly instead of
+     jumping when a panel flips from the right side of the active panel to the left (or back). */
+  @property --side {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+  }
+  .acc-panel { --side: 0; }
+  .acc-panel.side-left  { --side: -1; }
+  .acc-panel.side-right { --side: 1; }
+
   .acc-label {
     position: absolute;
     top: 10px; bottom: 10px;
+    left: 50%;
     z-index: 3;
     display: flex; align-items: flex-end; justify-content: center;
     padding-bottom: 20px;
@@ -147,12 +173,15 @@
     letter-spacing: .16em;
     color: var(--ink);
     text-shadow: 3px 3px 0 var(--orange);
-    transition: opacity .25s ease;
+    transform: translateX(calc(-50% + var(--side) * 55%));
+    opacity: 1;
+    transition: transform .5s cubic-bezier(.4,0,.2,1), opacity .25s ease .18s;
     pointer-events: none;
   }
-  .acc-panel.side-right .acc-label { right: 0; transform: translateX(50%); }
-  .acc-panel.side-left  .acc-label { left: 0;  transform: translateX(-50%); }
-  .acc-panel.active .acc-label { opacity: 0; }
+  .acc-panel.active .acc-label {
+    opacity: 0;
+    transition: transform .5s cubic-bezier(.4,0,.2,1), opacity .12s ease;
+  }
 
   /* overlay shown only on active panel */
   .acc-overlay {
@@ -215,6 +244,7 @@
     <div class="acc">
       <button class="acc-panel active" type="button" aria-label="Apple Pie Matcha">
         <div class="acc-media">
+          <img src="/img/jesien/apple-pie.jpg" alt="Apple Pie Matcha" loading="lazy">
           <div class="acc-overlay">
             <div class="acc-name"><strong>Apple Pie Matcha</strong><span class="acc-jp">アップルパイ抹茶</span></div>
             <p class="acc-desc">Szarlotkowa latte — matcha ceremonialna YUME, prażone jabłko, cynamon, syrop klonowy.</p>
