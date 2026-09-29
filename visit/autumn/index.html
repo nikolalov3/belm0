@@ -157,20 +157,19 @@
     text-shadow: 3px 3px 0 var(--orange);
     transform: translateX(-50%);
     opacity: 1;
-    transition: opacity .3s ease;
+    transition: opacity .35s ease .08s;
     pointer-events: none;
   }
-  /* left is set instantly (no transition) — the label only ever fades,
-     it never slides across the panel. */
+  /* Each panel's side (left/right) is fixed permanently in the HTML — it
+     never gets recomputed or reassigned in JS. Only opacity ever animates
+     (driven purely by .active), so a label can never visibly reposition;
+     there is nothing left to "jump". */
   .acc-panel.side-left  .acc-label { left: 0%; }
   .acc-panel.side-right .acc-label { left: 100%; }
   .acc-panel.active .acc-label {
     opacity: 0;
     transition: opacity .15s ease;
   }
-  /* JS-driven: forces the label fully invisible while its side (left/right)
-     is being reassigned, so the position change never happens while visible. */
-  .acc-label.is-switching { opacity: 0 !important; transition: opacity .18s ease !important; }
 
   /* overlay shown only on active panel */
   .acc-overlay {
@@ -231,7 +230,7 @@
     <div class="sec-badge"><span class="jp">抹茶</span><span class="en">Matcha</span></div>
 
     <div class="acc">
-      <button class="acc-panel active" type="button" aria-label="Apple Pie Matcha">
+      <button class="acc-panel active side-left" type="button" aria-label="Apple Pie Matcha">
         <div class="acc-media">
           <img src="/img/jesien/apple-pie.jpg" alt="Apple Pie Matcha" loading="lazy">
           <div class="acc-overlay">
@@ -259,7 +258,7 @@
     <div class="sec-badge"><span class="jp">珈琲</span><span class="en">Coffee</span></div>
 
     <div class="acc">
-      <button class="acc-panel active" type="button" aria-label="Ginger Date Latte">
+      <button class="acc-panel active side-left" type="button" aria-label="Ginger Date Latte">
         <div class="acc-media">
           <img src="/img/jesien/ginger-date.jpg" alt="Ginger Date Latte" loading="lazy">
           <div class="acc-overlay">
@@ -321,30 +320,11 @@
 (function(){
   document.querySelectorAll('.acc').forEach(function(acc){
     var panels = Array.prototype.slice.call(acc.querySelectorAll('.acc-panel'));
-
-    function activate(idx){
-      panels.forEach(function(p, i){
-        if (i === idx){ p.classList.add('active'); return; }
-        p.classList.remove('active');
-        var label = p.querySelector('.acc-label');
-        var newSide = i < idx ? 'side-left' : 'side-right';
-        if (p.classList.contains(newSide)) return; // already there and visible — leave it alone
-        // side is changing: hide first, reposition while invisible, then fade back in
-        label.classList.add('is-switching');
-        setTimeout(function(){
-          p.classList.remove('side-left', 'side-right');
-          p.classList.add(newSide);
-          requestAnimationFrame(function(){
-            label.classList.remove('is-switching');
-          });
-        }, 200);
-      });
-    }
-
-    panels.forEach(function(p, idx){
+    panels.forEach(function(p){
       p.addEventListener('click', function(){
         if (p.classList.contains('active')) return;
-        activate(idx);
+        panels.forEach(function(x){ x.classList.remove('active'); });
+        p.classList.add('active');
       });
     });
   });
