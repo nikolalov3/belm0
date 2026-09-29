@@ -318,15 +318,31 @@
 </div>
 <script>
 (function(){
-  document.querySelectorAll('.acc').forEach(function(acc){
+  document.querySelectorAll('.acc').forEach(function(acc, accIndex){
     var panels = Array.prototype.slice.call(acc.querySelectorAll('.acc-panel'));
-    panels.forEach(function(p){
+    if (panels.length < 2) return;
+
+    var cur = panels.findIndex(function(p){ return p.classList.contains('active'); });
+    if (cur < 0) cur = 0;
+    var timer = null;
+
+    function activate(i, manual){
+      cur = i;
+      panels.forEach(function(x){ x.classList.remove('active'); });
+      panels[i].classList.add('active');
+      if (manual && timer){ clearInterval(timer); timer = setInterval(next, 4500); }
+    }
+    function next(){ activate((cur + 1) % panels.length, false); }
+
+    panels.forEach(function(p, idx){
       p.addEventListener('click', function(){
         if (p.classList.contains('active')) return;
-        panels.forEach(function(x){ x.classList.remove('active'); });
-        p.classList.add('active');
+        activate(idx, true);
       });
     });
+
+    // only the second accordion on the page auto-advances; the rest stay click-only
+    if (accIndex === 1) timer = setInterval(next, 4500);
   });
 })();
 </script>
