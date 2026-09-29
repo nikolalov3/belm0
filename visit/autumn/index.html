@@ -157,17 +157,20 @@
     text-shadow: 3px 3px 0 var(--orange);
     transform: translateX(-50%);
     opacity: 1;
-    transition: opacity .4s ease .22s;
+    transition: opacity .3s ease;
     pointer-events: none;
   }
-  /* left is set instantly (no transition) — the label just fades in
-     already sitting at its edge, instead of sliding across the panel. */
+  /* left is set instantly (no transition) — the label only ever fades,
+     it never slides across the panel. */
   .acc-panel.side-left  .acc-label { left: 0%; }
   .acc-panel.side-right .acc-label { left: 100%; }
   .acc-panel.active .acc-label {
     opacity: 0;
     transition: opacity .15s ease;
   }
+  /* JS-driven: forces the label fully invisible while its side (left/right)
+     is being reassigned, so the position change never happens while visible. */
+  .acc-label.is-switching { opacity: 0 !important; transition: opacity .18s ease !important; }
 
   /* overlay shown only on active panel */
   .acc-overlay {
@@ -318,19 +321,30 @@
 (function(){
   document.querySelectorAll('.acc').forEach(function(acc){
     var panels = Array.prototype.slice.call(acc.querySelectorAll('.acc-panel'));
-    function applySides(activeIndex){
+
+    function activate(idx){
       panels.forEach(function(p, i){
-        p.classList.remove('side-left', 'side-right');
-        if (i < activeIndex) p.classList.add('side-left');
-        else if (i > activeIndex) p.classList.add('side-right');
+        if (i === idx){ p.classList.add('active'); return; }
+        p.classList.remove('active');
+        var label = p.querySelector('.acc-label');
+        var newSide = i < idx ? 'side-left' : 'side-right';
+        if (p.classList.contains(newSide)) return; // already there and visible — leave it alone
+        // side is changing: hide first, reposition while invisible, then fade back in
+        label.classList.add('is-switching');
+        setTimeout(function(){
+          p.classList.remove('side-left', 'side-right');
+          p.classList.add(newSide);
+          requestAnimationFrame(function(){
+            label.classList.remove('is-switching');
+          });
+        }, 200);
       });
     }
+
     panels.forEach(function(p, idx){
       p.addEventListener('click', function(){
         if (p.classList.contains('active')) return;
-        panels.forEach(function(x){ x.classList.remove('active'); });
-        p.classList.add('active');
-        applySides(idx);
+        activate(idx);
       });
     });
   });
