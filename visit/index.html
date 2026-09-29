@@ -176,6 +176,34 @@
   .tile-ta:active     { box-shadow: 1px 1px 0 0 #00AA6C !important; transform: translate(4px, 4px) !important; }
   .tile-apple:active  { box-shadow: 1px 1px 0 0 #FF3B30 !important; transform: translate(4px, 4px) !important; }
 
+  /* Autumn menu — seasonal tile with warm gradient backdrop */
+  .tile-autumn {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 160% at 92% 0%, rgba(217,105,30,.30), transparent 60%),
+      radial-gradient(90% 140% at 0% 120%, rgba(143,174,78,.14), transparent 55%),
+      var(--tile);
+    border-color: rgba(217,105,30,.32);
+    box-shadow: 5px 5px 0 0 #D9691E;
+    transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease;
+  }
+  @media (hover: hover) {
+    .tile-autumn:hover { box-shadow: 3px 3px 0 0 #D9691E; transform: translate(2px, 2px); }
+  }
+  .tile-autumn:active { box-shadow: 1px 1px 0 0 #D9691E !important; transform: translate(4px, 4px) !important; }
+  .tile-autumn-leaf { flex: none; font-size: 19px; line-height: 1; filter: saturate(1.15); }
+  .tile-autumn-sub {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .06em;
+    text-transform: none;
+    color: var(--muted);
+  }
+
   /* Logo icons */
   .tile-ico { flex: none; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
   .tile-ico svg { width: 20px; height: 20px; display: block; }
@@ -253,6 +281,20 @@
     <a class="logo-link" href="/"><div class="wordmark">Café Belmont</div></a>
     <div class="meta">Berka Joselewicza 12, Kazimierz<br>Mon–Sun · 9:00–19:00</div>
   </header>
+
+  <!-- Autumn menu — seasonal highlight -->
+  <div class="stack">
+    <a class="tile tile-autumn" href="/visit/autumn/">
+      <span class="tile-autumn-leaf" aria-hidden="true">🍁</span>
+      <span class="tile-lbl">
+        Autumn Menu
+        <span class="tile-autumn-sub">Seasonal matcha &amp; coffee</span>
+      </span>
+      <span class="tile-right">→</span>
+    </a>
+  </div>
+
+  <div class="gap"></div>
 
   <!-- Rate us -->
   <div class="rate-label">Rate us</div>
