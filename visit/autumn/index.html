@@ -4,25 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Menu jesienne · Café Belmont</title>
-<meta name="description" content="Sezonowe menu jesienne Café Belmont — matcha, kawa specialty i hojicha. Apple Pie Matcha, Chai Matcha, Ginger Date Latte i więcej.">
+<meta name="description" content="Sezonowe menu jesienne Café Belmont — matcha, kawa specialty i hojicha.">
 <meta name="theme-color" content="#FAF6EE">
 <link rel="canonical" href="https://belmont.cafe/visit/autumn/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23D9691E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
 <script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
 <style>
   :root {
     --bg: #FAF6EE;
-    --panel: #F3EBDB;
+    --panel: #EFE5D3;
     --ink: #201A13;
-    --muted: rgba(32,26,19,.52);
-    --faint: rgba(32,26,19,.34);
-    --line: rgba(32,26,19,.13);
+    --muted: rgba(32,26,19,.50);
+    --faint: rgba(32,26,19,.30);
+    --line: rgba(32,26,19,.12);
     --orange: #D9691E;
-    --orange-deep: #B8501A;
-    --matcha: #6E8F3E;
     --radius: 2px;
     --display: 'Shippori Mincho', 'Times New Roman', serif;
     --sans: 'Zen Kaku Gothic New', system-ui, -apple-system, sans-serif;
@@ -42,365 +40,258 @@
 
   img { display: block; max-width: 100%; }
   a { color: inherit; }
+  button { font: inherit; color: inherit; }
 
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 22px 80px; }
+  .wrap { max-width: 620px; margin: 0 auto; padding: 26px 22px 70px; }
 
-  /* ---- top bar ---- */
-  .top {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 0 0;
-    font-size: 10.5px; font-weight: 500;
-    letter-spacing: .16em; text-transform: uppercase;
-    color: var(--muted);
+  /* ---- top ---- */
+  .top { margin-bottom: 34px; }
+  .top a {
+    display: inline-flex; align-items: center; gap: 6px;
+    text-decoration: none; color: var(--muted);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: .14em; text-transform: uppercase;
+    transition: color .15s ease;
   }
-  .top a { text-decoration: none; color: var(--muted); transition: color .15s ease; }
   .top a:hover { color: var(--orange); }
 
   /* ---- hero ---- */
-  .hero {
-    position: relative;
-    margin-top: 30px;
-    padding: 0 0 8px;
-  }
-  .hero-kanji {
-    position: absolute;
-    top: -10px; right: 0;
+  .hero { position: relative; }
+  .hero-jp {
     font-family: var(--display);
-    font-weight: 800;
-    font-size: 96px;
-    line-height: .8;
-    color: rgba(217,105,30,.14);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-size: 10.5px; font-weight: 700;
-    letter-spacing: .28em; text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .1em;
     color: var(--orange);
-    margin: 0 0 16px;
+    margin: 0 0 10px;
   }
   .hero h1 {
-    position: relative;
     font-family: var(--display);
     font-weight: 800;
-    font-size: clamp(40px, 11vw, 58px);
-    line-height: 1.04;
+    font-size: clamp(34px, 9vw, 46px);
+    line-height: 1.05;
     letter-spacing: -.01em;
     margin: 0;
-    text-wrap: balance;
-  }
-  .hero h1 .jp {
-    display: inline-block;
-    margin-left: 4px;
-    font-size: .55em;
-    font-weight: 700;
-    color: var(--orange);
-    vertical-align: middle;
-  }
-  .hero h1 .en {
-    display: block;
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: .3em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 16px;
-  }
-  .hero-intro {
-    margin: 20px 0 0;
-    max-width: 46ch;
-    font-size: 14.5px;
-    line-height: 1.75;
-    color: rgba(32,26,19,.72);
-  }
-  .hero-dates {
-    margin-top: 18px;
-    font-size: 10.5px; font-weight: 500;
-    letter-spacing: .2em; text-transform: uppercase;
-    color: var(--faint);
-  }
-  .hero-rule {
-    margin-top: 26px;
-    height: 1px;
-    background: var(--line);
   }
 
   /* ---- section ---- */
-  .section { margin-top: 58px; }
-  .sec-head {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 30px;
+  .section { margin-top: 44px; position: relative; }
+
+  /* comic-sticker badge, floats over the top-left corner of the accordion */
+  .sec-badge {
+    position: absolute;
+    top: -14px; left: 16px;
+    z-index: 2;
+    display: flex; align-items: baseline; gap: 7px;
+    background: var(--bg);
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 6px 14px 6px 12px;
+    box-shadow: 4px 4px 0 0 var(--orange);
+    transform: rotate(-2deg);
   }
-  .sec-jp {
+  .sec-badge .jp {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 26px;
+    font-size: 16px;
     color: var(--orange);
     line-height: 1;
   }
-  .sec-titles { display: flex; flex-direction: column; gap: 2px; }
-  .sec-title {
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: .22em;
-    text-transform: uppercase;
+  .sec-badge .en {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
     color: var(--ink);
   }
-  .sec-sub {
-    font-size: 10.5px;
-    letter-spacing: .1em;
-    color: var(--faint);
+
+  /* ---- accordion ---- */
+  .acc {
+    display: flex;
+    gap: 4px;
+    height: 300px;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 14px 4px 4px;
+    background: var(--bg);
   }
-  .sec-line { flex: 1; height: 1px; background: var(--line); }
-
-  /* ---- item ---- */
-  .item {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 36px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .item:first-child { padding-top: 0; }
-  .item:last-child { border-bottom: 0; padding-bottom: 0; }
-
-  .item.has-media { grid-template-columns: 168px 1fr; align-items: start; }
-
-  .item-media {
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius);
+  .acc-panel {
+    position: relative;
+    flex: 0.62;
     overflow: hidden;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: flex .5s cubic-bezier(.4,0,.2,1);
     background-color: var(--panel);
-    background-size: cover;
-    background-position: center;
-    box-shadow: 7px 7px 0 0 rgba(217,105,30,.85);
   }
+  .acc-panel.active { flex: 3.6; cursor: default; }
 
-  .item-body { min-width: 0; }
+  .acc-panel img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .acc-panel:not(.active):hover img { transform: scale(1.04); }
 
-  .item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .item-name {
+  /* vertical label on collapsed strips */
+  .acc-label {
+    position: absolute; inset: 0;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 16px;
+    writing-mode: vertical-rl;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .12em;
+    color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,.45);
+    transition: opacity .25s ease;
+    pointer-events: none;
+  }
+  .acc-panel.active .acc-label { opacity: 0; }
+
+  /* overlay shown only on active panel */
+  .acc-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 22px;
+    background: linear-gradient(to top, rgba(20,14,8,.68) 0%, rgba(20,14,8,.06) 55%, transparent 100%);
+    color: #fff;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .3s ease .12s, transform .3s ease .12s;
+    pointer-events: none;
+  }
+  .acc-panel.active .acc-overlay { opacity: 1; transform: none; pointer-events: auto; }
+
+  .acc-name { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .acc-name strong {
     font-family: var(--display);
     font-weight: 700;
-    font-size: 22px;
-    line-height: 1.16;
+    font-size: 19px;
     letter-spacing: -.005em;
-    margin: 0;
-    text-wrap: balance;
   }
-  .item-jp {
-    flex: none;
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: .04em;
-    color: var(--orange);
-    white-space: nowrap;
-  }
-  .item-pl {
-    display: block;
-    font-weight: 500;
-    font-size: 11.5px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 7px;
-  }
-  .item-desc {
-    margin: 13px 0 0;
-    font-size: 13.5px;
-    line-height: 1.72;
-    color: rgba(32,26,19,.70);
-  }
-  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
-  .tag {
-    font-size: 9.5px; font-weight: 700;
-    letter-spacing: .12em; text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 5px 11px;
-  }
-  .tag-veg { color: var(--matcha); border-color: rgba(110,143,62,.35); }
-  .tag-warn { color: var(--orange-deep); border-color: rgba(184,80,26,.35); }
+  .acc-jp { font-size: 12px; font-weight: 500; opacity: .82; }
+  .acc-desc { margin: 8px 0 0; font-size: 12.5px; line-height: 1.55; opacity: .88; max-width: 34ch; }
 
-  @media (max-width: 540px) {
-    .item.has-media { grid-template-columns: 108px 1fr; gap: 14px; }
-    .item-name { font-size: 19px; }
+  @media (max-width: 520px) {
+    .acc { height: 260px; }
+    .acc-name strong { font-size: 17px; }
   }
 
   /* ---- footer ---- */
   .foot {
-    margin-top: 64px;
-    padding-top: 26px;
+    margin-top: 56px;
+    padding-top: 22px;
     border-top: 1px solid var(--line);
-    display: flex; flex-wrap: wrap; gap: 12px 22px;
-    font-size: 11px; font-weight: 500;
+    display: flex; flex-wrap: wrap; gap: 10px 20px;
+    font-size: 10.5px; font-weight: 500;
     letter-spacing: .1em; text-transform: uppercase;
   }
   .foot a { color: var(--muted); text-decoration: none; transition: color .15s ease; }
   .foot a:hover { color: var(--orange); }
-  .foot .spark { color: var(--orange); }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="top">
-    <a href="/visit/">← Café Belmont</a>
-    <span>Kazimierz · Kraków</span>
+    <a href="/visit/">← Wizytówka</a>
   </div>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <span class="hero-kanji" aria-hidden="true">秋</span>
-    <p class="hero-eyebrow">Sezon · Jesień 2026</p>
-    <h1>Menu jesienne<span class="jp">秋のメニュー</span><span class="en">Autumn menu</span></h1>
-    <p class="hero-intro">Sześć pozycji na chłodniejsze dni — matcha ceremonialna YUME z Uji, kawa specialty i wypalana hojicha. Prażone jabłka, korzenne przyprawy i syrop klonowy, nic z gotowego musu.</p>
-    <p class="hero-dates">Dostępne w kawiarni · na miejscu i na wynos</p>
-    <div class="hero-rule"></div>
+  <section class="hero">
+    <p class="hero-jp">秋のメニュー</p>
+    <h1>Menu jesienne</h1>
   </section>
 
   <!-- MATCHA -->
   <section class="section">
-    <div class="sec-head">
-      <span class="sec-jp">抹茶</span>
-      <div class="sec-titles">
-        <span class="sec-title">Matcha sezonowa</span>
-        <span class="sec-sub">Seasonal matcha</span>
-      </div>
-      <span class="sec-line"></span>
+    <div class="sec-badge"><span class="jp">抹茶</span><span class="en">Matcha</span></div>
+
+    <div class="acc">
+      <button class="acc-panel active" type="button" aria-label="Apple Pie Matcha">
+        <span class="acc-label">Apple Pie Matcha</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Apple Pie Matcha</strong><span class="acc-jp">アップルパイ抹茶</span></div>
+          <p class="acc-desc">Szarlotkowa latte — matcha ceremonialna YUME, prażone jabłko, cynamon, syrop klonowy.</p>
+        </div>
+      </button>
+      <button class="acc-panel" type="button" aria-label="Chai Matcha">
+        <img src="/img/jesien/chai.jpg" alt="Chai Matcha" loading="lazy">
+        <span class="acc-label">Chai Matcha</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Chai Matcha</strong><span class="acc-jp">チャイ抹茶</span></div>
+          <p class="acc-desc">Matcha ceremonialna YUME spotyka korzenny syrop chai. Bez espresso i czarnej herbaty.</p>
+        </div>
+      </button>
     </div>
-
-    <article class="item">
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Apple Pie Matcha</h2>
-          <span class="item-jp">アップルパイ抹茶</span>
-        </div>
-        <span class="item-pl">Szarlotkowa latte</span>
-        <p class="item-desc">Matcha latte inspirowane szarlotką. Matchę ceremonialną YUME z Uji ubijamy na gęstą pastę, dopiero potem łączymy z mlekiem, prażonymi jabłkami, cynamonem i syropem klonowym. Jabłko z cynamonem stopniowo osiada na dnie, więc ostatnie łyki są najgęstsze i najbardziej korzenne, a trawiasta gorycz matchy przez cały czas trzyma słodycz w ryzach. Podajemy na ciepło, na mleku krowim lub owsianym barista. Jedna z sezonowych pozycji jesiennych, przygotowywana ze świeżo prażonych jabłek, nie z gotowego musu.</p>
-        <div class="tags">
-          <span class="tag">Na ciepło</span>
-          <span class="tag">Krowie / owsiane</span>
-          <span class="tag tag-veg">Wegańskie na roślinnym</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="item has-media">
-      <div class="item-media" style="background-image:url('/img/jesien/chai.jpg')"></div>
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Chai Matcha</h2>
-          <span class="item-jp">チャイ抹茶</span>
-        </div>
-        <p class="item-desc">Połączenie dwóch rytuałów: japońskiej matchy i indyjskiej mieszanki korzennej chai. Matcha ceremonialna YUME z rodzinnej farmy w Uji, ubijana bambusowym chasen, spotyka się tu z korzennym syropem chai i ciepłym mlekiem. W składzie nie ma espresso ani czarnej herbaty, więc kofeina pochodzi wyłącznie z matchy i działa łagodniej niż ta z kawy. Przyprawy rozchodzą się w mleku stopniowo, dlatego ostatnie łyki smakują wyraźniej niż pierwsze.</p>
-        <div class="tags">
-          <span class="tag">Na ciepło</span>
-          <span class="tag">Krowie 3,2% / owsiane</span>
-          <span class="tag tag-veg">Wegańskie na roślinnym</span>
-        </div>
-      </div>
-    </article>
   </section>
 
   <!-- KAWA -->
   <section class="section">
-    <div class="sec-head">
-      <span class="sec-jp">珈琲</span>
-      <div class="sec-titles">
-        <span class="sec-title">Kawa sezonowa</span>
-        <span class="sec-sub">Seasonal coffee</span>
-      </div>
-      <span class="sec-line"></span>
+    <div class="sec-badge"><span class="jp">珈琲</span><span class="en">Coffee</span></div>
+
+    <div class="acc">
+      <button class="acc-panel active" type="button" aria-label="Ginger Date Latte">
+        <img src="/img/jesien/ginger-date.jpg" alt="Ginger Date Latte" loading="lazy">
+        <span class="acc-label">Ginger Date Latte</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Ginger Date Latte</strong><span class="acc-jp">ジンジャーデーツラテ</span></div>
+          <p class="acc-desc">Espresso specialty słodzone syropem daktylowym, ostro przecięte imbirem. Bez białego cukru.</p>
+        </div>
+      </button>
+      <button class="acc-panel" type="button" aria-label="Hazelnut S'Mores Latte">
+        <img src="/img/jesien/smores.jpg" alt="Hazelnut S'Mores Latte" loading="lazy">
+        <span class="acc-label">S'Mores Latte</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Hazelnut S'Mores Latte</strong><span class="acc-jp">ヘーゼルナッツスモアラテ</span></div>
+          <p class="acc-desc">Espresso, sos orzechowo-karmelowy i dwie pianki marshmallow opalane na żywo.</p>
+        </div>
+      </button>
+      <button class="acc-panel" type="button" aria-label="Banana Bread & Maple Foam Iced Latte">
+        <img src="/img/jesien/banana-bread.jpg" alt="Banana Bread & Maple Foam Iced Latte" loading="lazy">
+        <span class="acc-label">Banana Bread</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Banana Bread &amp; Maple Foam</strong><span class="acc-jp">バナナブレッド</span></div>
+          <p class="acc-desc">Mrożone latte z pulpą bananową, cynamonem i cold foamem na klonowym syropie. Nie wegańskie.</p>
+        </div>
+      </button>
     </div>
-
-    <article class="item has-media">
-      <div class="item-media" style="background-image:url('/img/jesien/ginger-date.jpg')"></div>
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Ginger Date Latte</h2>
-          <span class="item-jp">ジンジャーデーツラテ</span>
-        </div>
-        <span class="item-pl">Daktylowo-imbirowe latte</span>
-        <p class="item-desc">Latte na espresso z kawy specialty, słodzone wyłącznie syropem daktylowym, bez dodatku białego cukru. Daktyl daje słodycz ciemniejszą i pełniejszą niż cukrowa, bliższą karmelowi niż syropowi, a imbir przecina ją ostro na samym końcu, zostawiając wyraźne ciepło w gardle. Mleko spieniamy na gęsto, espresso zostaje wyczuwalne pod spodem przez cały czas. Dla osób, które szukają czegoś słodkiego, ale nie deserowego.</p>
-        <div class="tags">
-          <span class="tag">Na gorąco</span>
-          <span class="tag">Krowie 3,2% / owsiane</span>
-          <span class="tag">Bez białego cukru</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="item has-media">
-      <div class="item-media" style="background-image:url('/img/jesien/smores.jpg')"></div>
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Hazelnut S'Mores Latte</h2>
-          <span class="item-jp">ヘーゼルナッツスモアラテ</span>
-        </div>
-        <span class="item-pl">Orzechowo-karmelowe latte</span>
-        <p class="item-desc">Nasza najbardziej deserowa pozycja sezonowa, inspirowana amerykańskimi s'mores. Espresso z kawy specialty łączymy z mlekiem i sosem orzechowo-karmelowym, a na wierzch trafiają dwie pianki marshmallow opalane palnikiem tuż przed podaniem. Przypalony cukier tworzy cienką, gorzką skorupkę, która równoważy słodycz spodu i sprawia, że napój nie robi się mdły. Dla osób, które zamiast kawy i ciastka osobno wolą jedno i drugie w kubku.</p>
-        <div class="tags">
-          <span class="tag">Na gorąco</span>
-          <span class="tag">Krowie 3,2% / owsiane</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="item has-media">
-      <div class="item-media" style="background-image:url('/img/jesien/banana-bread.jpg')"></div>
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Banana Bread &amp; Maple Foam Iced Latte</h2>
-          <span class="item-jp">バナナブレッド ラテ</span>
-        </div>
-        <p class="item-desc">Mrożone latte inspirowane ciastem bananowym. Espresso z kawy specialty łączymy z zimnym mlekiem, pulpą bananową i cynamonem, a całość przykrywamy pianką cold foam, ubijaną u nas ze śmietanki, cukru cynamonowego i syropu klonowego. Pianka utrzymuje się na powierzchni, więc pierwsze łyki smakują jak sam deser, a kawa odzywa się dopiero po wymieszaniu. Podajemy z lodem.</p>
-        <div class="tags">
-          <span class="tag">Z lodem</span>
-          <span class="tag">Krowie 3,2% / owsiane</span>
-          <span class="tag tag-warn">Nie wegańskie · cold foam na śmietance</span>
-        </div>
-      </div>
-    </article>
   </section>
 
   <!-- HERBATA -->
   <section class="section">
-    <div class="sec-head">
-      <span class="sec-jp">茶</span>
-      <div class="sec-titles">
-        <span class="sec-title">Herbata</span>
-        <span class="sec-sub">Tea</span>
-      </div>
-      <span class="sec-line"></span>
-    </div>
+    <div class="sec-badge"><span class="jp">茶</span><span class="en">Tea</span></div>
 
-    <article class="item has-media">
-      <div class="item-media" style="background-image:url('/img/jesien/hojicha.jpg')"></div>
-      <div class="item-body">
-        <div class="item-head">
-          <h2 class="item-name">Hazelnut Hojicha</h2>
-          <span class="item-jp">ヘーゼルナッツほうじ茶</span>
+    <div class="acc" style="height:220px">
+      <button class="acc-panel active" type="button" aria-label="Hazelnut Hojicha">
+        <img src="/img/jesien/hojicha.jpg" alt="Hazelnut Hojicha" loading="lazy">
+        <span class="acc-label">Hazelnut Hojicha</span>
+        <div class="acc-overlay">
+          <div class="acc-name"><strong>Hazelnut Hojicha</strong><span class="acc-jp">ヘーゼルナッツほうじ茶</span></div>
+          <p class="acc-desc">Wypalana japońska herbata z sosem orzechowo-karmelowym. Mało kofeiny, bez kawy.</p>
         </div>
-        <p class="item-desc">Hojicha to japońska zielona herbata wypalana w bębnie aż do momentu, w którym traci zieleń i nabiera ciemnobrązowego koloru. Dzięki prażeniu smakuje dymem i prażonymi ziarnami, zupełnie inaczej niż klasyczna zielona herbata, i zawiera naturalnie mniej kofeiny, bo wysoka temperatura część jej rozkłada. U nas podajemy ją z mlekiem i sosem orzechowo-karmelowym, który łagodzi dymność i dodaje słodyczy. W składzie nie ma espresso ani żadnej kawy. Dobra propozycja na popołudnie i wieczór, dla osób, które chcą czegoś ciepłego bez pobudzenia.</p>
-        <div class="tags">
-          <span class="tag">Na gorąco</span>
-          <span class="tag">Krowie 3,2% / owsiane</span>
-          <span class="tag">Mało kofeiny</span>
-        </div>
-      </div>
-    </article>
+      </button>
+    </div>
   </section>
 
-  <!-- FOOT -->
   <div class="foot">
     <a href="/visit/">← Wizytówka</a>
     <a href="/#menu">Pełne menu</a>
-    <a href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">Instagram <span class="spark">→</span></a>
+    <a href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">Instagram</a>
   </div>
 
 </div>
+<script>
+(function(){
+  document.querySelectorAll('.acc').forEach(function(acc){
+    var panels = acc.querySelectorAll('.acc-panel');
+    panels.forEach(function(p){
+      p.addEventListener('click', function(){
+        if (p.classList.contains('active')) return;
+        panels.forEach(function(x){ x.classList.remove('active'); });
+        p.classList.add('active');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
