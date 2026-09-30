@@ -140,8 +140,15 @@
   .acc-panel:not(.active):hover .acc-media img { transform: scale(1.04); }
 
   /* vertical label on collapsed strips — bleeds past the photo edge like the section badges.
-     Position driven by one animatable custom property so it slides smoothly instead of
-     jumping when a panel flips from the right side of the active panel to the left (or back). */
+     Each panel's side (left/right) is fixed permanently in the HTML — it
+     never gets recomputed or reassigned in JS, so a label's position
+     (left) is never itself animated or transitioned. Only opacity ever
+     changes. The fade-in is delayed until AFTER the panel's own .5s
+     width transition has fully settled (0.52s delay), so it only ever
+     becomes visible on an already-stationary box — this is what
+     prevents any perceived "jump", including on slower mobile GPUs
+     where a width transition and an opacity fade running at the same
+     time can visibly desync. */
   .acc-label {
     position: absolute;
     top: 10px; bottom: 10px;
@@ -157,18 +164,14 @@
     text-shadow: 3px 3px 0 var(--orange);
     transform: translateX(-50%);
     opacity: 1;
-    transition: opacity .35s ease .08s;
+    transition: opacity .25s ease .52s;
     pointer-events: none;
   }
-  /* Each panel's side (left/right) is fixed permanently in the HTML — it
-     never gets recomputed or reassigned in JS. Only opacity ever animates
-     (driven purely by .active), so a label can never visibly reposition;
-     there is nothing left to "jump". */
   .acc-panel.side-left  .acc-label { left: 0%; }
   .acc-panel.side-right .acc-label { left: 100%; }
   .acc-panel.active .acc-label {
     opacity: 0;
-    transition: opacity .15s ease;
+    transition: opacity .1s ease;
   }
 
   /* overlay shown only on active panel */
