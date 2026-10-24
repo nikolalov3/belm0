@@ -510,7 +510,8 @@
       try {
         var v = JSON.parse(localStorage.getItem(STORE) || 'null');
         if (!v) return false;
-        return Date.now() - v.t < (v.s === 'a' ? 180 : 14) * 864e5;
+        /* only a real answer silences the survey; the old skippable version stored 'x', which no longer counts */
+        return v.s === 'a' && Date.now() - v.t < 180 * 864e5;
       } catch (e) { return false; }
     }
     function remember(state) {
