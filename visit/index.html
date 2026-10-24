@@ -516,7 +516,7 @@
     function remember(state) {
       try { localStorage.setItem(STORE, JSON.stringify({ t: Date.now(), s: state })); } catch (e) {}
     }
-    if (!forced && (navigator.webdriver || /bot|crawl|spider|slurp|preview|lighthouse|gptbot|perplexity|claude/i.test(navigator.userAgent) || recentlyHandled())) return;
+    if (!forced && (navigator.webdriver || /bot|crawl|spider|slurp|preview|lighthouse|perplexity|claude-(user|web)|anthropic-ai/i.test(navigator.userAgent) || recentlyHandled())) return;
 
     function el(tag, cls, text) {
       var n = document.createElement(tag);
