@@ -4,17 +4,12 @@ Stan: nowy front Next.js (PL `/`, EN `/en/`, `/visit/`, `/visit/autumn/`). Wszys
 canonical, hreflang, `@id` w JSON-LD, sitemap i klucz IndexNow są takie same jak na starej stronie,
 więc Google nie musi niczego "uczyć się od nowa" — zgłaszamy tylko, żeby przyspieszyć odświeżenie.
 
-## 0. Jedna rzecz do ustawienia w Vercel (ważne dla canonical)
+## 0. Domena w Vercel — zrobione (2026-10-25)
 
-Dziś `https://belmont.cafe/` odpowiada 308 → `https://www.belmont.cafe/`, a canonical, sitemap i
-schema wskazują wersję **bez www**. Google sobie z tym radzi, ale to niepotrzebny sygnał mieszany.
-
-Vercel → projekt **belm0** → Settings → Domains:
-1. przy `belmont.cafe` ustaw jako domenę główną (bez przekierowania),
-2. przy `www.belmont.cafe` ustaw **Redirect to belmont.cafe (308)**.
+Przez API Vercel: `belmont.cafe` jest domeną główną (200), `www.belmont.cafe` przekierowuje 308 na
+`belmont.cafe`. Canonical, sitemap, schema i IndexNow wskazują spójnie wersję **bez www**.
 
 Sprawdzenie: `curl -I https://belmont.cafe/` → `200`, `curl -I https://www.belmont.cafe/` → `308`.
-Po tej zmianie w `indexnow.mjs` zmień `HOST` na `belmont.cafe` (bez www).
 
 ## 1. Szybki test po wdrożeniu (2 minuty)
 

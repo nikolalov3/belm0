@@ -7,7 +7,7 @@
 // Klucz jest publiczny (hostowany jako <key>.txt w rootcie) — to zgodne z protokołem.
 
 const KEY = '9d9cf5c57e46e7a9f2ceebedc68504ee';
-const HOST = 'www.belmont.cafe';
+const HOST = 'belmont.cafe';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
 const DEFAULT_URLS = [
