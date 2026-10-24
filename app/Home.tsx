@@ -230,6 +230,8 @@ export default function Home({ t }: { t: Copy }) {
                   className="art-img"
                   width="440"
                   height="330"
+                  decoding="async"
+                  {...({ fetchpriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
                 <div className="art-tag-strip">
                   <span>{t.hero.artTags[0]}</span>
@@ -665,6 +667,8 @@ export default function Home({ t }: { t: Copy }) {
             className="modal-poster-img"
             width="440"
             height="620"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </dialog>
