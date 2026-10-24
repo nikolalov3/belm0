@@ -9,11 +9,11 @@ const sect = (lang) => {
   const c = copy[lang]; const pl = lang === 'pl';
   const L = pl ? {
     title: '# Café Belmont — pełna treść strony (PL)', intro: 'Źródło: https://belmont.cafe/ (wersja angielska: https://belmont.cafe/en/). Ceny w PLN, stan na 2026-10-24.',
-    hero: '## O miejscu', autumn: '## Menu jesienne 2026 (sezonowe, ciepłe lub mrożone)', menu: '## Menu', grades: '## Matcha Yume — gatunki', note: '## Czym jest matcha ceremonialna',
+    hero: '## O miejscu', autumn: '## Menu jesienne 2026 (sezonowe, ciepłe lub mrożone)', menu: '## Menu', grades: '## Matcha Yume — gatunki', note: `## ${copy.pl.craft.noteTitle}`,
     reviews: '## Opinie gości (Google Maps, 4,6/5, 436 opinii)', visit: '## Wizyta', faq: '## Pytania i odpowiedzi', links: '## Linki',
   } : {
     title: '# Café Belmont — full site content (EN)', intro: 'Source: https://belmont.cafe/en/ (Polish version: https://belmont.cafe/). Prices in PLN, as of 2026-10-24.',
-    hero: '## About the place', autumn: '## Autumn menu 2026 (seasonal, hot or iced)', menu: '## Menu', grades: '## Yume matcha — grades', note: '## What ceremonial matcha is',
+    hero: '## About the place', autumn: '## Autumn menu 2026 (seasonal, hot or iced)', menu: '## Menu', grades: '## Yume matcha — grades', note: `## ${copy.en.craft.noteTitle}`,
     reviews: '## Guest reviews (Google Maps, 4.6/5, 436 reviews)', visit: '## Visit', faq: '## Questions and answers', links: '## Links',
   };
   const items = (arr) => arr.map((m) => `- ${m.name}: ${m.price}${m.sub ? ` — ${m.sub}` : ''}`).join('\n');
