@@ -615,7 +615,8 @@
       lock();
       card.setAttribute('tabindex', '-1');
       try { card.focus({ preventScroll: true }); } catch (e) {}
-      requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('in'); }); });
+      /* timer, not requestAnimationFrame: rAF is paused in background tabs, and the page is locked while the sheet is open */
+      setTimeout(function () { root.classList.add('in'); }, 40);
     }
 
     setTimeout(build, forced ? 500 : 2500);
