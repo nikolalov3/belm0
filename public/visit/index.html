@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visit Café Belmont · Kazimierz, Kraków</title>
+<meta name="description" content="Café Belmont in Kazimierz — reviews, directions, WiFi, and Instagram.">
+<meta name="theme-color" content="#E9DFC8">
+<link rel="canonical" href="https://belmont.cafe/visit/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%238fb653'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
+<script defer src="https://stats.toodip.com/s.js" data-id="0c511152-cd70-41dc-961c-f5704fdab10f"></script>
+<style>
+  :root {
+    --bg: #E9DFC8;
+    --tile: rgba(22,16,4,.055);
+    --ink: #1C1710;
+    --accent: #567D1A;
+    --muted: rgba(28,23,16,.44);
+    --line: rgba(28,23,16,.13);
+    --line-strong: rgba(28,23,16,.26);
+    --radius: 3px;
+    --font: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141210;
+      --tile: rgba(255,255,255,.046);
+      --ink: #EAE4D6;
+      --accent: #85B826;
+      --muted: rgba(234,228,214,.42);
+      --line: rgba(234,228,214,.11);
+      --line-strong: rgba(234,228,214,.22);
+      --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #141210;
+    --tile: rgba(255,255,255,.046);
+    --ink: #EAE4D6;
+    --accent: #85B826;
+    --muted: rgba(234,228,214,.42);
+    --line: rgba(234,228,214,.11);
+    --line-strong: rgba(234,228,214,.22);
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: var(--noise);
+    background-size: 256px 256px;
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-inline: 22px;
+    padding-block: 54px 72px;
+  }
+
+  /* ── Header ── */
+  .head {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .logo-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .wordmark {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+  .meta {
+    margin-top: 12px;
+    font-size: 11.5px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: .03em;
+    line-height: 1.9;
+  }
+
+  /* ── Rate Us label (Japanese minimal) ── */
+  .rate-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 10px;
+  }
+
+  /* ── Tiles ── */
+  .stack { display: flex; flex-direction: column; gap: 6px; }
+  .stack + .rate-label, .stack + .stack { margin-top: 6px; }
+  /* Extra right/bottom space so offset shadows don't clip */
+  .review-stack { padding-right: 6px; padding-bottom: 6px; }
+
+  .tile {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 16px 18px;
+    background: var(--tile);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-align: left;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: background .13s ease, border-color .13s ease;
+  }
+
+  @media (hover: hover) {
+    .tile:hover:not(.tile-autumn) {
+      background: rgba(255,255,255,.08);
+      border-color: var(--line-strong);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .tile:hover:not(.tile-autumn) {
+      background: rgba(0,0,0,.07);
+    }
+  }
+
+  :root[data-theme="light"] .tile:hover:not(.tile-autumn) { background: rgba(0,0,0,.07); }
+
+  .tile:active { transform: scale(.99); }
+
+  /* Streetwear offset frame — second box shifted +5px right +5px down */
+  .tile-google { box-shadow: 5px 5px 0 0 #4285F4; transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease; }
+  .tile-ta     { box-shadow: 5px 5px 0 0 #00AA6C; transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease; }
+  .tile-apple  { box-shadow: 5px 5px 0 0 #FF3B30; transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease; }
+
+  @media (hover: hover) {
+    .tile-google:hover { box-shadow: 3px 3px 0 0 #4285F4; transform: translate(2px, 2px); }
+    .tile-ta:hover     { box-shadow: 3px 3px 0 0 #00AA6C; transform: translate(2px, 2px); }
+    .tile-apple:hover  { box-shadow: 3px 3px 0 0 #FF3B30; transform: translate(2px, 2px); }
+  }
+
+  .tile-google:active { box-shadow: 1px 1px 0 0 #4285F4 !important; transform: translate(4px, 4px) !important; }
+  .tile-ta:active     { box-shadow: 1px 1px 0 0 #00AA6C !important; transform: translate(4px, 4px) !important; }
+  .tile-apple:active  { box-shadow: 1px 1px 0 0 #FF3B30 !important; transform: translate(4px, 4px) !important; }
+
+  /* Autumn menu — seasonal tile with warm gradient backdrop */
+  .tile-autumn {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(10,7,4,.62), rgba(10,7,4,.72)),
+      radial-gradient(120% 160% at 92% 0%, rgba(217,105,30,.30), transparent 60%),
+      url('/img/jesien/tile-bg.webp');
+    background-size: cover;
+    background-position: 50% 20%;
+    border-color: rgba(217,105,30,.32);
+    box-shadow: 5px 5px 0 0 #D9691E;
+    transition: box-shadow .1s ease, transform .1s ease, background .13s ease, border-color .13s ease;
+  }
+  @media (hover: hover) {
+    .tile-autumn:hover { box-shadow: 3px 3px 0 0 #D9691E; transform: translate(2px, 2px); }
+  }
+  .tile-autumn:active { box-shadow: 1px 1px 0 0 #D9691E !important; transform: translate(4px, 4px) !important; }
+  .tile-autumn-leaf { flex: none; font-size: 19px; line-height: 1; filter: saturate(1.15); }
+  .tile-autumn-sub {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .06em;
+    text-transform: none;
+    color: var(--muted);
+  }
+
+  /* Logo icons */
+  .tile-ico { flex: none; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+  .tile-ico svg { width: 20px; height: 20px; display: block; }
+
+  /* Label + right side */
+  .tile-lbl { flex: 1; min-width: 0; }
+
+  .tile-right {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    color: var(--muted);
+    flex: none;
+    transition: color .13s ease;
+  }
+
+  @media (hover: hover) { .tile:hover .tile-right { color: var(--ink); } }
+
+  /* WiFi — hidden password */
+  .wifi-val {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .1em;
+    color: var(--muted);
+    text-transform: none;
+    flex: none;
+    user-select: none;
+  }
+
+  .wifi-val.revealed {
+    color: var(--ink);
+    letter-spacing: .06em;
+  }
+
+  /* Instagram handle stays lowercase */
+  .tile-ig-handle {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .01em;
+    text-transform: none;
+    color: var(--muted);
+    flex: none;
+    transition: color .13s ease;
+  }
+
+  @media (hover: hover) { .tile:hover .tile-ig-handle { color: var(--ink); } }
+
+  /* Spacer between groups */
+  .gap { height: 18px; }
+
+  /* Footer */
+  .foot {
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .foot a {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .13s ease;
+  }
+
+  .foot a:hover { color: var(--ink); }
+
+  /* ── "How did you find us?" survey sheet (built by JS, see bottom of file) ── */
+  .svy {
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; justify-content: center; align-items: flex-end;
+    padding: 0 12px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(8,6,4,0);
+    transition: background .3s ease;
+  }
+  .svy.in { background: rgba(8,6,4,.62); }
+  .svy-card {
+    outline: none;
+    width: 100%; max-width: 400px;
+    max-height: calc(100svh - 24px); overflow-y: auto;
+    padding: 16px 16px 14px;
+    background-color: var(--bg);
+    background-image: var(--noise);
+    background-size: 256px 256px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    box-shadow: 4px 4px 0 0 var(--ink);
+    opacity: 0; transform: translateY(18px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .svy.in .svy-card { opacity: 1; transform: none; }
+  .svy-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+  .svy-title {
+    margin: 0;
+    font: 600 12px/1.4 var(--font);
+    letter-spacing: .16em; text-transform: uppercase;
+  }
+  .svy-sub { margin: 4px 0 12px; font-size: 12px; color: var(--muted); }
+  .svy-grid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 52px; gap: 6px; }
+  .svy-opt {
+    padding: 6px 10px; text-align: left;
+    background: var(--tile); color: var(--ink);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    font: 500 12.5px/1.25 var(--font);
+    cursor: pointer; -webkit-appearance: none; appearance: none;
+    transition: background .13s ease, border-color .13s ease, transform .1s ease;
+  }
+  @media (hover: hover) {
+    .svy-opt:hover { border-color: var(--line-strong); background: rgba(128,128,128,.12); }
+  }
+  .svy-opt:active { transform: scale(.98); }
+  .svy-opt.wide { grid-column: 1 / -1; }
+  .svy-opt.sel { border-color: var(--ink); }
+  .svy-other { display: flex; gap: 6px; margin-top: 8px; }
+  .svy-other[hidden] { display: none; }
+  .svy-input {
+    flex: 1; min-width: 0; padding: 10px;
+    background: var(--tile); color: var(--ink);
+    border: 1px solid var(--line-strong); border-radius: var(--radius);
+    font: 500 16px/1.2 var(--font); /* 16px keeps iOS from zooming on focus */
+  }
+  .svy-send {
+    flex: none; padding: 0 14px;
+    background: var(--ink); color: var(--bg);
+    border: 0; border-radius: var(--radius);
+    font: 600 12px var(--font); letter-spacing: .12em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  .svy-thanks {
+    padding: 22px 0 18px; text-align: center;
+    font: 600 13px var(--font); letter-spacing: .16em; text-transform: uppercase;
+  }
+  .svy-opt:focus-visible, .svy-send:focus-visible, .svy-input:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .svy-card { transition: none; transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="head">
+    <a class="logo-link" href="/"><div class="wordmark">Café Belmont</div></a>
+    <div class="meta">Berka Joselewicza 12, Kazimierz<br>Mon–Sun · 9:00–19:00</div>
+  </header>
+
+  <!-- Autumn menu — seasonal highlight -->
+  <div class="stack">
+    <a class="tile tile-autumn" href="/visit/autumn/">
+      <span class="tile-autumn-leaf" aria-hidden="true">🍁</span>
+      <span class="tile-lbl">
+        Autumn Menu
+        <span class="tile-autumn-sub">Seasonal matcha &amp; coffee</span>
+      </span>
+      <span class="tile-right">→</span>
+    </a>
+  </div>
+
+  <div class="gap"></div>
+
+  <!-- Rate us -->
+  <div class="rate-label">Rate us</div>
+  <div class="stack review-stack">
+
+    <a class="tile tile-google" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener" data-toodip="google-review">
+      <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none">
+        <path fill="#4285F4" d="M22 12.2c0-.8-.07-1.5-.2-2.2H12v4.16h5.6a4.8 4.8 0 0 1-2.08 3.15v2.62h3.36C20.9 18.15 22 15.4 22 12.2Z"/>
+        <path fill="#34A853" d="M12 22c2.84 0 5.23-.94 6.97-2.54l-3.37-2.62c-.93.63-2.13 1-3.6 1-2.76 0-5.1-1.87-5.93-4.37H2.6v2.7A10 10 0 0 0 12 22Z"/>
+        <path fill="#FBBC05" d="M6.07 13.47A6 6 0 0 1 5.76 12c0-.51.09-1 .31-1.47V7.82H2.6A10 10 0 0 0 2 12c0 1.62.38 3.15 1.07 4.53l3-2.34.99-.72Z"/>
+        <path fill="#EA4335" d="M12 5.58c1.56 0 2.96.54 4.06 1.6l3.04-3.05C17.22 2.42 14.84 1.5 12 1.5A10 10 0 0 0 2.6 7.82l3.47 2.71A5.87 5.87 0 0 1 12 5.58Z"/>
+      </svg></span>
+      <span class="tile-lbl">Google</span>
+      <span class="tile-right">→</span>
+    </a>
+
+    <a class="tile tile-ta" href="https://www.tripadvisor.com/Restaurant_Review-g274772-d34359372-Reviews-Cafe_Belmont-Krakow_Lesser_Poland_Province_Southern_Poland.html" target="_blank" rel="noopener" data-toodip="tripadvisor">
+      <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none">
+        <path d="M6.5 9c1.8-1.5 9.2-1.5 11 0" stroke="#00AA6C" stroke-width="1.3" stroke-linecap="round"/>
+        <circle cx="7.8" cy="13.2" r="3" stroke="#00AA6C" stroke-width="1.5"/>
+        <circle cx="16.2" cy="13.2" r="3" stroke="#00AA6C" stroke-width="1.5"/>
+        <circle cx="7.8" cy="13.2" r="1.1" fill="#00AA6C"/>
+        <circle cx="16.2" cy="13.2" r="1.1" fill="#00AA6C"/>
+        <path d="M10 15.8 Q12 17.2 14 15.8" stroke="#00AA6C" stroke-width="1" stroke-linecap="round"/>
+      </svg></span>
+      <span class="tile-lbl">TripAdvisor</span>
+      <span class="tile-right">→</span>
+    </a>
+
+    <a class="tile tile-apple" href="https://maps.apple.com/place?place-id=I53E928FE9A7B0A5D" target="_blank" rel="noopener" data-toodip="apple-maps">
+      <span class="tile-ico"><svg viewBox="0 0 24 24" fill="none">
+        <!-- Apple Maps app icon: white tile, park, road, pin -->
+        <defs><clipPath id="amClip"><rect x="2" y="2" width="20" height="20" rx="5"/></clipPath></defs>
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FFFFFF" stroke="#E3E3E5" stroke-width=".6"/>
+        <g clip-path="url(#amClip)">
+          <path d="M2 2 H8.6 C7.8 5.3 5.2 7.9 2 8.7 Z" fill="#86D989"/>
+          <path d="M2.5 20.5 C7 15.5 11 12.8 21.6 6.3" stroke="#DDDDE0" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M2.5 20.5 C7 15.5 11 12.8 21.6 6.3" stroke="#FFFFFF" stroke-width=".55" stroke-dasharray="0.8 1.7" stroke-linecap="round"/>
+        </g>
+        <path d="M14.9 9.6c-1.55 0-2.8 1.25-2.8 2.8 0 2.05 2.8 5.1 2.8 5.1s2.8-3.05 2.8-5.1c0-1.55-1.25-2.8-2.8-2.8Z" fill="#FF3B30"/>
+        <circle cx="14.9" cy="12.4" r="1" fill="#FFFFFF"/>
+      </svg></span>
+      <span class="tile-lbl">Apple Maps</span>
+      <span class="tile-right">→</span>
+    </a>
+
+  </div>
+
+  <div class="gap"></div>
+
+  <!-- Menu -->
+  <div class="stack">
+    <a class="tile" href="/#menu">
+      <span class="tile-lbl">Menu</span>
+      <span class="tile-right">→</span>
+    </a>
+  </div>
+
+  <div class="gap"></div>
+
+  <!-- WiFi + Directions + Instagram -->
+  <div class="stack">
+
+    <button class="tile" type="button" id="wifiTile">
+      <span class="tile-lbl">WiFi Password</span>
+      <span class="wifi-val" id="wifiVal">••••••••••</span>
+    </button>
+
+    <a class="tile" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Belmont%2C%20ul.%20Berka%20Joselewicza%2012%2C%20Krak%C3%B3w" target="_blank" rel="noopener">
+      <span class="tile-lbl">Open in Maps</span>
+      <span class="tile-right">→</span>
+    </a>
+
+    <a class="tile" href="https://instagram.com/cafe_belmont" target="_blank" rel="noopener">
+      <span class="tile-lbl">Instagram</span>
+      <span class="tile-ig-handle">@cafe_belmont →</span>
+    </a>
+
+  </div>
+
+</div>
+<script>
+  (function(){
+    var btn = document.getElementById('wifiTile');
+    var val = document.getElementById('wifiVal');
+    if (!btn || !val) return;
+    var pass = 'Belmont2026';
+    var shown = false;
+    btn.addEventListener('click', function(){
+      shown = !shown;
+      if (shown) {
+        val.textContent = pass;
+        val.classList.add('revealed');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pass).catch(function(){});
+        }
+      } else {
+        val.textContent = '••••••••••';
+        val.classList.remove('revealed');
+      }
+    });
+  })();
+</script>
+<script>
+  /* "How did you find us?" — one-tap source survey, PL/EN by phone language.
+     Every answer is counted as a toodip event (ankieta-*), no personal data.
+     ENDPOINT is optional: when set, answers (incl. the free-text "Other") are also POSTed there.
+     The rest of the page is locked until an answer is sent (no skip). Test it any time with /visit/?survey=1  (or ?survey=pl / ?survey=en to force a language). */
+  (function(){
+    var ENDPOINT = '';
+    var STORE = 'bm_svy';
+
+    var OPTIONS = [
+      { k: 'maps',     e: 'ankieta-maps',             en: 'Google Maps',                         pl: 'Google Maps' },
+      { k: 'ai',       e: 'ankieta-ai',               en: 'ChatGPT / Gemini / AI',               pl: 'ChatGPT / Gemini / AI' },
+      { k: 'content',  e: 'ankieta-social',           en: 'Our Instagram / TikTok',              pl: 'Nasze IG / TikTok' },
+      { k: 'socialrec',e: 'ankieta-polecenie-social', en: 'Recommended on social media',         pl: 'Polecenie w social mediach' },
+      { k: 'passing',  e: 'ankieta-obok',             en: 'Walked past',                         pl: 'Przechodząc obok' },
+      { k: 'previous', e: 'ankieta-poprzedni',        en: 'I know you from your previous place', pl: 'Znam Was z poprzedniego lokalu' },
+      { k: 'friend',   e: 'ankieta-znajomy',          en: 'A friend told me',                    pl: 'Polecenie znajomego' },
+      { k: 'other',    e: 'ankieta-inne',             en: 'Other…',                              pl: 'Inne…' }
+    ];
+    var TEXT = {
+      en: { title: 'How did you find us?', sub: 'Pick an answer to continue.', ph: 'Tell us where', send: 'Send', thanks: 'Thank you!' },
+      pl: { title: 'Skąd o nas wiesz?', sub: 'Wybierz odpowiedź, żeby przejść dalej.', ph: 'Wpisz skąd', send: 'Wyślij', thanks: 'Dziękujemy!' }
+    };
+
+    var forced = (/[?&]survey=([^&]*)/.exec(location.search) || [])[1];
+    var lang = 'en';
+    if (forced === 'pl' || forced === 'en') {
+      lang = forced;
+    } else {
+      var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || 'en').toLowerCase();
+      if (nav.indexOf('pl') === 0) lang = 'pl';
+    }
+    var t = TEXT[lang];
+
+    function recentlyHandled() {
+      try {
+        var v = JSON.parse(localStorage.getItem(STORE) || 'null');
+        if (!v) return false;
+        /* only a real answer silences the survey; the old skippable version stored 'x', which no longer counts */
+        return v.s === 'a' && Date.now() - v.t < 180 * 864e5;
+      } catch (e) { return false; }
+    }
+    function remember(state) {
+      try { localStorage.setItem(STORE, JSON.stringify({ t: Date.now(), s: state })); } catch (e) {}
+    }
+    if (!forced && (navigator.webdriver || /bot|crawl|spider|slurp|preview|lighthouse|perplexity|claude-(user|web)|anthropic-ai/i.test(navigator.userAgent) || recentlyHandled())) return;
+
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+    /* Sent through our own domain (/_s/c is proxied to the toodip collector, see vercel.json), so ad/tracker
+       blockers that cut third-party stats scripts don't swallow the answer. Falls back to the toodip tracker. */
+    function track(name) {
+      function fallback() { try { if (typeof window.toodip === 'function') window.toodip(name); } catch (e) {} }
+      var tag = document.querySelector('script[data-id]');
+      var id = tag && tag.getAttribute('data-id');
+      if (!id) { fallback(); return; }
+      var vid = '';
+      try { vid = localStorage.getItem('tdp_vid') || ''; } catch (e) {}
+      try {
+        fetch('/_s/c/', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ id: id, e: name, p: location.pathname, vid: vid, l: (navigator.language || '').slice(0, 10), t: (document.title || '').slice(0, 200) })
+        }).then(function (r) { if (!r.ok) fallback(); }, fallback);
+      } catch (e) { fallback(); }
+    }
+    function post(opt, text) {
+      if (!ENDPOINT) return;
+      try {
+        fetch(ENDPOINT, {
+          method: 'POST', mode: 'no-cors', keepalive: true,
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ a: opt.k, o: text || '', l: lang, t: new Date().toISOString(), p: location.pathname })
+        });
+      } catch (e) {}
+    }
+
+    function build() {
+      var root = el('div', 'svy');
+      root.setAttribute('role', 'dialog');
+      root.setAttribute('aria-modal', 'true');
+      root.setAttribute('aria-labelledby', 'svyTitle');
+      var card = el('div', 'svy-card');
+
+      var head = el('div', 'svy-head');
+      var title = el('h2', 'svy-title', t.title);
+      title.id = 'svyTitle';
+      head.appendChild(title);
+      card.appendChild(head);
+      card.appendChild(el('p', 'svy-sub', t.sub));
+
+      var grid = el('div', 'svy-grid');
+      var form = el('form', 'svy-other');
+      form.hidden = true;
+      var input = el('input', 'svy-input');
+      input.type = 'text'; input.maxLength = 120; input.placeholder = t.ph;
+      input.setAttribute('aria-label', t.ph);
+      var send = el('button', 'svy-send', t.send);
+      send.type = 'submit';
+      form.appendChild(input);
+      form.appendChild(send);
+
+      OPTIONS.forEach(function (opt) {
+        var b = el('button', 'svy-opt' + (opt.wide ? ' wide' : ''), opt[lang]);
+        b.type = 'button';
+        b.addEventListener('click', function () {
+          if (opt.k === 'other') {
+            b.classList.add('sel');
+            form.hidden = false;
+            input.focus();
+            return;
+          }
+          answer(opt, '');
+        });
+        grid.appendChild(b);
+      });
+      card.appendChild(grid);
+      card.appendChild(form);
+      root.appendChild(card);
+
+      /* The rest of the page stays dead (inert, dimmed, no scroll) until an answer is sent. */
+      var page = document.querySelector('.wrap');
+      function lock() {
+        if (page) page.inert = true;
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function unlock() {
+        if (page) page.inert = false;
+        document.documentElement.style.overflow = '';
+      }
+      function close(animated) {
+        unlock();
+        root.classList.remove('in');
+        setTimeout(function () { if (root.parentNode) root.parentNode.removeChild(root); }, animated ? 350 : 0);
+      }
+      function answer(opt, text) {
+        /* toodip events carry only a name (max 40 chars), so the free text of "Other" rides after a colon */
+        track(opt.k === 'other' && text ? (opt.e + ':' + text).slice(0, 40) : opt.e);
+        post(opt, text);
+        remember('a');
+        card.textContent = '';
+        card.appendChild(el('div', 'svy-thanks', t.thanks));
+        setTimeout(function () { close(true); }, 1400);
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var other = OPTIONS.filter(function (o) { return o.k === 'other'; })[0];
+        answer(other, input.value.trim().slice(0, 120));
+      });
+
+      document.body.appendChild(root);
+      lock();
+      card.setAttribute('tabindex', '-1');
+      try { card.focus({ preventScroll: true }); } catch (e) {}
+      /* timer, not requestAnimationFrame: rAF is paused in background tabs, and the page is locked while the sheet is open */
+      setTimeout(function () { root.classList.add('in'); }, 40);
+    }
+
+    build();  /* immediately: the page is inert before it can be tapped */
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+# Café Belmont — chcemy być czytani i cytowani przez AI. Nic nie blokujemy.
+# Skrót dla modeli językowych: https://belmont.cafe/llms.txt (pełna treść: https://belmont.cafe/llms-full.txt)
+User-agent: *
+Allow: /
+
+# Asystenci AI — jawnie zapraszamy (widoczność w odpowiedziach AI).
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://belmont.cafe/sitemap.xml
