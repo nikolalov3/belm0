@@ -525,8 +525,22 @@
       if (text != null) n.textContent = text;
       return n;
     }
+    /* Sent through our own domain (/_s/c is proxied to the toodip collector, see vercel.json), so ad/tracker
+       blockers that cut third-party stats scripts don't swallow the answer. Falls back to the toodip tracker. */
     function track(name) {
-      try { if (typeof window.toodip === 'function') window.toodip(name); } catch (e) {}
+      function fallback() { try { if (typeof window.toodip === 'function') window.toodip(name); } catch (e) {} }
+      var tag = document.querySelector('script[data-id]');
+      var id = tag && tag.getAttribute('data-id');
+      if (!id) { fallback(); return; }
+      var vid = '';
+      try { vid = localStorage.getItem('tdp_vid') || ''; } catch (e) {}
+      try {
+        fetch('/_s/c', {
+          method: 'POST', keepalive: true,
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify({ id: id, e: name, p: location.pathname, vid: vid, l: (navigator.language || '').slice(0, 10), t: (document.title || '').slice(0, 200) })
+        }).then(function (r) { if (!r.ok) fallback(); }, fallback);
+      } catch (e) { fallback(); }
     }
     function post(opt, text) {
       if (!ENDPOINT) return;
@@ -620,7 +634,7 @@
       setTimeout(function () { root.classList.add('in'); }, 40);
     }
 
-    setTimeout(build, forced ? 500 : 2500);
+    build();  /* immediately: the page is inert before it can be tapped */
   })();
 </script>
 </body>

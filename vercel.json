@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/_s/c", "destination": "https://stats.toodip.com/api/collect" }
+  ]
+}
