@@ -277,13 +277,15 @@
 
   /* ── "How did you find us?" survey sheet (built by JS, see bottom of file) ── */
   .svy {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-    display: flex; justify-content: center;
+    position: fixed; inset: 0; z-index: 50;
+    display: flex; justify-content: center; align-items: flex-end;
     padding: 0 12px calc(12px + env(safe-area-inset-bottom));
-    pointer-events: none;
+    background: rgba(8,6,4,0);
+    transition: background .3s ease;
   }
+  .svy.in { background: rgba(8,6,4,.62); }
   .svy-card {
-    pointer-events: auto;
+    outline: none;
     width: 100%; max-width: 400px;
     max-height: calc(100svh - 24px); overflow-y: auto;
     padding: 16px 16px 14px;
@@ -302,11 +304,6 @@
     margin: 0;
     font: 600 12px/1.4 var(--font);
     letter-spacing: .16em; text-transform: uppercase;
-  }
-  .svy-x {
-    flex: none; width: 32px; height: 32px; margin: -8px -8px 0 0;
-    border: 0; background: none; color: var(--muted);
-    font: 400 24px/1 var(--font); cursor: pointer;
   }
   .svy-sub { margin: 4px 0 12px; font-size: 12px; color: var(--muted); }
   .svy-grid { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 52px; gap: 6px; }
@@ -343,7 +340,7 @@
     padding: 22px 0 18px; text-align: center;
     font: 600 13px var(--font); letter-spacing: .16em; text-transform: uppercase;
   }
-  .svy-opt:focus-visible, .svy-x:focus-visible, .svy-send:focus-visible, .svy-input:focus-visible {
+  .svy-opt:focus-visible, .svy-send:focus-visible, .svy-input:focus-visible {
     outline: 2px solid var(--accent); outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -479,7 +476,7 @@
   /* "How did you find us?" — one-tap source survey, PL/EN by phone language.
      Every answer is counted as a toodip event (ankieta-*), no personal data.
      ENDPOINT is optional: when set, answers (incl. the free-text "Other") are also POSTed there.
-     Test it any time with /visit/?survey=1  (or ?survey=pl / ?survey=en to force a language). */
+     The rest of the page is locked until an answer is sent (no skip). Test it any time with /visit/?survey=1  (or ?survey=pl / ?survey=en to force a language). */
   (function(){
     var ENDPOINT = '';
     var STORE = 'bm_svy';
@@ -495,8 +492,8 @@
       { k: 'other',    e: 'ankieta-inne',             en: 'Other…',                              pl: 'Inne…' }
     ];
     var TEXT = {
-      en: { title: 'How did you find us?', sub: 'One tap, it helps us a lot.', close: 'Close', ph: 'Tell us where', send: 'Send', thanks: 'Thank you!' },
-      pl: { title: 'Skąd o nas wiesz?', sub: 'Jedno kliknięcie, bardzo nam pomaga.', close: 'Zamknij', ph: 'Wpisz skąd', send: 'Wyślij', thanks: 'Dziękujemy!' }
+      en: { title: 'How did you find us?', sub: 'Pick an answer to continue.', ph: 'Tell us where', send: 'Send', thanks: 'Thank you!' },
+      pl: { title: 'Skąd o nas wiesz?', sub: 'Wybierz odpowiedź, żeby przejść dalej.', ph: 'Wpisz skąd', send: 'Wyślij', thanks: 'Dziękujemy!' }
     };
 
     var forced = (/[?&]survey=([^&]*)/.exec(location.search) || [])[1];
@@ -519,7 +516,7 @@
     function remember(state) {
       try { localStorage.setItem(STORE, JSON.stringify({ t: Date.now(), s: state })); } catch (e) {}
     }
-    if (!forced && (navigator.webdriver || recentlyHandled())) return;
+    if (!forced && (navigator.webdriver || /bot|crawl|spider|slurp|preview|lighthouse|gptbot|perplexity|claude/i.test(navigator.userAgent) || recentlyHandled())) return;
 
     function el(tag, cls, text) {
       var n = document.createElement(tag);
@@ -544,17 +541,14 @@
     function build() {
       var root = el('div', 'svy');
       root.setAttribute('role', 'dialog');
+      root.setAttribute('aria-modal', 'true');
       root.setAttribute('aria-labelledby', 'svyTitle');
       var card = el('div', 'svy-card');
 
       var head = el('div', 'svy-head');
       var title = el('h2', 'svy-title', t.title);
       title.id = 'svyTitle';
-      var x = el('button', 'svy-x', '×');
-      x.type = 'button';
-      x.setAttribute('aria-label', t.close);
       head.appendChild(title);
-      head.appendChild(x);
       card.appendChild(head);
       card.appendChild(el('p', 'svy-sub', t.sub));
 
@@ -587,9 +581,19 @@
       card.appendChild(form);
       root.appendChild(card);
 
+      /* The rest of the page stays dead (inert, dimmed, no scroll) until an answer is sent. */
+      var page = document.querySelector('.wrap');
+      function lock() {
+        if (page) page.inert = true;
+        document.documentElement.style.overflow = 'hidden';
+      }
+      function unlock() {
+        if (page) page.inert = false;
+        document.documentElement.style.overflow = '';
+      }
       function close(animated) {
+        unlock();
         root.classList.remove('in');
-        document.removeEventListener('keydown', onKey);
         setTimeout(function () { if (root.parentNode) root.parentNode.removeChild(root); }, animated ? 350 : 0);
       }
       function answer(opt, text) {
@@ -600,15 +604,6 @@
         card.appendChild(el('div', 'svy-thanks', t.thanks));
         setTimeout(function () { close(true); }, 1400);
       }
-      function dismiss() {
-        track('ankieta-pomin');
-        remember('x');
-        close(true);
-      }
-      function onKey(e) { if (e.key === 'Escape') dismiss(); }
-
-      x.addEventListener('click', dismiss);
-      document.addEventListener('keydown', onKey);
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var other = OPTIONS.filter(function (o) { return o.k === 'other'; })[0];
@@ -616,6 +611,9 @@
       });
 
       document.body.appendChild(root);
+      lock();
+      card.setAttribute('tabindex', '-1');
+      try { card.focus({ preventScroll: true }); } catch (e) {}
       requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.add('in'); }); });
     }
 
