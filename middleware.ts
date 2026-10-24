@@ -93,8 +93,9 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
     const cookie = request.cookies.get(LANG_COOKIE)?.value;
     const want = cookie === 'pl' || cookie === 'en' ? cookie : langFromHeader(request.headers.get('accept-language'));
     if (want === 'en') {
-      const url = request.nextUrl.clone();
-      url.pathname = '/en/';
+      // absolute URL built by hand: nextUrl drops the trailing slash on Vercel, which cost an extra 308 hop
+      const url = new URL('/en/', request.url);
+      url.search = request.nextUrl.search;
       const res = NextResponse.redirect(url, 302);
       res.headers.set('Vary', 'Accept-Language, Cookie');
       return res;

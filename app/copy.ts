@@ -408,7 +408,7 @@ const en: Copy = {
   status: { checking: 'CHECKING...', open: ['OPEN', 'UNTIL 19:00'], closed: ['CLOSED', 'OPENS 9:00'] },
   hero: {
     kicker: 'KAZIMIERZ · BERKA JOSELEWICZA 12',
-    h1: ['MATCHA BAR & SPECIALTY COFFEE', 'IN KAZIMIERZ, KRAKÓW.'],
+    h1: ['MATCHA BAR & SPECIALTY COFFEE', 'IN KAZIMIERZ, KRAKÓW.'],
     leadBefore:
       'A matcha bar and specialty coffee shop in Kazimierz, Kraków, a short walk from Plac Nowy. Here matcha is the starting point, not an add-on to coffee: three grades of our own ',
     yumeTitle: 'Yume – our own matcha. Official shop yumematcha.pl',
