@@ -597,7 +597,8 @@
         setTimeout(function () { if (root.parentNode) root.parentNode.removeChild(root); }, animated ? 350 : 0);
       }
       function answer(opt, text) {
-        track(opt.e);
+        /* toodip events carry only a name (max 40 chars), so the free text of "Other" rides after a colon */
+        track(opt.k === 'other' && text ? (opt.e + ':' + text).slice(0, 40) : opt.e);
         post(opt, text);
         remember('a');
         card.textContent = '';
