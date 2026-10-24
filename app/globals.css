@@ -1369,7 +1369,7 @@ p {
   color: var(--ink);
 }
 
-/* "What ceremonial matcha is" note under the three grades */
+/* "What sets the top grade apart" note under the three grades */
 .craft-note {
   display: grid;
   grid-template-columns: 1fr;

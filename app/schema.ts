@@ -19,7 +19,7 @@ const text = {
     description:
       'Matcha bar i kawiarnia specialty na Kazimierzu w Krakowie, kawałek od Placu Nowego i blisko centrum. Własna matcha Yume sprowadzana z regionu Uji, matcha latte, iced matcha i matcha tonic, kawa specialty i onigiri robione na miejscu.',
     cuisine: ['Matcha', 'Kawa specialty', 'Onigiri'],
-    knowsAbout: ['Matcha', 'Matcha ceremonialna', 'Yume matcha', 'Kawa specialty', 'Onigiri', 'Hojicha'],
+    knowsAbout: ['Matcha', 'Matcha usucha', 'Yume matcha', 'Kawa specialty', 'Onigiri', 'Hojicha'],
     plantMilk: 'Mleko roślinne (Oatly, Sproud)',
     coFounder: 'Współzałożyciel',
     sections: {
@@ -36,7 +36,7 @@ const text = {
     description:
       'Matcha bar and specialty coffee shop in Kazimierz, Kraków, a short walk from Plac Nowy and close to the centre. Our own Yume matcha from the Uji region, matcha latte, iced matcha and matcha tonic, specialty coffee and onigiri made on site.',
     cuisine: ['Matcha', 'Specialty coffee', 'Onigiri'],
-    knowsAbout: ['Matcha', 'Ceremonial matcha', 'Yume matcha', 'Specialty coffee', 'Onigiri', 'Hojicha'],
+    knowsAbout: ['Matcha', 'Usucha matcha', 'Yume matcha', 'Specialty coffee', 'Onigiri', 'Hojicha'],
     plantMilk: 'Plant-based milk (Oatly, Sproud)',
     coFounder: 'Co-founder',
     sections: {

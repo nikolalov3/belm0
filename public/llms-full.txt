@@ -32,10 +32,10 @@ Matcha z Uji ubijana chasenem na gęstą piankę
 - Jasmine Yuzu Honey Matcha Iced Tea: 24 zł — Herbata jaśminowa, japoński owoc yuzu, miód, lód, matcha
 - Pina Colada Iced Matcha: 26 zł — Matcha z pulpą ananasową i mlekiem kokosowym na lodzie
 - Yuzu Passion Fruit Matcha Fizz: 26 zł — Musujący napój z matchą, cytrusami yuzu i marakują
-- Tradycyjna Matcha na Wodzie (Miska Chawan): 16 / 19 / 24 zł — Czysty ceremonialny napar usucha: Asa (16 zł) · Hana (19 zł) · Hoshi (24 zł)
+- Tradycyjna Matcha na Wodzie (Miska Chawan): 16 / 19 / 24 zł — Czysty tradycyjny napar usucha: Asa (16 zł) · Hana (19 zł) · Hoshi (24 zł)
 • Yume Asa — w cenie (łagodna, codzienna, słodki finisz)
 • Yume Hana — +3 zł (wyrazistsza, głęboka zieleń, bogata w l-teaninę)
-• Yume Hoshi — +8 zł (klasa ceremonialna najwyższej próby, czyste umami)
+• Yume Hoshi — +8 zł (Master’s Blend, najwyższy gatunek, czyste umami)
 
 ### KAWA SPECIALTY — NA CIEPŁO
 - House Espresso: 10 zł
@@ -68,7 +68,7 @@ Yume to nasza własna marka matchy. Prowadzimy ją razem z Café Belmont i sprow
 
 - YUME ASA (GRADE 01 · 朝; W cenie bazy napoju): Codzienna, łagodna i czysta. Świeży roślinny profil z delikatną słodyczą. Najlepsza pod latte i wersje na lodzie. UJI, KYOTO · SPRING HARVEST. https://yumematcha.pl/produkt/asa-puszka/
 - YUME HANA (GRADE 02 · 花; +3 zł do napoju): Głębsza, intensywniejsza zieleń i wyższy poziom l-teaniny. Wyraźnie przebija się przez kremowość mleka, dając słodki finisz. UJI, KYOTO · FIRST FLUSH. https://yumematcha.pl/produkt/hana-matcha-yume-premium/
-- YUME HOSHI (GRADE 03 · 星; +8 zł ceremonial): Klasa ceremonialna najwyższej próby. Mielona powoli na kamiennych żarnach. Gęsta, kremowa, potężne umami — polecana solo na wodzie. SINGLE ESTATE · CEREMONIAL MASTER. https://yumematcha.pl/produkt/hoshi/
+- YUME HOSHI (GRADE 03 · 星; +8 zł Master’s Blend): Master’s Blend, najwyższy gatunek Yume. Mielona powoli na kamiennych żarnach. Gęsta, kremowa, potężne umami — polecana solo na wodzie. SINGLE ESTATE · MASTER’S BLEND. https://yumematcha.pl/produkt/hoshi/
 
 ## Czym jest matcha ceremonialna
 Krzewy herbaty na kilka tygodni przed zbiorem chowa się w cieniu, co podnosi poziom chlorofilu i l-teaniny, a ścina goryczkę. Zbiera się tylko najmłodsze listki, usuwa z nich żyłki i mieli na kamiennych żarnach na puder drobniejszy od mąki. Dlatego dobra matcha jest żywo zielona, gładka i pełna umami, a nie płaska i gorzka. Przygotowuje się ją przez ubijanie, nie zalewanie, i pije w całości, razem z liściem.
@@ -92,7 +92,7 @@ Krzewy herbaty na kilka tygodni przed zbiorem chowa się w cieniu, co podnosi po
 W Café Belmont na Kazimierzu (ul. Berka Joselewicza 12). To matcha bar, w którym rzemieślnicza matcha Yume sprowadzana bezpośrednio z regionu Uji jest podstawą menu: tradycyjna usucha w czarce chawan, matcha latte, iced matcha oraz orzeźwiający matcha tonic.
 
 **Jaką matchę podajecie?**
-Matchę Yume w trzech czystych gatunkach: Yume Asa (codzienna, łagodna z naturalną słodyczą), Yume Hana (głębsza zieleń i bogactwo l-teaniny) oraz Yume Hoshi (najwyższa klasa ceremonialna mielona na kamiennych żarnach, o głębokim profilu umami).
+Matchę Yume w trzech czystych gatunkach: Yume Asa (codzienna, łagodna z naturalną słodyczą), Yume Hana (głębsza zieleń i bogactwo l-teaniny) oraz Yume Hoshi (Master’s Blend, najwyższy gatunek, mielona na kamiennych żarnach, o głębokim profilu umami).
 
 **Gdzie w Krakowie napić się matcha tonic?**
 Nasz autorski Ice Matcha Tonic jest w stałym menu Café Belmont na Kazimierzu (22 zł). Przygotowujemy go na bazie toniku premium, lodu i świeżo ubitej matchy Yume z plastrem cytrusa.
@@ -167,10 +167,10 @@ Uji matcha whisked with a chasen into a thick foam
 - Jasmine Yuzu Honey Matcha Iced Tea: 24 zł — Jasmine tea, Japanese yuzu, honey, ice, matcha
 - Pina Colada Iced Matcha: 26 zł — Matcha with pineapple pulp and coconut milk over ice
 - Yuzu Passion Fruit Matcha Fizz: 26 zł — Sparkling matcha with yuzu citrus and passion fruit
-- Traditional Matcha on Water (Chawan Bowl): 16 / 19 / 24 zł — Pure ceremonial usucha: Asa (16 zł) · Hana (19 zł) · Hoshi (24 zł)
+- Traditional Matcha on Water (Chawan Bowl): 16 / 19 / 24 zł — Pure traditional usucha: Asa (16 zł) · Hana (19 zł) · Hoshi (24 zł)
 • Yume Asa — included (mild, everyday, sweet finish)
 • Yume Hana — +3 zł (more expressive, deep green, rich in l-theanine)
-• Yume Hoshi — +8 zł (top ceremonial grade, pure umami)
+• Yume Hoshi — +8 zł (Master’s Blend, the top grade, pure umami)
 
 ### SPECIALTY COFFEE — HOT
 - House Espresso: 10 zł
@@ -203,7 +203,7 @@ Yume is our own matcha brand. We run it together with Café Belmont and bring it
 
 - YUME ASA (GRADE 01 · 朝; Included in the drink price): Everyday, mild and clean. A fresh, grassy profile with gentle sweetness. The best base for lattes and iced versions. UJI, KYOTO · SPRING HARVEST. https://yumematcha.pl/produkt/asa-puszka/
 - YUME HANA (GRADE 02 · 花; +3 zł per drink): Deeper, more intense green and a higher level of l-theanine. Cuts clearly through the creaminess of milk, with a sweet finish. UJI, KYOTO · FIRST FLUSH. https://yumematcha.pl/produkt/hana-matcha-yume-premium/
-- YUME HOSHI (GRADE 03 · 星; +8 zł ceremonial): Top ceremonial grade. Slowly stone-ground. Thick, creamy, powerful umami — best enjoyed on water alone. SINGLE ESTATE · CEREMONIAL MASTER. https://yumematcha.pl/produkt/hoshi/
+- YUME HOSHI (GRADE 03 · 星; +8 zł Master’s Blend): Master’s Blend, the top Yume grade. Slowly stone-ground. Thick, creamy, powerful umami — best enjoyed on water alone. SINGLE ESTATE · MASTER’S BLEND. https://yumematcha.pl/produkt/hoshi/
 
 ## What ceremonial matcha is
 For a few weeks before harvest the tea bushes are shaded, which raises chlorophyll and l-theanine and cuts the bitterness. Only the youngest leaves are picked, de-veined and stone-ground into a powder finer than flour. That is why good matcha is vivid green, smooth and full of umami, not flat and bitter. You whisk it rather than steep it, and drink the whole leaf.
@@ -227,7 +227,7 @@ For a few weeks before harvest the tea bushes are shaded, which raises chlorophy
 At Café Belmont in Kazimierz (ul. Berka Joselewicza 12). It is a matcha bar where craft Yume matcha, brought directly from the Uji region, is the base of the menu: traditional usucha in a chawan bowl, matcha latte, iced matcha and a refreshing matcha tonic.
 
 **Which matcha do you serve?**
-Yume matcha in three pure grades: Yume Asa (everyday, mild with natural sweetness), Yume Hana (deeper green and rich in l-theanine) and Yume Hoshi (the top ceremonial grade, stone-ground, with a deep umami profile).
+Yume matcha in three pure grades: Yume Asa (everyday, mild with natural sweetness), Yume Hana (deeper green and rich in l-theanine) and Yume Hoshi (Master’s Blend, the top grade, stone-ground, with a deep umami profile).
 
 **Where to get a matcha tonic in Kraków?**
 Our signature Iced Matcha Tonic is on the regular menu at Café Belmont in Kazimierz (22 zł). We make it with premium tonic, ice and freshly whisked Yume matcha with a slice of citrus.
