@@ -74,7 +74,7 @@ export function schemaFor(lang: Lang) {
     email: 'cafebelmontkrk@gmail.com',
     priceRange: '20–40 zł',
     currenciesAccepted: 'PLN',
-    image: `${SITE}/img/wall/10Belmont.jpg`,
+    image: [`${SITE}/images/og-belmont.jpg`, `${SITE}/images/gallery/bar-red-chair.webp`, `${SITE}/images/gallery/matcha-whisk-hands.webp`],
     servesCuisine: t.cuisine,
     knowsAbout: t.knowsAbout,
     brand: { '@type': 'Brand', name: 'Yume Matcha', url: 'https://yumematcha.pl', sameAs: 'https://yumematcha.pl' },
@@ -203,7 +203,7 @@ export function schemaFor(lang: Lang) {
         isPartOf: { '@id': `${SITE}/#website` },
         about: { '@id': `${SITE}/#business` },
         mainEntity: { '@id': `${SITE}/#business` },
-        primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}/img/wall/10Belmont.jpg` },
+        primaryImageOfPage: { '@type': 'ImageObject', url: `${SITE}/images/og-belmont.jpg` },
         dateModified: '2026-10-24',
         // the other language version of the same page
         workTranslation: lang === 'pl' ? { '@id': `${SITE}/en/#webpage` } : undefined,

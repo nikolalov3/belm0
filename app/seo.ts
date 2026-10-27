@@ -4,7 +4,7 @@ import type { Lang } from './copy';
 export const SITE = 'https://belmont.cafe';
 export const TOODIP_SITE_ID = '0c511152-cd70-41dc-961c-f5704fdab10f';
 
-const OG_IMAGE = `${SITE}/img/wall/10Belmont.jpg`;
+const OG_IMAGE = `${SITE}/images/og-belmont.jpg`;
 
 const text = {
   pl: {

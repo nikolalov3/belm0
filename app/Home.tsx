@@ -13,6 +13,7 @@ function ZenItem({ item }: { item: MenuItemCopy }) {
     <li className={cls}>
       <div className="zi-main">
         <span className="zi-name">
+          {item.art && <img src={item.art.src} alt={item.art.alt} className="zi-art" width="72" height="34" loading="lazy" />}
           {item.name}
           {item.badge && (
             <>
@@ -230,8 +231,8 @@ export default function Home({ t }: { t: Copy }) {
                   className="art-img"
                   width="440"
                   height="330"
-                  decoding="async"
-                  {...({ fetchpriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)}
+                 
+                  {...({ fetchPriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
                 <div className="art-tag-strip">
                   <span>{t.hero.artTags[0]}</span>
@@ -541,6 +542,24 @@ export default function Home({ t }: { t: Copy }) {
           </div>
         </section>
 
+        {/* Gallery: the place and the people (horizontal strip) */}
+        <section className="gallery-section" id="gallery">
+          <div className="gallery-wrap">
+            <header className="section-zen-head">
+              <span className="zen-tag">{t.gallery.tag}</span>
+              <h2 className="zen-title">{t.gallery.title}</h2>
+              <p className="zen-desc">{t.gallery.desc}</p>
+            </header>
+          </div>
+          <div className="gallery-strip">
+            {t.gallery.items.map((g) => (
+              <figure className={`gallery-item${g.wide ? ' wide' : ''}`} key={g.src}>
+                <img src={g.src} alt={g.alt} loading="lazy" width={g.wide ? 1200 : 800} height={g.wide ? 800 : 1200} />
+              </figure>
+            ))}
+          </div>
+        </section>
+
         {/* Visit & Specs (Ultra-Minimalist Line Ledger — Zero Boxes) */}
         <section className="visit-section" id="visit">
           <div className="visit-wrap">
@@ -668,7 +687,7 @@ export default function Home({ t }: { t: Copy }) {
             width="440"
             height="620"
             loading="lazy"
-            decoding="async"
+           
           />
         </div>
       </dialog>

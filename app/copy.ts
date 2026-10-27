@@ -13,6 +13,8 @@ export interface MenuItemCopy {
   badge?: string;
   highlight?: boolean;
   combo?: boolean;
+  /** label graphic shown next to the name (e.g. the onigiri cloud stickers) */
+  art?: { src: string; alt: string };
 }
 
 export interface GradeCopy {
@@ -85,6 +87,7 @@ export interface Copy {
     shopLead: string;
     shopDomain: string;
   };
+  gallery: { tag: string; title: string; desc: string; items: { src: string; alt: string; wide?: boolean }[] };
   reviews: { tag: string; title: string; desc: string; items: { text: string; author: string }[]; link: string };
   visit: {
     tag: string;
@@ -118,6 +121,32 @@ const GRADE_IMG = {
   hana: '/images/matcha/yume_hana_tin.webp',
   hoshi: '/images/matcha/yume_hoshi_tin.webp',
 };
+
+const G = '/images/gallery/';
+const GALLERY_PL = [
+  { src: G + 'bar-red-chair.webp', alt: 'Bar Café Belmont na Kazimierzu: ściana z plakatami, lampa i czerwone składane krzesło' },
+  { src: G + 'matcha-whisk-hands.webp', alt: 'Barista ubija matchę Yume bambusowym chasenem w białej czarce' },
+  { src: G + 'people-matcha-wall.webp', alt: 'Szklanka iced matcha latte uniesiona na tle ściany z plakatami w Café Belmont' },
+  { src: G + 'supreme-mirror.webp', alt: 'Ściana z naklejkami i okrągłe lustro z napisem @cafe_belmont', wide: true },
+  { src: G + 'people-brick-matcha.webp', alt: 'Gość z iced matcha latte na tle ceglanej ściany' },
+  { src: G + 'espresso-machine.webp', alt: 'Ekspres ciśnieniowy i kubki za barem Café Belmont' },
+  { src: G + 'people-iced-poster.webp', alt: 'Mrożona kawa w szklance na tle plakatu w Café Belmont' },
+  { src: G + 'lamp-collage.webp', alt: 'Lampa nad barem i kolaż plakatów oraz butelek w Café Belmont' },
+  { src: G + 'people-beanie-matcha.webp', alt: 'Gość w czapce z matcha latte w Café Belmont' },
+  { src: G + 'people-curly-latte.webp', alt: 'Gość w okularach z latte na tle ściany z plakatami' },
+];
+const GALLERY_EN = [
+  { src: G + 'bar-red-chair.webp', alt: 'The Café Belmont bar in Kazimierz: poster wall, lamp and a red folding chair' },
+  { src: G + 'matcha-whisk-hands.webp', alt: 'Barista whisking Yume matcha with a bamboo chasen in a white bowl' },
+  { src: G + 'people-matcha-wall.webp', alt: 'A glass of iced matcha latte raised against the poster wall at Café Belmont' },
+  { src: G + 'supreme-mirror.webp', alt: 'Sticker wall and a round mirror reading @cafe_belmont', wide: true },
+  { src: G + 'people-brick-matcha.webp', alt: 'Guest with an iced matcha latte against a brick wall' },
+  { src: G + 'espresso-machine.webp', alt: 'Espresso machine and cups behind the Café Belmont bar' },
+  { src: G + 'people-iced-poster.webp', alt: 'Iced coffee in a glass against a poster at Café Belmont' },
+  { src: G + 'lamp-collage.webp', alt: 'Lamp over the bar and a collage of posters and bottles at Café Belmont' },
+  { src: G + 'people-beanie-matcha.webp', alt: 'Guest in a beanie with a matcha latte at Café Belmont' },
+  { src: G + 'people-curly-latte.webp', alt: 'Guest in glasses with a latte against the poster wall' },
+];
 
 const pl: Copy = {
   lang: 'pl',
@@ -234,6 +263,8 @@ const pl: Copy = {
         { name: 'Onigiri Sweet Tofu', price: '16 zł', sub: 'Słodko-wytrawne marynowane tofu, szczypiorek, prażony sezam, nori' },
         { name: 'Onigiri Tuna Mayo', price: '15 zł', sub: 'Tuńczyk z japońskim majonezem Kewpie, prażony sezam, nori' },
         { name: 'Onigiri Umeboshi', price: '17 zł', sub: 'Tradycyjna japońska kiszona śliwka umeboshi (kwaśno-słona nuta)' },
+        { name: 'Onigiri Hoisin Salmon', price: '… zł', sub: 'Łosoś w sosie hoisin, prażony sezam, nori', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Naklejka Hoisin Salmon' } },
+        { name: 'Onigiri Kimchi Tofu', price: '… zł', sub: 'Tofu z kimchi, szczypiorek, prażony sezam, nori', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka Kimchi Tofu' } },
         { name: 'Zestaw: Onigiri + Kawa (do 12:00)', price: '25 zł', combo: true, sub: 'Dowolne onigiri z wybraną ciepłą kawą specialty' },
         { name: 'Zestaw: Onigiri + Matcha (do 12:00)', price: '29 zł', combo: true, sub: 'Dowolne onigiri z Matcha Latte na Yume Asa' },
       ],
@@ -290,6 +321,12 @@ const pl: Copy = {
       'Krzewy herbaty na kilka tygodni przed zbiorem chowa się w cieniu, co podnosi poziom chlorofilu i l-teaniny, a ścina goryczkę. Zbiera się tylko najmłodsze listki, usuwa z nich żyłki i mieli na kamiennych żarnach na puder drobniejszy od mąki. Dlatego dobra matcha jest żywo zielona, gładka i pełna umami, a nie płaska i gorzka. Przygotowuje się ją przez ubijanie, nie zalewanie, i pije w całości, razem z liściem.',
     shopLead: 'Oficjalny sklep online',
     shopDomain: 'yumematcha.pl ↗',
+  },
+  gallery: {
+    tag: 'KAZIMIERZ · WNĘTRZE I LUDZIE',
+    title: 'TAK TO U NAS WYGLĄDA',
+    desc: 'Ściana z plakatami, czerwone krzesło, matcha ubijana na oczach gości. Zdjęcia z lokalu i z naszych sesji.',
+    items: GALLERY_PL,
   },
   reviews: {
     tag: 'GOOGLE MAPS · 4.6 ★★★★★',
@@ -499,6 +536,8 @@ const en: Copy = {
         { name: 'Onigiri Sweet Tofu', price: '16 zł', sub: 'Sweet-savoury marinated tofu, chives, toasted sesame, nori' },
         { name: 'Onigiri Tuna Mayo', price: '15 zł', sub: 'Tuna with Japanese Kewpie mayo, toasted sesame, nori' },
         { name: 'Onigiri Umeboshi', price: '17 zł', sub: 'Traditional Japanese pickled plum umeboshi (sour-salty note)' },
+        { name: 'Onigiri Hoisin Salmon', price: '… zł', sub: 'Salmon in hoisin sauce, toasted sesame, nori', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Hoisin Salmon sticker' } },
+        { name: 'Onigiri Kimchi Tofu', price: '… zł', sub: 'Tofu with kimchi, chives, toasted sesame, nori', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Kimchi Tofu sticker' } },
         { name: 'Set: Onigiri + Coffee (until 12:00)', price: '25 zł', combo: true, sub: 'Any onigiri with a hot specialty coffee of your choice' },
         { name: 'Set: Onigiri + Matcha (until 12:00)', price: '29 zł', combo: true, sub: 'Any onigiri with a Matcha Latte on Yume Asa' },
       ],
@@ -555,6 +594,12 @@ const en: Copy = {
       'For a few weeks before harvest the tea bushes are shaded, which raises chlorophyll and l-theanine and cuts the bitterness. Only the youngest leaves are picked, de-veined and stone-ground into a powder finer than flour. That is why good matcha is vivid green, smooth and full of umami, not flat and bitter. You whisk it rather than steep it, and drink the whole leaf.',
     shopLead: 'Official online shop',
     shopDomain: 'yumematcha.pl ↗',
+  },
+  gallery: {
+    tag: 'KAZIMIERZ · THE PLACE AND THE PEOPLE',
+    title: 'WHAT IT LOOKS LIKE HERE',
+    desc: 'The poster wall, the red chair, matcha whisked in front of the guests. Photos from the café and our shoots.',
+    items: GALLERY_EN,
   },
   reviews: {
     tag: 'GOOGLE MAPS · 4.6 ★★★★★',
