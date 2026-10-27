@@ -124,26 +124,26 @@ const GRADE_IMG = {
 
 const G = '/images/gallery/';
 const GALLERY_PL = [
-  { src: G + 'bar-red-chair.webp', alt: 'Bar Café Belmont na Kazimierzu: ściana z plakatami, lampa i czerwone składane krzesło' },
-  { src: G + 'matcha-whisk-hands.webp', alt: 'Barista ubija matchę Yume bambusowym chasenem w białej czarce' },
+  { src: G + 'counter-sign-pour.webp', alt: 'Barista nalewa mleko do matcha latte za ladą Café Belmont, nad nim czerwony napis Café Belmont' },
+  { src: G + 'matcha-pour-board.webp', alt: 'Świeżo ubita matcha Yume przelewana z czarki do szklanki, obok bambusowy chasen' },
   { src: G + 'people-matcha-wall.webp', alt: 'Szklanka iced matcha latte uniesiona na tle ściany z plakatami w Café Belmont' },
-  { src: G + 'supreme-mirror.webp', alt: 'Ściana z naklejkami i okrągłe lustro z napisem @cafe_belmont', wide: true },
+  { src: G + 'interior-window.webp', alt: 'Wnętrze Café Belmont: ceglane ściany, lampa nad stolikiem i goście przy oknie na Kazimierz' },
   { src: G + 'people-brick-matcha.webp', alt: 'Gość z iced matcha latte na tle ceglanej ściany' },
-  { src: G + 'espresso-machine.webp', alt: 'Ekspres ciśnieniowy i kubki za barem Café Belmont' },
+  { src: G + 'window-seat.webp', alt: 'Goście przy oknie Café Belmont, ceglana ściana i drewniana ławka' },
   { src: G + 'people-iced-poster.webp', alt: 'Mrożona kawa w szklance na tle plakatu w Café Belmont' },
-  { src: G + 'lamp-collage.webp', alt: 'Lampa nad barem i kolaż plakatów oraz butelek w Café Belmont' },
+  { src: G + 'counter-cups.webp', alt: 'Lada Café Belmont ze stosem kubków i czerwonym napisem Café Belmont na ścianie' },
   { src: G + 'people-beanie-matcha.webp', alt: 'Gość w czapce z matcha latte w Café Belmont' },
   { src: G + 'people-curly-latte.webp', alt: 'Gość w okularach z latte na tle ściany z plakatami' },
 ];
 const GALLERY_EN = [
-  { src: G + 'bar-red-chair.webp', alt: 'The Café Belmont bar in Kazimierz: poster wall, lamp and a red folding chair' },
-  { src: G + 'matcha-whisk-hands.webp', alt: 'Barista whisking Yume matcha with a bamboo chasen in a white bowl' },
+  { src: G + 'counter-sign-pour.webp', alt: 'Barista pouring milk into a matcha latte behind the Café Belmont counter, red Café Belmont sign above' },
+  { src: G + 'matcha-pour-board.webp', alt: 'Freshly whisked Yume matcha poured from the bowl into a glass, bamboo chasen beside it' },
   { src: G + 'people-matcha-wall.webp', alt: 'A glass of iced matcha latte raised against the poster wall at Café Belmont' },
-  { src: G + 'supreme-mirror.webp', alt: 'Sticker wall and a round mirror reading @cafe_belmont', wide: true },
+  { src: G + 'interior-window.webp', alt: 'Inside Café Belmont: brick walls, a lamp over the table and guests by the window onto Kazimierz' },
   { src: G + 'people-brick-matcha.webp', alt: 'Guest with an iced matcha latte against a brick wall' },
-  { src: G + 'espresso-machine.webp', alt: 'Espresso machine and cups behind the Café Belmont bar' },
+  { src: G + 'window-seat.webp', alt: 'Guests by the Café Belmont window, brick wall and wooden bench' },
   { src: G + 'people-iced-poster.webp', alt: 'Iced coffee in a glass against a poster at Café Belmont' },
-  { src: G + 'lamp-collage.webp', alt: 'Lamp over the bar and a collage of posters and bottles at Café Belmont' },
+  { src: G + 'counter-cups.webp', alt: 'The Café Belmont counter with a stack of cups and the red Café Belmont sign on the wall' },
   { src: G + 'people-beanie-matcha.webp', alt: 'Guest in a beanie with a matcha latte at Café Belmont' },
   { src: G + 'people-curly-latte.webp', alt: 'Guest in glasses with a latte against the poster wall' },
 ];

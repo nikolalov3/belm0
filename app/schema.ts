@@ -74,7 +74,7 @@ export function schemaFor(lang: Lang) {
     email: 'cafebelmontkrk@gmail.com',
     priceRange: '20–40 zł',
     currenciesAccepted: 'PLN',
-    image: [`${SITE}/images/og-belmont.jpg`, `${SITE}/images/gallery/bar-red-chair.webp`, `${SITE}/images/gallery/matcha-whisk-hands.webp`],
+    image: [`${SITE}/images/og-belmont.jpg`, `${SITE}/images/gallery/counter-sign-pour.webp`, `${SITE}/images/gallery/interior-window.webp`],
     servesCuisine: t.cuisine,
     knowsAbout: t.knowsAbout,
     brand: { '@type': 'Brand', name: 'Yume Matcha', url: 'https://yumematcha.pl', sameAs: 'https://yumematcha.pl' },
