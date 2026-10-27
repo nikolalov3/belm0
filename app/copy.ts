@@ -260,8 +260,8 @@ const pl: Copy = {
       name: 'ONIGIRI & ŚNIADANIA',
       note: 'Świeże trójkąty ryżowe. Zestawy śniadaniowe do 12:00',
       items: [
-        { name: 'Onigiri Sweet Tofu', price: '17 zł', sub: 'Ryż, słodkie smażone tofu inari, rzodkiew takuan, majonez Kewpie, chrupiące chili Lao Gan Ma, olej sezamowy i chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
-        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Ryż, wędzone tofu, kimchi, majonez Kewpie, pasta gochujang, olej sezamowy i chrupiący chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
+        { name: 'Onigiri Sweet Tofu', price: '15 zł', sub: 'Ryż, słodkie smażone tofu inari, rzodkiew takuan, majonez Kewpie, chrupiące chili Lao Gan Ma, olej sezamowy i chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
+        { name: 'Onigiri Kimchi Tofu', price: '16 zł', sub: 'Ryż, wędzone tofu, kimchi, majonez Kewpie, pasta gochujang, olej sezamowy i chrupiący chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
         { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Ryż, łosoś wędzony na gorąco w kawałkach, sos hoisin, marynowana rzodkiew takuan, czerwona cebula, mieszanka sezamu, nori i gochugaru. Zawinięte w nori.', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Naklejka Hoisin Salmon' } },
         { name: 'Zestaw: Onigiri + Kawa (do 12:00)', price: '25 zł', combo: true, sub: 'Dowolne onigiri z wybraną ciepłą kawą specialty' },
         { name: 'Zestaw: Onigiri + Matcha (do 12:00)', price: '29 zł', combo: true, sub: 'Dowolne onigiri z Matcha Latte na Yume Asa' },
@@ -531,8 +531,8 @@ const en: Copy = {
       name: 'ONIGIRI & BREAKFAST',
       note: 'Fresh rice triangles. Breakfast sets until 12:00',
       items: [
-        { name: 'Onigiri Sweet Tofu', price: '17 zł', sub: 'Rice, sweet fried inari tofu, takuan radish, Kewpie mayo, crispy Lao Gan Ma chilli, sesame oil and tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
-        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Rice, smoked tofu, kimchi, Kewpie mayo, gochujang paste, sesame oil and a crispy tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
+        { name: 'Onigiri Sweet Tofu', price: '15 zł', sub: 'Rice, sweet fried inari tofu, takuan radish, Kewpie mayo, crispy Lao Gan Ma chilli, sesame oil and tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
+        { name: 'Onigiri Kimchi Tofu', price: '16 zł', sub: 'Rice, smoked tofu, kimchi, Kewpie mayo, gochujang paste, sesame oil and a crispy tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
         { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Rice, flaked hot-smoked salmon, hoisin sauce, pickled takuan radish, red onion, sesame mix, nori and gochugaru. Wrapped in nori.', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Hoisin Salmon sticker' } },
         { name: 'Set: Onigiri + Coffee (until 12:00)', price: '25 zł', combo: true, sub: 'Any onigiri with a hot specialty coffee of your choice' },
         { name: 'Set: Onigiri + Matcha (until 12:00)', price: '29 zł', combo: true, sub: 'Any onigiri with a Matcha Latte on Yume Asa' },
