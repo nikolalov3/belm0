@@ -1966,10 +1966,12 @@ dialog.flyer-native-dialog::backdrop {
   }
 }
 
-/* onigiri label stickers: sit above the dish name like on the packaging */
+/* onigiri label stickers: a small accent inline before the dish name */
 .zi-art {
-  display: block;
+  display: inline-block;
   inline-size: auto;
-  block-size: 2.6rem;
-  margin-block-end: 0.3rem;
+  block-size: 1.1em;
+  vertical-align: -0.18em;
+  margin-inline-end: 0.4em;
+  opacity: 0.95;
 }
