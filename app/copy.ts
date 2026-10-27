@@ -260,11 +260,9 @@ const pl: Copy = {
       name: 'ONIGIRI & ŚNIADANIA',
       note: 'Świeże trójkąty ryżowe. Zestawy śniadaniowe do 12:00',
       items: [
-        { name: 'Onigiri Sweet Tofu', price: '16 zł', sub: 'Słodko-wytrawne marynowane tofu, szczypiorek, prażony sezam, nori' },
-        { name: 'Onigiri Tuna Mayo', price: '15 zł', sub: 'Tuńczyk z japońskim majonezem Kewpie, prażony sezam, nori' },
-        { name: 'Onigiri Umeboshi', price: '17 zł', sub: 'Tradycyjna japońska kiszona śliwka umeboshi (kwaśno-słona nuta)' },
-        { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Łosoś w sosie hoisin, prażony sezam, nori', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Naklejka Hoisin Salmon' } },
-        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Tofu z kimchi, szczypiorek, prażony sezam, nori', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka Kimchi Tofu' } },
+        { name: 'Onigiri Sweet Tofu', price: '17 zł', sub: 'Ryż, słodkie smażone tofu inari, rzodkiew takuan, majonez Kewpie, chrupiące chili Lao Gan Ma, olej sezamowy i chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
+        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Ryż, wędzone tofu, kimchi, majonez Kewpie, pasta gochujang, olej sezamowy i chrupiący chips nori w tempurze. Zawinięte w nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Naklejka onigiri z tofu' } },
+        { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Ryż, łosoś wędzony na gorąco w kawałkach, sos hoisin, marynowana rzodkiew takuan, czerwona cebula, mieszanka sezamu, nori i gochugaru. Zawinięte w nori.', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Naklejka Hoisin Salmon' } },
         { name: 'Zestaw: Onigiri + Kawa (do 12:00)', price: '25 zł', combo: true, sub: 'Dowolne onigiri z wybraną ciepłą kawą specialty' },
         { name: 'Zestaw: Onigiri + Matcha (do 12:00)', price: '29 zł', combo: true, sub: 'Dowolne onigiri z Matcha Latte na Yume Asa' },
       ],
@@ -386,7 +384,7 @@ const pl: Copy = {
       ],
       [
         'Co zamówić na pierwszy raz?',
-        'Na start polecamy Matcha Latte na Yume Asa – aksamitne i delikatne. Jeśli szukasz czegoś orzeźwiającego, wybierz Ice Matcha Tonic. Do tego koniecznie onigiri Tuna Mayo albo marynowane Sweet Tofu robione na bieżąco na miejscu.',
+        'Na start polecamy Matcha Latte na Yume Asa – aksamitne i delikatne. Jeśli szukasz czegoś orzeźwiającego, wybierz Ice Matcha Tonic. Do tego koniecznie onigiri: Sweet Tofu, Kimchi Tofu albo Hoisin Salmon, robione na bieżąco na miejscu.',
       ],
       [
         'Czym różni się matcha latte od matcha tonic?',
@@ -398,7 +396,7 @@ const pl: Copy = {
       ],
       [
         'Czym jest onigiri?',
-        'Tradycyjne japońskie trójkąty z lekko doprawionego ryżu z wytrawnym nadzieniem, owinięte chrupiącym płatkiem alg nori. Przygotowujemy wersje Sweet Tofu, Tuna Mayo oraz Umeboshi (z tradycyjną kiszoną śliwką).',
+        'Tradycyjne japońskie trójkąty z lekko doprawionego ryżu z wytrawnym nadzieniem, owinięte chrupiącym płatkiem alg nori. Przygotowujemy trzy wersje: Sweet Tofu (słodkie tofu inari), Kimchi Tofu (wędzone tofu z kimchi i gochujang) oraz Hoisin Salmon (łosoś wędzony na gorąco w sosie hoisin).',
       ],
       [
         'Czy matcha ma dużo kofeiny?',
@@ -533,11 +531,9 @@ const en: Copy = {
       name: 'ONIGIRI & BREAKFAST',
       note: 'Fresh rice triangles. Breakfast sets until 12:00',
       items: [
-        { name: 'Onigiri Sweet Tofu', price: '16 zł', sub: 'Sweet-savoury marinated tofu, chives, toasted sesame, nori' },
-        { name: 'Onigiri Tuna Mayo', price: '15 zł', sub: 'Tuna with Japanese Kewpie mayo, toasted sesame, nori' },
-        { name: 'Onigiri Umeboshi', price: '17 zł', sub: 'Traditional Japanese pickled plum umeboshi (sour-salty note)' },
-        { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Salmon in hoisin sauce, toasted sesame, nori', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Hoisin Salmon sticker' } },
-        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Tofu with kimchi, chives, toasted sesame, nori', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Kimchi Tofu sticker' } },
+        { name: 'Onigiri Sweet Tofu', price: '17 zł', sub: 'Rice, sweet fried inari tofu, takuan radish, Kewpie mayo, crispy Lao Gan Ma chilli, sesame oil and tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
+        { name: 'Onigiri Kimchi Tofu', price: '17 zł', sub: 'Rice, smoked tofu, kimchi, Kewpie mayo, gochujang paste, sesame oil and a crispy tempura nori chip. Wrapped in nori.', art: { src: '/images/menu/onigiri-kimchi-tofu.webp', alt: 'Tofu onigiri sticker' } },
+        { name: 'Onigiri Hoisin Salmon', price: '17 zł', sub: 'Rice, flaked hot-smoked salmon, hoisin sauce, pickled takuan radish, red onion, sesame mix, nori and gochugaru. Wrapped in nori.', art: { src: '/images/menu/onigiri-hoisin-salmon.webp', alt: 'Hoisin Salmon sticker' } },
         { name: 'Set: Onigiri + Coffee (until 12:00)', price: '25 zł', combo: true, sub: 'Any onigiri with a hot specialty coffee of your choice' },
         { name: 'Set: Onigiri + Matcha (until 12:00)', price: '29 zł', combo: true, sub: 'Any onigiri with a Matcha Latte on Yume Asa' },
       ],
@@ -659,7 +655,7 @@ const en: Copy = {
       ],
       [
         'What should I order first?',
-        'Start with a Matcha Latte on Yume Asa – velvety and delicate. If you want something refreshing, go for the Iced Matcha Tonic. Add an onigiri Tuna Mayo or the marinated Sweet Tofu, made fresh on site.',
+        'Start with a Matcha Latte on Yume Asa – velvety and delicate. If you want something refreshing, go for the Iced Matcha Tonic. Add an onigiri – Sweet Tofu, Kimchi Tofu or Hoisin Salmon – made fresh on site.',
       ],
       [
         'What is the difference between matcha latte and matcha tonic?',
@@ -671,7 +667,7 @@ const en: Copy = {
       ],
       [
         'What is onigiri?',
-        'Traditional Japanese triangles of lightly seasoned rice with a savoury filling, wrapped in a crisp sheet of nori seaweed. We make Sweet Tofu, Tuna Mayo and Umeboshi (with traditional pickled plum).',
+        'Traditional Japanese triangles of lightly seasoned rice with a savoury filling, wrapped in a crisp sheet of nori seaweed. We make three: Sweet Tofu (sweet inari tofu), Kimchi Tofu (smoked tofu with kimchi and gochujang) and Hoisin Salmon (hot-smoked salmon in hoisin sauce).',
       ],
       [
         'Does matcha have a lot of caffeine?',
