@@ -325,7 +325,7 @@ const pl: Copy = {
   gallery: {
     tag: 'KAZIMIERZ · WNĘTRZE I LUDZIE',
     title: 'TAK TO U NAS WYGLĄDA',
-    desc: 'Ściana z plakatami, czerwone krzesło, matcha ubijana na oczach gości. Zdjęcia z lokalu i z naszych sesji.',
+    desc: 'Czerwony napis nad ladą, cegła, okno na Kazimierz i matcha ubijana na oczach gości. Zdjęcia z lokalu i z naszych sesji.',
     items: GALLERY_PL,
   },
   reviews: {
@@ -598,7 +598,7 @@ const en: Copy = {
   gallery: {
     tag: 'KAZIMIERZ · THE PLACE AND THE PEOPLE',
     title: 'WHAT IT LOOKS LIKE HERE',
-    desc: 'The poster wall, the red chair, matcha whisked in front of the guests. Photos from the café and our shoots.',
+    desc: 'The red sign over the counter, brick walls, a window onto Kazimierz and matcha whisked in front of the guests. Photos from the café and our shoots.',
     items: GALLERY_EN,
   },
   reviews: {
