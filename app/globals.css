@@ -463,7 +463,7 @@ p {
   background-color: transparent;
   overflow: hidden;
   border-radius: 2px;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1; /* the illustration is square: keeps the "CAFÉ BELMONT" lettering at the top uncropped */
 }
 
 .art-img {

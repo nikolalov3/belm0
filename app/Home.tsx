@@ -230,7 +230,7 @@ export default function Home({ t }: { t: Copy }) {
                   alt={t.hero.artAlt}
                   className="art-img"
                   width="440"
-                  height="330"
+                  height="440"
                  
                   {...({ fetchPriority: 'high' } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
