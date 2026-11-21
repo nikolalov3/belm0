@@ -327,9 +327,9 @@ const pl: Copy = {
     items: GALLERY_PL,
   },
   reviews: {
-    tag: 'GOOGLE MAPS · 4.6 ★★★★★',
+    tag: 'GOOGLE MAPS · 4.7 ★★★★★',
     title: 'CO MÓWIĄ O NAS GOŚCIE',
-    desc: 'Ponad 430 zweryfikowanych opinii na krakowskim Kazimierzu.',
+    desc: 'Ponad 480 zweryfikowanych opinii na krakowskim Kazimierzu.',
     items: [
       { text: '„Najlepsza matcha na Kazimierzu, obsługa zawsze uśmiechnięta. Wracam za każdym razem, gdy jestem w Krakowie.”', author: 'Ola K. · Google Maps' },
       { text: '„Onigiri robione na miejscu i świetna kawa specialty — kombinacja, której nie znajdziesz nigdzie indziej w okolicy.”', author: 'Marcin W. · Google Maps' },
@@ -598,9 +598,9 @@ const en: Copy = {
     items: GALLERY_EN,
   },
   reviews: {
-    tag: 'GOOGLE MAPS · 4.6 ★★★★★',
+    tag: 'GOOGLE MAPS · 4.7 ★★★★★',
     title: 'WHAT GUESTS SAY',
-    desc: 'Over 430 verified reviews in Kazimierz, Kraków.',
+    desc: 'Over 480 verified reviews in Kazimierz, Kraków.',
     items: [
       { text: '“Best matcha in Kazimierz, always smiling staff. I come back every time I’m in Kraków.”', author: 'Ola K. · Google Maps' },
       { text: '“Onigiri made on-site and great specialty coffee — a combination you won’t find anywhere else nearby.”', author: 'Marcin W. · Google Maps' },

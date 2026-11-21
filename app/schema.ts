@@ -80,8 +80,8 @@ export function schemaFor(lang: Lang) {
     brand: { '@type': 'Brand', name: 'Yume Matcha', url: 'https://yumematcha.pl', sameAs: 'https://yumematcha.pl' },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.6',
-      reviewCount: '436',
+      ratingValue: '4.7',
+      reviewCount: '487',
       bestRating: '5',
       worstRating: '1',
     },
